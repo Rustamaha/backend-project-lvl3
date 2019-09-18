@@ -1,0 +1,59 @@
+{
+  "name": "backend-project-lvl3",
+  "version": "0.0.1",
+  "description": "",
+  "main": "dist/index.js",
+  "bin": {
+    "page-loader": "dist/bin/page-loader.js"
+  },
+  "engines": {
+    "node": ">=8"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "test": "jest",
+    "test-watch": "jest --watch",
+    "build": "cross-env NODE_ENV=production babel src --out-dir dist --source-maps inline",
+    "prepublishOnly": "npm run build",
+    "eslint": "eslint"
+  },
+  "jest": {
+    "testEnvironment": "node"
+  },
+  "dependencies": {
+    "axios": "*",
+    "commander": "^3.0.1",
+    "lodash": "^4.17.15",
+    "nock": "*"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.2.2",
+    "@babel/node": "^7.2.2",
+    "@babel/preset-env": "^7.3.1",
+    "@babel/preset-flow": "^7.0.0",
+    "babel-eslint": "^10.0.1",
+    "babel-jest": "^24.0.0",
+    "cross-env": "^5.2.1",
+    "eslint": "^5.12.1",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-babel": "^5.3.0",
+    "eslint-plugin-flowtype": "^3.2.1",
+    "eslint-plugin-import": "^2.15.0",
+    "eslint-plugin-jest": "^22.1.3",
+    "jest": "^24.0.0",
+    "jest-cli": "^24.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rustamaha/backend-project-lvl3.git"
+  },
+  "author": "Rustam Khudaibergenov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Rustamaha/backend-project-lvl3/issues"
+  },
+  "homepage": "https://github.com/Rustamaha/backend-project-lvl3#readme"
+}
