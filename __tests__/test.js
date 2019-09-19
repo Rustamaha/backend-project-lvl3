@@ -29,38 +29,38 @@ beforeAll(() => {
       pathDir = dir;
       filePath1 = path.join(dir, hexletFile);
       filePath2 = path.join(dir, yandexFile);
-      console.log(pathDir, filePath1, filePath2)
     });
 });
 
 test('a page from url1 is successfully downloaded and saved', async () => {
-  nock('https://hexlet.io')
+  await nock('https://hexlet.io')
     .get('/courses')
     .reply(200, () => fs.readFile(hexlet, 'utf8')
       .then((data) => {
         expected1 = data;
       }));
 
-  await pageLoader(url1, pathDir)
-    .then(() => fs.readFile(filePath1, 'utf8'))
-    .then((data) => {
-      expect(data).toMatch(expected1);
-    })
-    .catch(err => console.log(err));
+  await pageLoader(url1, pathDir);
+  setTimeout(() => {
+  	Promise.resolve(filePath1)
+  	  .then(path => fs.readFile(path, 'utf8'))
+      .then((data) => expect(data).toMatch(expected1));
+  }, 5000);
 });
 
 test('a page from url2 is successfully downloaded and saved', async () => {
-  nock('https://yandex.ru')
+  await nock('https://yandex.ru')
     .get('/pogoda/saint-petersburg?lat=59.957932&lon=30.298605')
     .reply(200, () => fs.readFile(yandexPogoda, 'utf8')
       .then((data) => {
         expected2 = data;
       }));
 
-  await pageLoader(url2, pathDir)
-    .then(() => fs.readFile(filePath2, 'utf8'))
-    .then((data) => {
-      expect(data).toMatch(expected2);
-    })
-    .catch(err => console.log(err));
+  await pageLoader(url2, pathDir);
+  setTimeout(() => {
+    return Promise.resolve(filePath2).then(path => fs.readFile(path, 'utf8'))
+      .then((data) => {
+        return expect(data).toMatch(expected2);
+      });
+  }, 5000);
 });
