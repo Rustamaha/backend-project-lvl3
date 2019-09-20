@@ -1,6 +1,5 @@
 import axios from 'axios';
 import httpAdapter from 'axios/lib/adapters/http';
-import os from 'os';
 import path from 'path';
 
 import { promises as fs } from 'fs';
@@ -14,7 +13,7 @@ export const makeFileName = (url, type) => {
   return `${fileName}${type}`;
 };
 
-export default (url, pathDir = '') => {
+export default (url, pathDir = '/') => {
   const fileName = makeFileName(url, '.html');
   let page;
   const request = axios.get(url)
@@ -22,14 +21,11 @@ export default (url, pathDir = '') => {
       page = data;
       return data;
     });
-  if (pathDir.length > 0) {
+  if (pathDir.length > 1) {
     request
       .then(() => fs.writeFile(path.resolve(pathDir, fileName), page));
-    return request;
+    return;
   }
-  const tempDir = fs.mkdtemp(path.join(os.tmpdir()));
   request
-    .then(() => tempDir)
-    .then(dir => fs.writeFile(path.resolve(dir, fileName), page));
-  return request;
+    .then(() => fs.writeFile(path.resolve(pathDir, fileName), page));
 };

@@ -41,10 +41,9 @@ test('a page from url1 is successfully downloaded and saved', async () => {
       }));
 
   await pageLoader(url1, pathDir);
-  setTimeout(() => {
-  	Promise.resolve(filePath1)
-  	  .then(path => fs.readFile(path, 'utf8'))
-      .then((data) => expect(data).toMatch(expected1));
+  setTimeout(async () => {
+    await fs.readFile(filePath1, 'utf8')
+      .then(data => expect(data).toMatch(expected1));
   }, 5000);
 });
 
@@ -57,10 +56,8 @@ test('a page from url2 is successfully downloaded and saved', async () => {
       }));
 
   await pageLoader(url2, pathDir);
-  setTimeout(() => {
-    return Promise.resolve(filePath2).then(path => fs.readFile(path, 'utf8'))
-      .then((data) => {
-        return expect(data).toMatch(expected2);
-      });
+  setTimeout(async () => {
+    await fs.readFile(filePath2, 'utf8')
+      .then(data => expect(data).toMatch(expected2));
   }, 5000);
 });
