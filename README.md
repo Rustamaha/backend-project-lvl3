@@ -8,6 +8,8 @@ make publish
 npm link
 ```   
 
+[![asciicast](https://asciinema.org/a/QODxFcMOGoJP8IN5tBejpDaAM.svg)](https://asciinema.org/a/QODxFcMOGoJP8IN5tBejpDaAM)
+
 Npm link will install package globally on your computer.
 If you want to download the page to a specific folder enter the path.
 
