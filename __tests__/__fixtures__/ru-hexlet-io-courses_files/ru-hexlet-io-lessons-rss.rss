@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Новые уроки на Хекслете</title>
+    <description>Практические уроки по программированию</description>
+    <link>https://ru.hexlet.io/</link>
+    <webMaster>info@hexlet.io</webMaster>
+    <item>
+      <title>Свойства Flex-элементов. Расположение / CSS: Flex</title>
+      <guid isPermaLink="false">1625</guid>
+      <link>https://ru.hexlet.io/courses/css-flex/lessons/items-position/theory_unit</link>
+      <description>Цель: Узнать о свойствах для работы с элементами внутри Flex-контейнеров. Изучить свойства order и align-self</description>
+      <pubDate>Wed, 23 Oct 2019 11:29:16 +0000</pubDate>
+    </item>
+    <item>
+      <title>Хеш-таблицы / JS: Объекты</title>
+      <guid isPermaLink="false">1620</guid>
+      <link>https://ru.hexlet.io/courses/js-objects/lessons/hash-table/theory_unit</link>
+      <description>Цель: Разобраться с реальным устройством объектов</description>
+      <pubDate>Tue, 22 Oct 2019 21:54:30 +0000</pubDate>
+    </item>
+    <item>
+      <title>Деструктуризация / JS: Объекты</title>
+      <guid isPermaLink="false">1618</guid>
+      <link>https://ru.hexlet.io/courses/js-objects/lessons/destructuring/theory_unit</link>
+      <description>Цель: Узнать способ писать более лаконичный код, используя деструктуризацию</description>
+      <pubDate>Tue, 22 Oct 2019 21:54:22 +0000</pubDate>
+    </item>
+    <item>
+      <title>Обход свойств объекта / JS: Объекты</title>
+      <guid isPermaLink="false">1617</guid>
+      <link>https://ru.hexlet.io/courses/js-objects/lessons/for-of/theory_unit</link>
+      <description>Цель: Научиться использовать цикл for...of для обхода объекта</description>
+      <pubDate>Tue, 22 Oct 2019 21:54:03 +0000</pubDate>
+    </item>
+    <item>
+      <title>Ассоциативный массив в действии / JS: Объекты</title>
+      <guid isPermaLink="false">1623</guid>
+      <link>https://ru.hexlet.io/courses/js-objects/lessons/using/theory_unit</link>
+      <description>Цель: Разобрать задачу, использующую ассоциативный массив</description>
+      <pubDate>Tue, 22 Oct 2019 21:53:52 +0000</pubDate>
+    </item>
+    <item>
+      <title>Синтаксис / JS: Объекты</title>
+      <guid isPermaLink="false">1619</guid>
+      <link>https://ru.hexlet.io/courses/js-objects/lessons/syntax/theory_unit</link>
+      <description>Цель: Изучить синтаксис для работы с объектами</description>
+      <pubDate>Tue, 22 Oct 2019 21:53:34 +0000</pubDate>
+    </item>
+    <item>
+      <title>О курсе / JS: Объекты</title>
+      <guid isPermaLink="false">1621</guid>
+      <link>https://ru.hexlet.io/courses/js-objects/lessons/about/theory_unit</link>
+      <description>Цель: Узнать о курсе, его структуре, задачах и целях.</description>
+      <pubDate>Tue, 22 Oct 2019 21:53:22 +0000</pubDate>
+    </item>
+    <item>
+      <title>Сложный роутинг и формирование URL / Микрофреймворк Flask</title>
+      <guid isPermaLink="false">1616</guid>
+      <link>https://ru.hexlet.io/courses/python-flask/lessons/advanced-routes-and-urls/theory_unit</link>
+      <description>Цель: Узнать про расширенные возможности системы маршрутизации и научиться получать URL для требуемых маршрутов.</description>
+      <pubDate>Mon, 21 Oct 2019 15:09:38 +0000</pubDate>
+    </item>
+    <item>
+      <title>Маршрутизация / Микрофреймворк Flask</title>
+      <guid isPermaLink="false">1615</guid>
+      <link>https://ru.hexlet.io/courses/python-flask/lessons/routing/theory_unit</link>
+      <description>Цель: Познакомиться с концепцией маршрутизации и узнать, как Flask подходит к обработке маршрутов.</description>
+      <pubDate>Mon, 21 Oct 2019 15:09:32 +0000</pubDate>
+    </item>
+    <item>
+      <title>Свойства Flex-элементов. Гибкость. Flex-grow / CSS: Flex</title>
+      <guid isPermaLink="false">1613</guid>
+      <link>https://ru.hexlet.io/courses/css-flex/lessons/flex-grow/theory_unit</link>
+      <description>Цель: Узнать о свойствах для работы с элементами внутри Flex-контейнеров. Изучить свойство Flex-grow</description>
+      <pubDate>Mon, 21 Oct 2019 14:24:42 +0000</pubDate>
+    </item>
+  </channel>
+</rss>
