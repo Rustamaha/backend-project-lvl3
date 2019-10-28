@@ -1,9 +1,8 @@
 import axios from 'axios';
+import cheerio from 'cheerio';
 import httpAdapter from 'axios/lib/adapters/http';
 import path from 'path';
-
 import { promises as fs } from 'fs';
-import cheerio from 'cheerio';
 import os from 'os';
 
 axios.defaults.adapter = httpAdapter;

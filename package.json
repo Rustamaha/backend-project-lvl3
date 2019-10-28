@@ -15,8 +15,8 @@
   "scripts": {
     "test": "jest",
     "test-watch": "jest --watch",
+    "babel-node": "babel-node",
     "build": "cross-env NODE_ENV=production babel src --out-dir dist --source-maps inline",
-    "prepublishOnly": "npm run build",
     "eslint": "eslint"
   },
   "jest": {
@@ -24,6 +24,7 @@
   },
   "dependencies": {
     "axios": "*",
+    "cheerio": "^1.0.0-rc.3",
     "commander": "^3.0.1",
     "lodash": "^4.17.15",
     "nock": "*"
