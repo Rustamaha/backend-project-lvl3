@@ -5,6 +5,10 @@ import path from 'path';
 import { promises as fs } from 'fs';
 import os from 'os';
 
+const debug = require('debug');
+
+const log = debug('page-loader:loader');
+
 axios.defaults.adapter = httpAdapter;
 
 export const makeName = (url, type) => {
@@ -14,9 +18,6 @@ export const makeName = (url, type) => {
   return type ? `${name}${type}` : `${name}`;
 };
 
-//  const url1 = 'https://ru.hexlet.io/courses';
-
-
 const pageLoader = (pageUrl, pathDir = '') => {
   const {
     hostname,
@@ -24,11 +25,9 @@ const pageLoader = (pageUrl, pathDir = '') => {
   } = new URL(pageUrl);
   const reSld = /(\.[^.]*)(\.*$)/;
   const secLvlDomain = hostname.replace(reSld, '').split('.').pop();
-  //  console.log(secLvlDomain);
   let page;
   const paths = {};
   const dirName = makeName(pageUrl, '_files');
-
   const request = axios.get(pageUrl)
     .then(({ data }) => {
       page = data;
@@ -46,14 +45,12 @@ const pageLoader = (pageUrl, pathDir = '') => {
       const matched = pathEl.match(re1);
       const hostName = matched[0].slice(2).split('.');
       const secLvlD = hostName[hostName.length - 2];
-      //  console.log('filter', pathEl, secLvlD, secLvlDomain);
       return secLvlD === secLvlDomain;
     }
     return pathEl && pathEl.match(re2);
   };
   const traverse = ($, attr) => (i, el) => {
     const pathEl = $(el).attr(attr);
-    //  console.log('path', pathEl, $.html(el));
     const reUrlWithHttps = /^https:\/\/[a-z.0-9-]{2,}\.[a-z]{2,}/;
     const reUrlWithoutHttps = /^\/\/[a-z.0-9-]{2,}\.[a-z]{2,}/;
     const reType = /\.[a-z]{2,}$|\.[a-z]{2,}\/[a-z0-9]{2,}$/g;
@@ -90,11 +87,10 @@ const pageLoader = (pageUrl, pathDir = '') => {
 
   let promises;
   const html = Promise.all([scripts, links, images])
-    //  .then(() => console.log(paths))
     .then(() => {
       const getData = Object.keys(paths).map((key) => {
         const { type } = paths[key];
-        if (type === '.png') {
+        if (type === '.png' || type === '.svg' || type === '.jpeg') {
           return axios.get(key, { responseType: 'arraybuffer' });
         }
         return axios.get(key);
@@ -124,10 +120,10 @@ const pageLoader = (pageUrl, pathDir = '') => {
     .then(axios.spread((...responses) => responses.forEach((response) => {
       const { data } = response;
       const { url } = response.config;
+      log('local file url %o', url);
       const { fileName } = paths[url];
       fs.writeFile(path.resolve(pathToFiles, fileName), data);
     })));
 };
 
-//  pageLoader(url1, 'C:\\');
 export default pageLoader;

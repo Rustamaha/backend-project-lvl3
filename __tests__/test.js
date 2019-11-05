@@ -7,6 +7,10 @@ import { promises as fs } from 'fs';
 import pageLoader from '../src';
 import { makeName } from '../src/loader';
 
+const debug = require('debug');
+
+const log = debug('page-loader:test');
+
 const url1 = 'https://ru.hexlet.io/courses';
 
 const buildPathForFixture = (format, fileName) => path.join('__tests__', '__fixtures__', `${fileName}${format}`);
@@ -43,6 +47,7 @@ beforeAll(() => {
 });
 
 test('a page from url1 is successfully converted and saved local files', async () => {
+  log('tests');
   await nock('https://ru.hexlet.io')
     .get('/courses')
     .reply(200, () => fs.readFile(originalHexletPage, 'utf8'));

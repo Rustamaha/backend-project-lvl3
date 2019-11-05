@@ -1,7 +1,7 @@
 install: install-deps
 
 run:
-	npx babel-node -- src/bin/page-loader.js
+	DEBUG=page-loader:* npx babel-node -- src/bin/page-loader.js
 
 install-deps:
 	npm install
@@ -11,10 +11,10 @@ build:
 	npm run build
 
 test:
-	npm test
+	DEBUG=page-loader:* npm test
 
 testWatch:
-	npm run test-watch
+	DEBUG=page-loader:* npm run test-watch
 
 lint:
 	npx eslint .

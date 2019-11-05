@@ -26,6 +26,7 @@
     "axios": "*",
     "cheerio": "^1.0.0-rc.3",
     "commander": "^3.0.1",
+    "debug": "^4.1.1",
     "lodash": "^4.17.15",
     "nock": "*"
   },
