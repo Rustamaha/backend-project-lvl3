@@ -1,20 +1,20 @@
 <!DOCTYPE html><html lang="ru" prefix="og: http://ogp.me/ns#"><head>
-<script type="text/javascript">var _rollbarConfig = {"accessToken":"fc27636027d0460bbc1578d97d0d27ad","captureUncaught":true,"captureUnhandledRejections":true,"hostWhiteList":["https://cdn2.hexlet.io"],"ignoredMessages":["Script error"],"payload":{"client":{"source_map_enabled":true,"code_version":"v3769","guess_uncaught_frames":true},"environment":"production","person":{"id":null,"username":null,"email":null}}};</script>
-<script type="text/javascript">!function(r){var e={};function o(n){if(e[n])return e[n].exports;var t=e[n]={i:n,l:!1,exports:{}};return r[n].call(t.exports,t,t.exports,o),t.l=!0,t.exports}o.m=r,o.c=e,o.d=function(r,e,n){o.o(r,e)||Object.defineProperty(r,e,{enumerable:!0,get:n})},o.r=function(r){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(r,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(r,"__esModule",{value:!0})},o.t=function(r,e){if(1&e&&(r=o(r)),8&e)return r;if(4&e&&"object"==typeof r&&r&&r.__esModule)return r;var n=Object.create(null);if(o.r(n),Object.defineProperty(n,"default",{enumerable:!0,value:r}),2&e&&"string"!=typeof r)for(var t in r)o.d(n,t,function(e){return r[e]}.bind(null,t));return n},o.n=function(r){var e=r&&r.__esModule?function(){return r.default}:function(){return r};return o.d(e,"a",e),e},o.o=function(r,e){return Object.prototype.hasOwnProperty.call(r,e)},o.p="",o(o.s=0)}([function(r,e,o){var n=o(1),t=o(4);_rollbarConfig=_rollbarConfig||{},_rollbarConfig.rollbarJsUrl=_rollbarConfig.rollbarJsUrl||"https://cdnjs.cloudflare.com/ajax/libs/rollbar.js/2.12.3/rollbar.min.js",_rollbarConfig.async=void 0===_rollbarConfig.async||_rollbarConfig.async;var a=n.setupShim(window,_rollbarConfig),l=t(_rollbarConfig);window.rollbar=n.Rollbar,a.loadFull(window,document,!_rollbarConfig.async,_rollbarConfig,l)},function(r,e,o){var n=o(2);function t(r){return function(){try{return r.apply(this,arguments)}catch(r){try{console.error("[Rollbar]: Internal error",r)}catch(r){}}}}var a=0;function l(r,e){this.options=r,this._rollbarOldOnError=null;var o=a++;this.shimId=function(){return o},"undefined"!=typeof window&&window._rollbarShims&&(window._rollbarShims[o]={handler:e,messages:[]})}var i=o(3),s=function(r,e){return new l(r,e)},d=function(r){return new i(s,r)};function c(r){return t(function(){var e=Array.prototype.slice.call(arguments,0),o={shim:this,method:r,args:e,ts:new Date};window._rollbarShims[this.shimId()].messages.push(o)})}l.prototype.loadFull=function(r,e,o,n,a){var l=!1,i=e.createElement("script"),s=e.getElementsByTagName("script")[0],d=s.parentNode;i.crossOrigin="",i.src=n.rollbarJsUrl,o||(i.async=!0),i.onload=i.onreadystatechange=t(function(){if(!(l||this.readyState&&"loaded"!==this.readyState&&"complete"!==this.readyState)){i.onload=i.onreadystatechange=null;try{d.removeChild(i)}catch(r){}l=!0,function(){var e;if(void 0===r._rollbarDidLoad){e=new Error("rollbar.js did not load");for(var o,n,t,l,i=0;o=r._rollbarShims[i++];)for(o=o.messages||[];n=o.shift();)for(t=n.args||[],i=0;i<t.length;++i)if("function"==typeof(l=t[i])){l(e);break}}"function"==typeof a&&a(e)}()}}),d.insertBefore(i,s)},l.prototype.wrap=function(r,e,o){try{var n;if(n="function"==typeof e?e:function(){return e||{}},"function"!=typeof r)return r;if(r._isWrap)return r;if(!r._rollbar_wrapped&&(r._rollbar_wrapped=function(){o&&"function"==typeof o&&o.apply(this,arguments);try{return r.apply(this,arguments)}catch(o){var e=o;throw e&&("string"==typeof e&&(e=new String(e)),e._rollbarContext=n()||{},e._rollbarContext._wrappedSource=r.toString(),window._rollbarWrappedError=e),e}},r._rollbar_wrapped._isWrap=!0,r.hasOwnProperty))for(var t in r)r.hasOwnProperty(t)&&(r._rollbar_wrapped[t]=r[t]);return r._rollbar_wrapped}catch(e){return r}};for(var p="log,debug,info,warn,warning,error,critical,global,configure,handleUncaughtException,handleAnonymousErrors,handleUnhandledRejection,captureEvent,captureDomContentLoaded,captureLoad".split(","),u=0;u<p.length;++u)l.prototype[p[u]]=c(p[u]);r.exports={setupShim:function(r,e){if(r){var o=e.globalAlias||"Rollbar";if("object"==typeof r[o])return r[o];r._rollbarShims={},r._rollbarWrappedError=null;var a=new d(e);return t(function(){e.captureUncaught&&(a._rollbarOldOnError=r.onerror,n.captureUncaughtExceptions(r,a,!0),e.wrapGlobalEventHandlers&&n.wrapGlobals(r,a,!0)),e.captureUnhandledRejections&&n.captureUnhandledRejections(r,a,!0);var t=e.autoInstrument;return!1!==e.enabled&&(void 0===t||!0===t||"object"==typeof t&&t.network)&&r.addEventListener&&(r.addEventListener("load",a.captureLoad.bind(a)),r.addEventListener("DOMContentLoaded",a.captureDomContentLoaded.bind(a))),r[o]=a,a})()}},Rollbar:d}},function(r,e){function o(r,e,o){if(e.hasOwnProperty&&e.hasOwnProperty("addEventListener")){for(var n=e.addEventListener;n._rollbarOldAdd&&n.belongsToShim;)n=n._rollbarOldAdd;var t=function(e,o,t){n.call(this,e,r.wrap(o),t)};t._rollbarOldAdd=n,t.belongsToShim=o,e.addEventListener=t;for(var a=e.removeEventListener;a._rollbarOldRemove&&a.belongsToShim;)a=a._rollbarOldRemove;var l=function(r,e,o){a.call(this,r,e&&e._rollbar_wrapped||e,o)};l._rollbarOldRemove=a,l.belongsToShim=o,e.removeEventListener=l}}r.exports={captureUncaughtExceptions:function(r,e,o){if(r){var n;if("function"==typeof e._rollbarOldOnError)n=e._rollbarOldOnError;else if(r.onerror){for(n=r.onerror;n._rollbarOldOnError;)n=n._rollbarOldOnError;e._rollbarOldOnError=n}e.handleAnonymousErrors();var t=function(){var o=Array.prototype.slice.call(arguments,0);!function(r,e,o,n){r._rollbarWrappedError&&(n[4]||(n[4]=r._rollbarWrappedError),n[5]||(n[5]=r._rollbarWrappedError._rollbarContext),r._rollbarWrappedError=null);var t=e.handleUncaughtException.apply(e,n);o&&o.apply(r,n),"anonymous"===t&&(e.anonymousErrorsPending+=1)}(r,e,n,o)};o&&(t._rollbarOldOnError=n),r.onerror=t}},captureUnhandledRejections:function(r,e,o){if(r){"function"==typeof r._rollbarURH&&r._rollbarURH.belongsToShim&&r.removeEventListener("unhandledrejection",r._rollbarURH);var n=function(r){var o,n,t;try{o=r.reason}catch(r){o=void 0}try{n=r.promise}catch(r){n="[unhandledrejection] error getting `promise` from event"}try{t=r.detail,!o&&t&&(o=t.reason,n=t.promise)}catch(r){}o||(o="[unhandledrejection] error getting `reason` from event"),e&&e.handleUnhandledRejection&&e.handleUnhandledRejection(o,n)};n.belongsToShim=o,r._rollbarURH=n,r.addEventListener("unhandledrejection",n)}},wrapGlobals:function(r,e,n){if(r){var t,a,l="EventTarget,Window,Node,ApplicationCache,AudioTrackList,ChannelMergerNode,CryptoOperation,EventSource,FileReader,HTMLUnknownElement,IDBDatabase,IDBRequest,IDBTransaction,KeyOperation,MediaController,MessagePort,ModalWindow,Notification,SVGElementInstance,Screen,TextTrack,TextTrackCue,TextTrackList,WebSocket,WebSocketWorker,Worker,XMLHttpRequest,XMLHttpRequestEventTarget,XMLHttpRequestUpload".split(",");for(t=0;t<l.length;++t)r[a=l[t]]&&r[a].prototype&&o(e,r[a].prototype,n)}}}},function(r,e){function o(r,e){this.impl=r(e,this),this.options=e,function(r){for(var e=function(r){return function(){var e=Array.prototype.slice.call(arguments,0);if(this.impl[r])return this.impl[r].apply(this.impl,e)}},o="log,debug,info,warn,warning,error,critical,global,configure,handleUncaughtException,handleAnonymousErrors,handleUnhandledRejection,_createItem,wrap,loadFull,shimId,captureEvent,captureDomContentLoaded,captureLoad".split(","),n=0;n<o.length;n++)r[o[n]]=e(o[n])}(o.prototype)}o.prototype._swapAndProcessMessages=function(r,e){var o,n,t;for(this.impl=r(this.options);o=e.shift();)n=o.method,t=o.args,this[n]&&"function"==typeof this[n]&&("captureDomContentLoaded"===n||"captureLoad"===n?this[n].apply(this,[t[0],o.ts]):this[n].apply(this,t));return this},r.exports=o},function(r,e){r.exports=function(r){return function(e){if(!e&&!window._rollbarInitialized){for(var o,n,t=(r=r||{}).globalAlias||"Rollbar",a=window.rollbar,l=function(r){return new a(r)},i=0;o=window._rollbarShims[i++];)n||(n=o.handler),o.handler._swapAndProcessMessages(l,o.messages);window[t]=n,window._rollbarInitialized=!0}}}}]);</script>
+<script type="057ca0e162de86d3fa56205c-text/javascript">var _rollbarConfig = {"accessToken":"fc27636027d0460bbc1578d97d0d27ad","captureUncaught":true,"captureUnhandledRejections":true,"hostWhiteList":["https://cdn2.hexlet.io"],"ignoredMessages":["Script error"],"payload":{"client":{"source_map_enabled":true,"code_version":"v3814","guess_uncaught_frames":true},"environment":"production","person":{"id":null,"username":null,"email":null}}};</script>
+<script type="057ca0e162de86d3fa56205c-text/javascript">!function(r){var e={};function o(n){if(e[n])return e[n].exports;var t=e[n]={i:n,l:!1,exports:{}};return r[n].call(t.exports,t,t.exports,o),t.l=!0,t.exports}o.m=r,o.c=e,o.d=function(r,e,n){o.o(r,e)||Object.defineProperty(r,e,{enumerable:!0,get:n})},o.r=function(r){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(r,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(r,"__esModule",{value:!0})},o.t=function(r,e){if(1&e&&(r=o(r)),8&e)return r;if(4&e&&"object"==typeof r&&r&&r.__esModule)return r;var n=Object.create(null);if(o.r(n),Object.defineProperty(n,"default",{enumerable:!0,value:r}),2&e&&"string"!=typeof r)for(var t in r)o.d(n,t,function(e){return r[e]}.bind(null,t));return n},o.n=function(r){var e=r&&r.__esModule?function(){return r.default}:function(){return r};return o.d(e,"a",e),e},o.o=function(r,e){return Object.prototype.hasOwnProperty.call(r,e)},o.p="",o(o.s=0)}([function(r,e,o){var n=o(1),t=o(4);_rollbarConfig=_rollbarConfig||{},_rollbarConfig.rollbarJsUrl=_rollbarConfig.rollbarJsUrl||"https://cdnjs.cloudflare.com/ajax/libs/rollbar.js/2.12.3/rollbar.min.js",_rollbarConfig.async=void 0===_rollbarConfig.async||_rollbarConfig.async;var a=n.setupShim(window,_rollbarConfig),l=t(_rollbarConfig);window.rollbar=n.Rollbar,a.loadFull(window,document,!_rollbarConfig.async,_rollbarConfig,l)},function(r,e,o){var n=o(2);function t(r){return function(){try{return r.apply(this,arguments)}catch(r){try{console.error("[Rollbar]: Internal error",r)}catch(r){}}}}var a=0;function l(r,e){this.options=r,this._rollbarOldOnError=null;var o=a++;this.shimId=function(){return o},"undefined"!=typeof window&&window._rollbarShims&&(window._rollbarShims[o]={handler:e,messages:[]})}var i=o(3),s=function(r,e){return new l(r,e)},d=function(r){return new i(s,r)};function c(r){return t(function(){var e=Array.prototype.slice.call(arguments,0),o={shim:this,method:r,args:e,ts:new Date};window._rollbarShims[this.shimId()].messages.push(o)})}l.prototype.loadFull=function(r,e,o,n,a){var l=!1,i=e.createElement("script"),s=e.getElementsByTagName("script")[0],d=s.parentNode;i.crossOrigin="",i.src=n.rollbarJsUrl,o||(i.async=!0),i.onload=i.onreadystatechange=t(function(){if(!(l||this.readyState&&"loaded"!==this.readyState&&"complete"!==this.readyState)){i.onload=i.onreadystatechange=null;try{d.removeChild(i)}catch(r){}l=!0,function(){var e;if(void 0===r._rollbarDidLoad){e=new Error("rollbar.js did not load");for(var o,n,t,l,i=0;o=r._rollbarShims[i++];)for(o=o.messages||[];n=o.shift();)for(t=n.args||[],i=0;i<t.length;++i)if("function"==typeof(l=t[i])){l(e);break}}"function"==typeof a&&a(e)}()}}),d.insertBefore(i,s)},l.prototype.wrap=function(r,e,o){try{var n;if(n="function"==typeof e?e:function(){return e||{}},"function"!=typeof r)return r;if(r._isWrap)return r;if(!r._rollbar_wrapped&&(r._rollbar_wrapped=function(){o&&"function"==typeof o&&o.apply(this,arguments);try{return r.apply(this,arguments)}catch(o){var e=o;throw e&&("string"==typeof e&&(e=new String(e)),e._rollbarContext=n()||{},e._rollbarContext._wrappedSource=r.toString(),window._rollbarWrappedError=e),e}},r._rollbar_wrapped._isWrap=!0,r.hasOwnProperty))for(var t in r)r.hasOwnProperty(t)&&(r._rollbar_wrapped[t]=r[t]);return r._rollbar_wrapped}catch(e){return r}};for(var p="log,debug,info,warn,warning,error,critical,global,configure,handleUncaughtException,handleAnonymousErrors,handleUnhandledRejection,captureEvent,captureDomContentLoaded,captureLoad".split(","),u=0;u<p.length;++u)l.prototype[p[u]]=c(p[u]);r.exports={setupShim:function(r,e){if(r){var o=e.globalAlias||"Rollbar";if("object"==typeof r[o])return r[o];r._rollbarShims={},r._rollbarWrappedError=null;var a=new d(e);return t(function(){e.captureUncaught&&(a._rollbarOldOnError=r.onerror,n.captureUncaughtExceptions(r,a,!0),e.wrapGlobalEventHandlers&&n.wrapGlobals(r,a,!0)),e.captureUnhandledRejections&&n.captureUnhandledRejections(r,a,!0);var t=e.autoInstrument;return!1!==e.enabled&&(void 0===t||!0===t||"object"==typeof t&&t.network)&&r.addEventListener&&(r.addEventListener("load",a.captureLoad.bind(a)),r.addEventListener("DOMContentLoaded",a.captureDomContentLoaded.bind(a))),r[o]=a,a})()}},Rollbar:d}},function(r,e){function o(r,e,o){if(e.hasOwnProperty&&e.hasOwnProperty("addEventListener")){for(var n=e.addEventListener;n._rollbarOldAdd&&n.belongsToShim;)n=n._rollbarOldAdd;var t=function(e,o,t){n.call(this,e,r.wrap(o),t)};t._rollbarOldAdd=n,t.belongsToShim=o,e.addEventListener=t;for(var a=e.removeEventListener;a._rollbarOldRemove&&a.belongsToShim;)a=a._rollbarOldRemove;var l=function(r,e,o){a.call(this,r,e&&e._rollbar_wrapped||e,o)};l._rollbarOldRemove=a,l.belongsToShim=o,e.removeEventListener=l}}r.exports={captureUncaughtExceptions:function(r,e,o){if(r){var n;if("function"==typeof e._rollbarOldOnError)n=e._rollbarOldOnError;else if(r.onerror){for(n=r.onerror;n._rollbarOldOnError;)n=n._rollbarOldOnError;e._rollbarOldOnError=n}e.handleAnonymousErrors();var t=function(){var o=Array.prototype.slice.call(arguments,0);!function(r,e,o,n){r._rollbarWrappedError&&(n[4]||(n[4]=r._rollbarWrappedError),n[5]||(n[5]=r._rollbarWrappedError._rollbarContext),r._rollbarWrappedError=null);var t=e.handleUncaughtException.apply(e,n);o&&o.apply(r,n),"anonymous"===t&&(e.anonymousErrorsPending+=1)}(r,e,n,o)};o&&(t._rollbarOldOnError=n),r.onerror=t}},captureUnhandledRejections:function(r,e,o){if(r){"function"==typeof r._rollbarURH&&r._rollbarURH.belongsToShim&&r.removeEventListener("unhandledrejection",r._rollbarURH);var n=function(r){var o,n,t;try{o=r.reason}catch(r){o=void 0}try{n=r.promise}catch(r){n="[unhandledrejection] error getting `promise` from event"}try{t=r.detail,!o&&t&&(o=t.reason,n=t.promise)}catch(r){}o||(o="[unhandledrejection] error getting `reason` from event"),e&&e.handleUnhandledRejection&&e.handleUnhandledRejection(o,n)};n.belongsToShim=o,r._rollbarURH=n,r.addEventListener("unhandledrejection",n)}},wrapGlobals:function(r,e,n){if(r){var t,a,l="EventTarget,Window,Node,ApplicationCache,AudioTrackList,ChannelMergerNode,CryptoOperation,EventSource,FileReader,HTMLUnknownElement,IDBDatabase,IDBRequest,IDBTransaction,KeyOperation,MediaController,MessagePort,ModalWindow,Notification,SVGElementInstance,Screen,TextTrack,TextTrackCue,TextTrackList,WebSocket,WebSocketWorker,Worker,XMLHttpRequest,XMLHttpRequestEventTarget,XMLHttpRequestUpload".split(",");for(t=0;t<l.length;++t)r[a=l[t]]&&r[a].prototype&&o(e,r[a].prototype,n)}}}},function(r,e){function o(r,e){this.impl=r(e,this),this.options=e,function(r){for(var e=function(r){return function(){var e=Array.prototype.slice.call(arguments,0);if(this.impl[r])return this.impl[r].apply(this.impl,e)}},o="log,debug,info,warn,warning,error,critical,global,configure,handleUncaughtException,handleAnonymousErrors,handleUnhandledRejection,_createItem,wrap,loadFull,shimId,captureEvent,captureDomContentLoaded,captureLoad".split(","),n=0;n<o.length;n++)r[o[n]]=e(o[n])}(o.prototype)}o.prototype._swapAndProcessMessages=function(r,e){var o,n,t;for(this.impl=r(this.options);o=e.shift();)n=o.method,t=o.args,this[n]&&"function"==typeof this[n]&&("captureDomContentLoaded"===n||"captureLoad"===n?this[n].apply(this,[t[0],o.ts]):this[n].apply(this,t));return this},r.exports=o},function(r,e){r.exports=function(r){return function(e){if(!e&&!window._rollbarInitialized){for(var o,n,t=(r=r||{}).globalAlias||"Rollbar",a=window.rollbar,l=function(r){return new a(r)},i=0;o=window._rollbarShims[i++];)n||(n=o.handler),o.handler._swapAndProcessMessages(l,o.messages);window[t]=n,window._rollbarInitialized=!0}}}}]);</script>
 <link rel="stylesheet" media="all" href="https://cdn2.hexlet.io/assets/application-58b8be69d43878d8ffa548a26a341422323098508999ea2cd5f001896ad189dc.css" defer="defer" src="./ru-hexlet-io-courses_files/cdn2-hexlet-io-assets-application-58b8be69d43878d8ffa548a26a341422323098508999ea2cd5f001896ad189dc-css.css">
 <title>&#x41E;&#x43D;&#x43B;&#x430;&#x439;&#x43D;-&#x43A;&#x443;&#x440;&#x441;&#x44B; &#x43F;&#x43E; &#x43F;&#x440;&#x43E;&#x433;&#x440;&#x430;&#x43C;&#x43C;&#x438;&#x440;&#x43E;&#x432;&#x430;&#x43D;&#x438;&#x44E; - Hexlet</title>
 <meta name="csrf-param" content="authenticity_token">
-<meta name="csrf-token" content="eweGYlwE5t+aCp6vEzL/6rHJyhQJoL4Dy+uNtgZKHhHOEGIcOWDpSPgjG7sV9Kkr7IbQiW6UPat9ZwOmFozNew==">
+<meta name="csrf-token" content="wN+HwVbY8RkqgtVlewmKM5RBr42YggGEzuXr7tqQEpycsqQA2fJ05IGvT20cs78DZM1OOLQ1CD7Lx6UXcxHpqA==">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <link href="https://stats.g.doubleclick.net" rel="preconnect">
 <link href="https://fonts.googleapis.com" rel="preconnect">
 <link href="https://www.google.com" rel="preconnect">
 <link href="https://d3hb14vkzrxvla.cloudfront.net" rel="preconnect">
 <link href="https://mc.yandex.ru" rel="preconnect">
-<link rel="stylesheet" media="screen" href="https://cdn2.hexlet.io/packs/css/34-e1004b13.chunk.css" defer="defer" src="./ru-hexlet-io-courses_files/cdn2-hexlet-io-packs-css-34-e1004b13-chunk-css.css">
-<script>
+<link rel="stylesheet" media="screen" href="https://cdn2.hexlet.io/packs/css/36-e1004b13.chunk.css" defer="defer" src="./ru-hexlet-io-courses_files/cdn2-hexlet-io-packs-css-36-e1004b13-chunk-css.css">
+<script type="057ca0e162de86d3fa56205c-text/javascript">
 //<![CDATA[
-window.gon={};gon.hs={"autoloadBeacon":true};gon.applications={};gon.current_user={"id":null,"guest":true,"isGuest":true,"admin":false};gon.token="4onwN89LKWrvGyBuUzgrpe8OL\/kObAc6ohZ+qSKYViFXnhRJqi8m\/Y0ypXpV\/n1kskE1ZGlYhJIUmvC5Ml6FSw==";gon.disqus_name="hexletio";gon.locale="ru";gon.rails_env="production";gon.analytics_events="AnalyticsEvents";gon.google_analytics_key="UA-1360700-51";gon.social_signin=null;gon.subdomains=["en.hexlet.io","ru.hexlet.io"];gon.images={"accepted_cards":"https:\/\/cdn2.hexlet.io\/assets\/accepted_cards-66bb4df39a3479040281f3f3705f9d87d4fe6d0af3b55442f938011bf790e0f1.png","cards_cvc_cvv":"https:\/\/cdn2.hexlet.io\/assets\/cards_cvc_cvv-c7cf65a352482099792fbb728d90616906c982218ce1c0ffde7fc43a51276b8a.png"};
+window.gon={};gon.hs={"autoloadBeacon":true};gon.applications={};gon.current_user={"id":null,"guest":true,"isGuest":true,"admin":false};gon.token="oNoEdHRLa4yQmxrPb7F5VxA5L8lfsy7UEcmYclN23cn8tye1+2HucTu2gMcIC0xn4LXOfHMEJ24U69aL+vcm\/Q==";gon.disqus_name="hexletio";gon.locale="ru";gon.rails_env="production";gon.analytics_events="AnalyticsEvents";gon.google_analytics_key="UA-1360700-51";gon.social_signin=null;gon.subdomains=["en.hexlet.io","ru.hexlet.io"];gon.images={"accepted_cards":"https:\/\/cdn2.hexlet.io\/assets\/accepted_cards-66bb4df39a3479040281f3f3705f9d87d4fe6d0af3b55442f938011bf790e0f1.png","cards_cvc_cvv":"https:\/\/cdn2.hexlet.io\/assets\/cards_cvc_cvv-c7cf65a352482099792fbb728d90616906c982218ce1c0ffde7fc43a51276b8a.png"};
 //]]>
 </script>
 <script type="application/ld+json">
@@ -37,7 +37,7 @@ window.gon={};gon.hs={"autoloadBeacon":true};gon.applications={};gon.current_use
 
 </script>
 
-<script>
+<script type="057ca0e162de86d3fa56205c-text/javascript">
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments)};
   gtag('js', new Date());
@@ -54,9 +54,9 @@ window.gon={};gon.hs={"autoloadBeacon":true};gon.applications={};gon.current_use
   
   gtag('config', gon.google_analytics_key, config);
 </script>
-<script src="https://www.googletagmanager.com/gtag/js?id=UA-1360700-51" async="async"></script>
+<script src="https://www.googletagmanager.com/gtag/js?id=UA-1360700-51" async="async" type="057ca0e162de86d3fa56205c-text/javascript"></script>
 
-<script>
+<script type="057ca0e162de86d3fa56205c-text/javascript">
   (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
   new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
   j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
@@ -64,7 +64,7 @@ window.gon={};gon.hs={"autoloadBeacon":true};gon.applications={};gon.current_use
   })(window,document,'script','dataLayer','GTM-WK88TH');
 </script>
 
-<script>
+<script type="057ca0e162de86d3fa56205c-text/javascript">
   // in development mode
   if (!window.Rollbar) {
     Rollbar = {
@@ -220,20 +220,23 @@ Hexlet
 <div class="card x-shadow-fade-in-lg h-100">
 <div class="bg-success card-header d-flex flex-column py-1 text-white">
 <div class="d-flex">
-<i class="fa-2x fa-php fab"></i>
+<i class="fa-2x fa-python fab"></i>
 <div class="ml-auto my-auto">
-7 &#x447;&#x430;&#x441;&#x43E;&#x432;
+17 &#x447;&#x430;&#x441;&#x43E;&#x432;
 </div>
 </div>
 </div>
 <div class="card-body d-flex flex-column">
 <div class="d-flex">
-<h5 class="mr-1">&#x41A;&#x43B;&#x44E;&#x447;&#x435;&#x432;&#x44B;&#x435; &#x430;&#x441;&#x43F;&#x435;&#x43A;&#x442;&#x44B; &#x432;&#x435;&#x431;-&#x440;&#x430;&#x437;&#x440;&#x430;&#x431;&#x43E;&#x442;&#x43A;&#x438; &#x43D;&#x430; PHP</h5>
+<h5 class="mr-1">Python: &#x421;&#x43E;&#x441;&#x442;&#x430;&#x432;&#x43D;&#x44B;&#x435; &#x434;&#x430;&#x43D;&#x43D;&#x44B;&#x435;</h5>
+<div class="ml-auto">
+<span class="badge badge-light">PRO</span>
 </div>
-<div class="text-muted mb-2">&#x42D;&#x442;&#x43E;&#x442; &#x43E;&#x431;&#x437;&#x43E;&#x440;&#x43D;&#x44B;&#x439; &#x43A;&#x443;&#x440;&#x441; &#x437;&#x430;&#x442;&#x440;&#x430;&#x433;&#x438;&#x432;&#x430;&#x435;&#x442; &#x43E;&#x441;&#x43D;&#x43E;&#x432;&#x43D;&#x44B;&#x435; &#x430;&#x441;&#x43F;&#x435;&#x43A;&#x442;&#x44B; &#x441;&#x43E;&#x432;&#x440;&#x435;&#x43C;&#x435;&#x43D;&#x43D;&#x43E;&#x439; &#x432;&#x435;...</div>
+</div>
+<div class="text-muted mb-2">&#x421;&#x43B;&#x435;&#x434;&#x443;&#x44E;&#x449;&#x438;&#x439; &#x448;&#x430;&#x433; &#x43F;&#x43E;&#x441;&#x43B;&#x435; &#x43E;&#x441;&#x432;&#x43E;&#x435;&#x43D;&#x438;&#x44F; &#x43E;&#x441;&#x43D;&#x43E;&#x432; &#x43F;&#x440;&#x43E;&#x433;&#x440;&#x430;&#x43C;&#x43C;&#x438;&#x440;&#x43E;&#x432;&#x430;&#x43D;&#x438;&#x44F; &#x44D;&#x442;&#x43E; &#x438;&#x437;&#x443;&#x447;&#x435;&#x43D;...</div>
 <div class="mt-auto d-flex">
 <div class="ml-auto">
-<a class="x-link-without-decoration stretched-link" href="/courses/php-overview-of-web-development">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
+<a class="x-link-without-decoration stretched-link" href="/courses/python-compound-data">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
 </a></div>
 </div>
 </div>
@@ -244,23 +247,23 @@ Hexlet
 <div class="card x-shadow-fade-in-lg h-100">
 <div class="bg-success card-header d-flex flex-column py-1 text-white">
 <div class="d-flex">
-<i class="fa-2x fa-code fal"></i>
+<i class="fa-2x fa-python fab"></i>
 <div class="ml-auto my-auto">
-20 &#x447;&#x430;&#x441;&#x43E;&#x432;
+1 &#x447;&#x430;&#x441;
 </div>
 </div>
 </div>
 <div class="card-body d-flex flex-column">
 <div class="d-flex">
-<h5 class="mr-1">Java: &#x41C;&#x43D;&#x43E;&#x433;&#x43E;&#x43F;&#x43E;&#x442;&#x43E;&#x447;&#x43D;&#x43E;&#x441;&#x442;&#x44C;</h5>
+<h5 class="mr-1">&#x412;&#x432;&#x435;&#x434;&#x435;&#x43D;&#x438;&#x435; &#x432; &#x41E;&#x41E;&#x41F;</h5>
 <div class="ml-auto">
 <span class="badge badge-light">PRO</span>
 </div>
 </div>
-<div class="text-muted mb-2">&#x414;&#x430;&#x43D;&#x43D;&#x44B;&#x439; &#x43A;&#x443;&#x440;&#x441; &#x43F;&#x43E;&#x441;&#x432;&#x44F;&#x449;&#x451;&#x43D; &#x438;&#x437;&#x443;&#x447;&#x435;&#x43D;&#x438;&#x44E; &#x43C;&#x43D;&#x43E;&#x433;&#x43E;&#x43F;&#x43E;&#x442;&#x43E;&#x447;&#x43D;&#x43E;&#x441;&#x442;&#x438; &#x432; Java. &#x41C;&#x43D;&#x43E;&#x433;&#x43E;&#x43F;&#x43E;&#x442;...</div>
+<div class="text-muted mb-2">&#x41A;&#x443;&#x440;&#x441; &#x437;&#x43D;&#x430;&#x43A;&#x43E;&#x43C;&#x438;&#x442; &#x441; &#x43C;&#x43E;&#x449;&#x43D;&#x44B;&#x43C; &#x441;&#x440;&#x435;&#x434;&#x441;&#x442;&#x432;&#x43E;&#x43C; &#x443;&#x43F;&#x440;&#x430;&#x432;&#x43B;&#x435;&#x43D;&#x438;&#x44F; &#x441;&#x43B;&#x43E;&#x436;&#x43D;&#x43E;&#x441;&#x442;&#x44C;&#x44E; &#x43F;&#x440;&#x43E;&#x433;&#x440;&#x430;&#x43C;...</div>
 <div class="mt-auto d-flex">
 <div class="ml-auto">
-<a class="x-link-without-decoration stretched-link" href="/courses/concurrency">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
+<a class="x-link-without-decoration stretched-link" href="/courses/python-oop-basics">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
 </a></div>
 </div>
 </div>
@@ -288,87 +291,6 @@ Hexlet
 <div class="mt-auto d-flex">
 <div class="ml-auto">
 <a class="x-link-without-decoration stretched-link" href="/courses/css-flex">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
-</a></div>
-</div>
-</div>
-</div>
-
-</div>
-<div class="mb-5 col-lg-4 col-sm-6 col-12">
-<div class="card x-shadow-fade-in-lg h-100">
-<div class="bg-success card-header d-flex flex-column py-1 text-white">
-<div class="d-flex">
-<i class="fa-2x fa-php fab"></i>
-<div class="ml-auto my-auto">
-15 &#x447;&#x430;&#x441;&#x43E;&#x432;
-</div>
-</div>
-</div>
-<div class="card-body d-flex flex-column">
-<div class="d-flex">
-<h5 class="mr-1">PHP: &#x410;&#x431;&#x441;&#x442;&#x440;&#x430;&#x43A;&#x446;&#x438;&#x44F; &#x441; &#x43F;&#x43E;&#x43C;&#x43E;&#x449;&#x44C;&#x44E; &#x434;&#x430;&#x43D;&#x43D;&#x44B;&#x445;</h5>
-<div class="ml-auto">
-<span class="badge badge-light">PRO</span>
-</div>
-</div>
-<div class="text-muted mb-2">&#x41F;&#x440;&#x43E;&#x433;&#x440;&#x430;&#x43C;&#x43C;&#x438;&#x440;&#x43E;&#x432;&#x430;&#x43D;&#x438;&#x435; &#x43D;&#x435; &#x43E;&#x433;&#x440;&#x430;&#x43D;&#x438;&#x447;&#x438;&#x432;&#x430;&#x435;&#x442;&#x441;&#x44F; &#x43E;&#x434;&#x43D;&#x438;&#x43C;&#x438; &#x43B;&#x438;&#x448;&#x44C; &#x432;&#x44B;&#x447;&#x438;&#x441;&#x43B;&#x435;&#x43D;&#x438;&#x44F;&#x43C;&#x438;. &#x41B;...</div>
-<div class="mt-auto d-flex">
-<div class="ml-auto">
-<a class="x-link-without-decoration stretched-link" href="/courses/php-data-abstraction">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
-</a></div>
-</div>
-</div>
-</div>
-
-</div>
-<div class="mb-5 col-lg-4 col-sm-6 col-12">
-<div class="card x-shadow-fade-in-lg h-100">
-<div class="bg-success card-header d-flex flex-column py-1 text-white">
-<div class="d-flex">
-<i class="fa-2x fa-php fab"></i>
-<div class="ml-auto my-auto">
-31 &#x447;&#x430;&#x441;
-</div>
-</div>
-</div>
-<div class="card-body d-flex flex-column">
-<div class="d-flex">
-<h5 class="mr-1">PHP: &#x41F;&#x43E;&#x433;&#x440;&#x443;&#x436;&#x430;&#x44F;&#x441;&#x44C; &#x432; &#x43A;&#x43B;&#x430;&#x441;&#x441;&#x44B;</h5>
-<div class="ml-auto">
-<span class="badge badge-light">PRO</span>
-</div>
-</div>
-<div class="text-muted mb-2">&#x41D;&#x430;&#x441;&#x43B;&#x435;&#x434;&#x43E;&#x432;&#x430;&#x43D;&#x438;&#x435; &#x2013; &#x43E;&#x434;&#x43D;&#x430; &#x438;&#x437; &#x441;&#x430;&#x43C;&#x44B;&#x445; &#x441;&#x43B;&#x43E;&#x436;&#x43D;&#x44B;&#x445; &#x43A;&#x43E;&#x43D;&#x446;&#x435;&#x43F;&#x446;&#x438;&#x439; &#x432; &#x43E;&#x431;&#x44A;&#x435;&#x43A;&#x442;&#x43D;&#x43E;-&#x43E;&#x440;&#x438;&#x435;...</div>
-<div class="mt-auto d-flex">
-<div class="ml-auto">
-<a class="x-link-without-decoration stretched-link" href="/courses/php-classes">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
-</a></div>
-</div>
-</div>
-</div>
-
-</div>
-<div class="mb-5 col-lg-4 col-sm-6 col-12">
-<div class="card x-shadow-fade-in-lg h-100">
-<div class="bg-success card-header d-flex flex-column py-1 text-white">
-<div class="d-flex">
-<i class="fa-2x fa-terminal fal"></i>
-<div class="ml-auto my-auto">
-7 &#x447;&#x430;&#x441;&#x43E;&#x432;
-</div>
-</div>
-</div>
-<div class="card-body d-flex flex-column">
-<div class="d-flex">
-<h5 class="mr-1">Linux: &#x41F;&#x43E;&#x43B;&#x44C;&#x437;&#x43E;&#x432;&#x430;&#x442;&#x435;&#x43B;&#x438;</h5>
-<div class="ml-auto">
-<span class="badge badge-light">PRO</span>
-</div>
-</div>
-<div class="text-muted mb-2">&#x423;&#x43C;&#x435;&#x43D;&#x438;&#x435; &#x440;&#x430;&#x431;&#x43E;&#x442;&#x430;&#x442;&#x44C; &#x441; &#x43E;&#x43F;&#x435;&#x440;&#x430;&#x446;&#x438;&#x43E;&#x43D;&#x43D;&#x43E;&#x439; &#x441;&#x438;&#x441;&#x442;&#x435;&#x43C;&#x43E;&#x439; Linux &#x2013; &#x43E;&#x434;&#x438;&#x43D; &#x438;&#x437; &#x432;&#x430;&#x436;&#x43D;&#x435;&#x439;...</div>
-<div class="mt-auto d-flex">
-<div class="ml-auto">
-<a class="x-link-without-decoration stretched-link" href="/courses/linux-users">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
 </a></div>
 </div>
 </div>
@@ -409,21 +331,21 @@ Hexlet
 <div class="d-flex">
 <i class="fa-2x fa-js fab"></i>
 <div class="ml-auto my-auto">
-23 &#x447;&#x430;&#x441;&#x430;
+30 &#x447;&#x430;&#x441;&#x43E;&#x432;
 </div>
 </div>
 </div>
 <div class="card-body d-flex flex-column">
 <div class="d-flex">
-<h5 class="mr-1">JS: &#x421;&#x438;&#x43D;&#x445;&#x440;&#x43E;&#x43D;&#x43D;&#x430;&#x44F; &#x430;&#x441;&#x438;&#x43D;&#x445;&#x440;&#x43E;&#x43D;&#x43D;&#x43E;&#x441;&#x442;&#x44C;</h5>
+<h5 class="mr-1">JS: &#x417;&#x43D;&#x430;&#x43A;&#x43E;&#x43C;&#x441;&#x442;&#x432;&#x43E; &#x441; &#x444;&#x443;&#x43D;&#x43A;&#x446;&#x438;&#x44F;&#x43C;&#x438;</h5>
 <div class="ml-auto">
 <span class="badge badge-light">PRO</span>
 </div>
 </div>
-<div class="text-muted mb-2">&#x412; &#x44D;&#x442;&#x43E;&#x43C; &#x43A;&#x443;&#x440;&#x441;&#x435; &#x431;&#x443;&#x434;&#x443;&#x442; &#x43F;&#x43E;&#x434;&#x440;&#x43E;&#x431;&#x43D;&#x43E; &#x440;&#x430;&#x441;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x43D;&#x44B; promises, coroutines, ...</div>
+<div class="text-muted mb-2">&#x424;&#x443;&#x43D;&#x43A;&#x446;&#x438;&#x438; &#x432; JavaScript &#x441;&#x43F;&#x43E;&#x441;&#x43E;&#x431;&#x43D;&#x44B; &#x43D;&#x430; &#x431;&#x43E;&#x43B;&#x44C;&#x448;&#x435;&#x435;! &#x412; &#x44D;&#x442;&#x43E;&#x43C; &#x43A;&#x443;&#x440;&#x441;&#x435; &#x432;&#x44B; &#x43F;&#x43E;&#x437;&#x43D;...</div>
 <div class="mt-auto d-flex">
 <div class="ml-auto">
-<a class="x-link-without-decoration stretched-link" href="/courses/js-sync">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
+<a class="x-link-without-decoration stretched-link" href="/courses/js-functions">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
 </a></div>
 </div>
 </div>
@@ -451,6 +373,81 @@ Hexlet
 <div class="mt-auto d-flex">
 <div class="ml-auto">
 <a class="x-link-without-decoration stretched-link" href="/courses/php-object-oriented-design">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
+</a></div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="mb-5 col-lg-4 col-sm-6 col-12">
+<div class="card x-shadow-fade-in-lg h-100">
+<div class="bg-success card-header d-flex flex-column py-1 text-white">
+<div class="d-flex">
+<i class="fa-2x fa-terminal fal"></i>
+<div class="ml-auto my-auto">
+30 &#x447;&#x430;&#x441;&#x43E;&#x432;
+</div>
+</div>
+</div>
+<div class="card-body d-flex flex-column">
+<div class="d-flex">
+<h5 class="mr-1">&#x41E;&#x441;&#x43D;&#x43E;&#x432;&#x44B; &#x43A;&#x43E;&#x43C;&#x430;&#x43D;&#x434;&#x43D;&#x43E;&#x439; &#x441;&#x442;&#x440;&#x43E;&#x43A;&#x438;</h5>
+</div>
+<div class="text-muted mb-2">&#x41A;&#x43E;&#x43C;&#x430;&#x43D;&#x434;&#x43D;&#x430;&#x44F; &#x441;&#x442;&#x440;&#x43E;&#x43A;&#x430; &#x2014; &#x44D;&#x442;&#x43E; &#x43F;&#x435;&#x440;&#x432;&#x43E;&#x435;, &#x441; &#x447;&#x435;&#x43C; &#x441;&#x442;&#x430;&#x43B;&#x43A;&#x438;&#x432;&#x430;&#x435;&#x442;&#x441;&#x44F; &#x43F;&#x440;&#x43E;&#x433;&#x440;&#x430;&#x43C;&#x43C;&#x438;&#x441;&#x442;,...</div>
+<div class="mt-auto d-flex">
+<div class="ml-auto">
+<a class="x-link-without-decoration stretched-link" href="/courses/cli-basics">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
+</a></div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="mb-5 col-lg-4 col-sm-6 col-12">
+<div class="card x-shadow-fade-in-lg h-100">
+<div class="bg-success card-header d-flex flex-column py-1 text-white">
+<div class="d-flex">
+<i class="fa-2x fa-terminal fal"></i>
+<div class="ml-auto my-auto">
+6 &#x447;&#x430;&#x441;&#x43E;&#x432;
+</div>
+</div>
+</div>
+<div class="card-body d-flex flex-column">
+<div class="d-flex">
+<h5 class="mr-1">&#x421;&#x438;&#x441;&#x442;&#x435;&#x43C;&#x44B; &#x43A;&#x43E;&#x43D;&#x442;&#x440;&#x43E;&#x43B;&#x44F; &#x432;&#x435;&#x440;&#x441;&#x438;&#x439; (GIT)</h5>
+</div>
+<div class="text-muted mb-2">&#x425;&#x43E;&#x442;&#x44F; &#x43A;&#x443;&#x440;&#x441; &#x438; &#x43D;&#x430;&#x437;&#x44B;&#x432;&#x430;&#x435;&#x442;&#x441;&#x44F; Git, &#x432;&#x43E; &#x43C;&#x43D;&#x43E;&#x433;&#x43E;&#x43C; &#x435;&#x433;&#x43E; &#x446;&#x435;&#x43B;&#x44C; &#x2014; &#x43E;&#x431;&#x44A;&#x44F;&#x441;&#x43D;&#x438;&#x442;&#x44C; &#x437;&#x430;&#x447;...</div>
+<div class="mt-auto d-flex">
+<div class="ml-auto">
+<a class="x-link-without-decoration stretched-link" href="/courses/intro_to_git">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
+</a></div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="mb-5 col-lg-4 col-sm-6 col-12">
+<div class="card x-shadow-fade-in-lg h-100">
+<div class="bg-success card-header d-flex flex-column py-1 text-white">
+<div class="d-flex">
+<i class="fa-2x fa-js fab"></i>
+<div class="ml-auto my-auto">
+23 &#x447;&#x430;&#x441;&#x430;
+</div>
+</div>
+</div>
+<div class="card-body d-flex flex-column">
+<div class="d-flex">
+<h5 class="mr-1">JS: &#x421;&#x438;&#x43D;&#x445;&#x440;&#x43E;&#x43D;&#x43D;&#x430;&#x44F; &#x430;&#x441;&#x438;&#x43D;&#x445;&#x440;&#x43E;&#x43D;&#x43D;&#x43E;&#x441;&#x442;&#x44C;</h5>
+<div class="ml-auto">
+<span class="badge badge-light">PRO</span>
+</div>
+</div>
+<div class="text-muted mb-2">&#x412; &#x44D;&#x442;&#x43E;&#x43C; &#x43A;&#x443;&#x440;&#x441;&#x435; &#x431;&#x443;&#x434;&#x443;&#x442; &#x43F;&#x43E;&#x434;&#x440;&#x43E;&#x431;&#x43D;&#x43E; &#x440;&#x430;&#x441;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x43D;&#x44B; promises, coroutines, ...</div>
+<div class="mt-auto d-flex">
+<div class="ml-auto">
+<a class="x-link-without-decoration stretched-link" href="/courses/js-sync">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
 </a></div>
 </div>
 </div>
@@ -515,30 +512,6 @@ Hexlet
 <div class="card x-shadow-fade-in-lg h-100">
 <div class="bg-success card-header d-flex flex-column py-1 text-white">
 <div class="d-flex">
-<i class="fa-2x fa-terminal fal"></i>
-<div class="ml-auto my-auto">
-30 &#x447;&#x430;&#x441;&#x43E;&#x432;
-</div>
-</div>
-</div>
-<div class="card-body d-flex flex-column">
-<div class="d-flex">
-<h5 class="mr-1">&#x41E;&#x441;&#x43D;&#x43E;&#x432;&#x44B; &#x43A;&#x43E;&#x43C;&#x430;&#x43D;&#x434;&#x43D;&#x43E;&#x439; &#x441;&#x442;&#x440;&#x43E;&#x43A;&#x438;</h5>
-</div>
-<div class="text-muted mb-2">&#x41A;&#x43E;&#x43C;&#x430;&#x43D;&#x434;&#x43D;&#x430;&#x44F; &#x441;&#x442;&#x440;&#x43E;&#x43A;&#x430; &#x2014; &#x44D;&#x442;&#x43E; &#x43F;&#x435;&#x440;&#x432;&#x43E;&#x435;, &#x441; &#x447;&#x435;&#x43C; &#x441;&#x442;&#x430;&#x43B;&#x43A;&#x438;&#x432;&#x430;&#x435;&#x442;&#x441;&#x44F; &#x43F;&#x440;&#x43E;&#x433;&#x440;&#x430;&#x43C;&#x43C;&#x438;&#x441;&#x442;,...</div>
-<div class="mt-auto d-flex">
-<div class="ml-auto">
-<a class="x-link-without-decoration stretched-link" href="/courses/cli-basics">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
-</a></div>
-</div>
-</div>
-</div>
-
-</div>
-<div class="mb-5 col-lg-4 col-sm-6 col-12">
-<div class="card x-shadow-fade-in-lg h-100">
-<div class="bg-success card-header d-flex flex-column py-1 text-white">
-<div class="d-flex">
 <i class="fa-2x fa-php fab"></i>
 <div class="ml-auto my-auto">
 16 &#x447;&#x430;&#x441;&#x43E;&#x432;
@@ -556,78 +529,6 @@ Hexlet
 <div class="mt-auto d-flex">
 <div class="ml-auto">
 <a class="x-link-without-decoration stretched-link" href="/courses/php-pdo">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
-</a></div>
-</div>
-</div>
-</div>
-
-</div>
-<div class="mb-5 col-lg-4 col-sm-6 col-12">
-<div class="card x-shadow-fade-in-lg h-100">
-<div class="bg-success card-header d-flex flex-column py-1 text-white">
-<div class="d-flex">
-<i class="fa-2x fa-code fal"></i>
-<div class="ml-auto my-auto">
-5 &#x447;&#x430;&#x441;&#x43E;&#x432;
-</div>
-</div>
-</div>
-<div class="card-body d-flex flex-column">
-<div class="d-flex">
-<h5 class="mr-1">&#x418;&#x437;&#x443;&#x447;&#x435;&#x43D;&#x438;&#x435; &#x430;&#x43D;&#x433;&#x43B;&#x438;&#x439;&#x441;&#x43A;&#x43E;&#x433;&#x43E; &#x44F;&#x437;&#x44B;&#x43A;&#x430;</h5>
-</div>
-<div class="text-muted mb-2">&#x42D;&#x442;&#x43E;&#x442; &#x442;&#x435;&#x43A;&#x441;&#x442;&#x43E;&#x432;&#x44B;&#x439; &#x43A;&#x443;&#x440;&#x441; &#x43F;&#x43E;&#x43C;&#x43E;&#x436;&#x435;&#x442; &#x432;&#x430;&#x43C; &#x438;&#x437;&#x443;&#x447;&#x430;&#x442;&#x44C; &#x430;&#x43D;&#x433;&#x43B;&#x438;&#x439;&#x441;&#x43A;&#x438;&#x439; &#x44F;&#x437;&#x44B;&#x43A;. &#x41E;&#x43D; &#x43F;&#x43E;...</div>
-<div class="mt-auto d-flex">
-<div class="ml-auto">
-<a class="x-link-without-decoration stretched-link" href="/courses/learning_english">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
-</a></div>
-</div>
-</div>
-</div>
-
-</div>
-<div class="mb-5 col-lg-4 col-sm-6 col-12">
-<div class="card x-shadow-fade-in-lg h-100">
-<div class="bg-success card-header d-flex flex-column py-1 text-white">
-<div class="d-flex">
-<i class="fa-2x fa-php fab"></i>
-<div class="ml-auto my-auto">
-5 &#x447;&#x430;&#x441;&#x43E;&#x432;
-</div>
-</div>
-</div>
-<div class="card-body d-flex flex-column">
-<div class="d-flex">
-<h5 class="mr-1">PHP: &#x41D;&#x430;&#x441;&#x442;&#x440;&#x43E;&#x439;&#x43A;&#x430; &#x43E;&#x43A;&#x440;&#x443;&#x436;&#x435;&#x43D;&#x438;&#x44F;</h5>
-</div>
-<div class="text-muted mb-2">&#x412; &#x44D;&#x442;&#x43E;&#x43C; &#x43A;&#x443;&#x440;&#x441;&#x435; &#x440;&#x430;&#x441;&#x441;&#x43C;&#x430;&#x442;&#x440;&#x438;&#x432;&#x430;&#x435;&#x442;&#x441;&#x44F; &#x43F;&#x43E;&#x43D;&#x44F;&#x442;&#x438;&#x435; &#x44F;&#x437;&#x44B;&#x43A;&#x430; &#x43F;&#x440;&#x43E;&#x433;&#x440;&#x430;&#x43C;&#x43C;&#x438;&#x440;&#x43E;&#x432;&#x430;&#x43D;&#x438;&#x44F;, &#x43E;...</div>
-<div class="mt-auto d-flex">
-<div class="ml-auto">
-<a class="x-link-without-decoration stretched-link" href="/courses/php-setup-environment">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
-</a></div>
-</div>
-</div>
-</div>
-
-</div>
-<div class="mb-5 col-lg-4 col-sm-6 col-12">
-<div class="card x-shadow-fade-in-lg h-100">
-<div class="bg-success card-header d-flex flex-column py-1 text-white">
-<div class="d-flex">
-<i class="fa-2x fa-code fal"></i>
-<div class="ml-auto my-auto">
-3 &#x447;&#x430;&#x441;&#x430;
-</div>
-</div>
-</div>
-<div class="card-body d-flex flex-column">
-<div class="d-flex">
-<h5 class="mr-1">&#x41B;&#x43E;&#x433;&#x438;&#x43A;&#x430;</h5>
-</div>
-<div class="text-muted mb-2">&#x412;&#x432;&#x435;&#x434;&#x435;&#x43D;&#x438;&#x435; &#x432; &#x43C;&#x430;&#x442;&#x435;&#x43C;&#x430;&#x442;&#x438;&#x447;&#x435;&#x441;&#x43A;&#x443;&#x44E; &#x43B;&#x43E;&#x433;&#x438;&#x43A;&#x443;. &#x41A;&#x443;&#x440;&#x441; &#x43E;&#x441;&#x43D;&#x43E;&#x432;&#x430;&#x43D; &#x43D;&#x430; &#x43F;&#x435;&#x440;&#x432;&#x43E;&#x439; &#x433;&#x43B;&#x430;&#x432;&#x435;...</div>
-<div class="mt-auto d-flex">
-<div class="ml-auto">
-<a class="x-link-without-decoration stretched-link" href="/courses/logic">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
 </a></div>
 </div>
 </div>
@@ -665,20 +566,47 @@ Hexlet
 <div class="card x-shadow-fade-in-lg h-100">
 <div class="bg-success card-header d-flex flex-column py-1 text-white">
 <div class="d-flex">
-<i class="fa-2x fa-code fal"></i>
+<i class="fa-2x fa-php fab"></i>
 <div class="ml-auto my-auto">
-3 &#x447;&#x430;&#x441;&#x430;
+5 &#x447;&#x430;&#x441;&#x43E;&#x432;
 </div>
 </div>
 </div>
 <div class="card-body d-flex flex-column">
 <div class="d-flex">
-<h5 class="mr-1">&#x416;&#x438;&#x437;&#x43D;&#x44C; &#x43F;&#x440;&#x43E;&#x433;&#x440;&#x430;&#x43C;&#x43C;&#x438;&#x441;&#x442;&#x430;</h5>
+<h5 class="mr-1">PHP: &#x41D;&#x430;&#x441;&#x442;&#x440;&#x43E;&#x439;&#x43A;&#x430; &#x43E;&#x43A;&#x440;&#x443;&#x436;&#x435;&#x43D;&#x438;&#x44F;</h5>
 </div>
-<div class="text-muted mb-2">&#x412; &#x44D;&#x442;&#x43E;&#x43C; &#x43A;&#x443;&#x440;&#x441;&#x435; &#x43C;&#x44B; &#x43F;&#x43E;&#x437;&#x43D;&#x430;&#x43A;&#x43E;&#x43C;&#x438;&#x43C;&#x441;&#x44F; &#x441; &#x43F;&#x440;&#x43E;&#x444;&#x435;&#x441;&#x441;&#x438;&#x435;&#x439;, &#x443;&#x437;&#x43D;&#x430;&#x435;&#x43C; &#x43E; &#x432;&#x438;&#x434;&#x430;&#x445; &#x43A;&#x43E;&#x43C;&#x43F;...</div>
+<div class="text-muted mb-2">&#x412; &#x44D;&#x442;&#x43E;&#x43C; &#x43A;&#x443;&#x440;&#x441;&#x435; &#x440;&#x430;&#x441;&#x441;&#x43C;&#x430;&#x442;&#x440;&#x438;&#x432;&#x430;&#x435;&#x442;&#x441;&#x44F; &#x43F;&#x43E;&#x43D;&#x44F;&#x442;&#x438;&#x435; &#x44F;&#x437;&#x44B;&#x43A;&#x430; &#x43F;&#x440;&#x43E;&#x433;&#x440;&#x430;&#x43C;&#x43C;&#x438;&#x440;&#x43E;&#x432;&#x430;&#x43D;&#x438;&#x44F;, &#x43E;...</div>
 <div class="mt-auto d-flex">
 <div class="ml-auto">
-<a class="x-link-without-decoration stretched-link" href="/courses/prog-life">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
+<a class="x-link-without-decoration stretched-link" href="/courses/php-setup-environment">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
+</a></div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="mb-5 col-lg-4 col-sm-6 col-12">
+<div class="card x-shadow-fade-in-lg h-100">
+<div class="bg-success card-header d-flex flex-column py-1 text-white">
+<div class="d-flex">
+<i class="fa-2x fa-js fab"></i>
+<div class="ml-auto my-auto">
+16 &#x447;&#x430;&#x441;&#x43E;&#x432;
+</div>
+</div>
+</div>
+<div class="card-body d-flex flex-column">
+<div class="d-flex">
+<h5 class="mr-1">JS: &#x41E;&#x431;&#x44A;&#x435;&#x43A;&#x442;&#x44B;</h5>
+<div class="ml-auto">
+<span class="badge badge-light">PRO</span>
+</div>
+</div>
+<div class="text-muted mb-2">&#x41E;&#x431;&#x44A;&#x435;&#x43A;&#x442; &#x2014; &#x430;&#x431;&#x441;&#x442;&#x440;&#x430;&#x43A;&#x442;&#x43D;&#x44B;&#x439; &#x442;&#x438;&#x43F; &#x434;&#x430;&#x43D;&#x43D;&#x44B;&#x445;, &#x43A;&#x43E;&#x43B;&#x43B;&#x435;&#x43A;&#x446;&#x438;&#x44F; &#x43F;&#x430;&#x440; &#xAB;&#x43A;&#x43B;&#x44E;&#x447;-&#x437;&#x43D;&#x430;&#x447;&#x435;&#x43D;&#x438;&#x435;&#xBB;...</div>
+<div class="mt-auto d-flex">
+<div class="ml-auto">
+<a class="x-link-without-decoration stretched-link" href="/courses/js-objects">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
 </a></div>
 </div>
 </div>
@@ -713,23 +641,20 @@ Hexlet
 <div class="card x-shadow-fade-in-lg h-100">
 <div class="bg-success card-header d-flex flex-column py-1 text-white">
 <div class="d-flex">
-<i class="fa-2x fa-python fab"></i>
+<i class="fa-2x fa-code fal"></i>
 <div class="ml-auto my-auto">
-18 &#x447;&#x430;&#x441;&#x43E;&#x432;
+3 &#x447;&#x430;&#x441;&#x430;
 </div>
 </div>
 </div>
 <div class="card-body d-flex flex-column">
 <div class="d-flex">
-<h5 class="mr-1">Python: &#x421;&#x43F;&#x438;&#x441;&#x43A;&#x438;</h5>
-<div class="ml-auto">
-<span class="badge badge-light">PRO</span>
+<h5 class="mr-1">&#x416;&#x438;&#x437;&#x43D;&#x44C; &#x43F;&#x440;&#x43E;&#x433;&#x440;&#x430;&#x43C;&#x43C;&#x438;&#x441;&#x442;&#x430;</h5>
 </div>
-</div>
-<div class="text-muted mb-2">&#x41A;&#x443;&#x440;&#x441; &#x437;&#x43D;&#x430;&#x43A;&#x43E;&#x43C;&#x438;&#x442; &#x441; &#x43E;&#x434;&#x43D;&#x43E;&#x439; &#x438;&#x437; &#x441;&#x430;&#x43C;&#x44B;&#x445; &#x447;&#x430;&#x441;&#x442;&#x43E; &#x438;&#x441;&#x43F;&#x43E;&#x43B;&#x44C;&#x437;&#x443;&#x435;&#x43C;&#x44B;&#x445; &#x432; Python &#x441;&#x442;&#x440;...</div>
+<div class="text-muted mb-2">&#x412; &#x44D;&#x442;&#x43E;&#x43C; &#x43A;&#x443;&#x440;&#x441;&#x435; &#x43C;&#x44B; &#x43F;&#x43E;&#x437;&#x43D;&#x430;&#x43A;&#x43E;&#x43C;&#x438;&#x43C;&#x441;&#x44F; &#x441; &#x43F;&#x440;&#x43E;&#x444;&#x435;&#x441;&#x441;&#x438;&#x435;&#x439;, &#x443;&#x437;&#x43D;&#x430;&#x435;&#x43C; &#x43E; &#x432;&#x438;&#x434;&#x430;&#x445; &#x43A;&#x43E;&#x43C;&#x43F;...</div>
 <div class="mt-auto d-flex">
 <div class="ml-auto">
-<a class="x-link-without-decoration stretched-link" href="/courses/python-lists">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
+<a class="x-link-without-decoration stretched-link" href="/courses/prog-life">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
 </a></div>
 </div>
 </div>
@@ -740,23 +665,71 @@ Hexlet
 <div class="card x-shadow-fade-in-lg h-100">
 <div class="bg-success card-header d-flex flex-column py-1 text-white">
 <div class="d-flex">
-<i class="fa-2x fa-js fab"></i>
+<i class="fa-2x fa-code fal"></i>
 <div class="ml-auto my-auto">
-22 &#x447;&#x430;&#x441;&#x430;
+3 &#x447;&#x430;&#x441;&#x430;
 </div>
 </div>
 </div>
 <div class="card-body d-flex flex-column">
 <div class="d-flex">
-<h5 class="mr-1">JS: &#x424;&#x443;&#x43D;&#x43A;&#x446;&#x438;&#x438;</h5>
+<h5 class="mr-1">&#x41B;&#x43E;&#x433;&#x438;&#x43A;&#x430;</h5>
+</div>
+<div class="text-muted mb-2">&#x412;&#x432;&#x435;&#x434;&#x435;&#x43D;&#x438;&#x435; &#x432; &#x43C;&#x430;&#x442;&#x435;&#x43C;&#x430;&#x442;&#x438;&#x447;&#x435;&#x441;&#x43A;&#x443;&#x44E; &#x43B;&#x43E;&#x433;&#x438;&#x43A;&#x443;. &#x41A;&#x443;&#x440;&#x441; &#x43E;&#x441;&#x43D;&#x43E;&#x432;&#x430;&#x43D; &#x43D;&#x430; &#x43F;&#x435;&#x440;&#x432;&#x43E;&#x439; &#x433;&#x43B;&#x430;&#x432;&#x435;...</div>
+<div class="mt-auto d-flex">
+<div class="ml-auto">
+<a class="x-link-without-decoration stretched-link" href="/courses/logic">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
+</a></div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="mb-5 col-lg-4 col-sm-6 col-12">
+<div class="card x-shadow-fade-in-lg h-100">
+<div class="bg-success card-header d-flex flex-column py-1 text-white">
+<div class="d-flex">
+<i class="fa-2x fa-code fal"></i>
+<div class="ml-auto my-auto">
+19 &#x447;&#x430;&#x441;&#x43E;&#x432;
+</div>
+</div>
+</div>
+<div class="card-body d-flex flex-column">
+<div class="d-flex">
+<h5 class="mr-1">&#x412;&#x432;&#x435;&#x434;&#x435;&#x43D;&#x438;&#x435; &#x432; &#x421;&#x438;</h5>
+</div>
+<div class="text-muted mb-2">&#x41E;&#x434;&#x438;&#x43D; &#x438;&#x437; &#x430;&#x432;&#x442;&#x43E;&#x440;&#x43E;&#x432; &#x43A;&#x43B;&#x430;&#x441;&#x441;&#x438;&#x447;&#x435;&#x441;&#x43A;&#x43E;&#x433;&#x43E; &#x43F;&#x43E;&#x441;&#x43E;&#x431;&#x438;&#x44F; &#x43F;&#x43E; &#x43F;&#x440;&#x43E;&#x433;&#x440;&#x430;&#x43C;&#x43C;&#x438;&#x440;&#x43E;&#x432;&#x430;&#x43D;&#x438;&#x44E; &#x43D;&#x430; &#x421;...</div>
+<div class="mt-auto d-flex">
+<div class="ml-auto">
+<a class="x-link-without-decoration stretched-link" href="/courses/introduction_to_c">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
+</a></div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="mb-5 col-lg-4 col-sm-6 col-12">
+<div class="card x-shadow-fade-in-lg h-100">
+<div class="bg-success card-header d-flex flex-column py-1 text-white">
+<div class="d-flex">
+<i class="fa-2x fa-code fal"></i>
+<div class="ml-auto my-auto">
+17 &#x447;&#x430;&#x441;&#x43E;&#x432;
+</div>
+</div>
+</div>
+<div class="card-body d-flex flex-column">
+<div class="d-flex">
+<h5 class="mr-1">&#x411;&#x430;&#x439;&#x442;-&#x43A;&#x43E;&#x434; Java</h5>
 <div class="ml-auto">
 <span class="badge badge-light">PRO</span>
 </div>
 </div>
-<div class="text-muted mb-2">&#x422;&#x435;&#x43C;&#x430; &#x444;&#x443;&#x43D;&#x43A;&#x446;&#x438;&#x439; &#x2014; &#x43E;&#x434;&#x43D;&#x430; &#x438;&#x437; &#x446;&#x435;&#x43D;&#x442;&#x440;&#x430;&#x43B;&#x44C;&#x43D;&#x44B;&#x445; &#x432; JavaScript. &#x418;&#x445; &#x43C;&#x43E;&#x449;&#x44C; &#x43F;&#x43E;&#x437;&#x432;&#x43E;...</div>
+<div class="text-muted mb-2">&#x414;&#x430;&#x43D;&#x43D;&#x44B;&#x439; &#x43A;&#x443;&#x440;&#x441; &#x434;&#x43B;&#x44F; &#x442;&#x435;&#x445;, &#x43A;&#x442;&#x43E; &#x443;&#x436;&#x435; &#x437;&#x43D;&#x430;&#x435;&#x442; &#x441;&#x438;&#x43D;&#x442;&#x430;&#x43A;&#x441;&#x438;&#x441; &#x44F;&#x437;&#x44B;&#x43A;&#x430;, &#x43D;&#x43E; &#x445;&#x43E;&#x442;&#x435;&#x43B; &#x431;...</div>
 <div class="mt-auto d-flex">
 <div class="ml-auto">
-<a class="x-link-without-decoration stretched-link" href="/courses/js-functions">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
+<a class="x-link-without-decoration stretched-link" href="/courses/bytecode">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
 </a></div>
 </div>
 </div>
@@ -794,20 +767,128 @@ Hexlet
 <div class="card x-shadow-fade-in-lg h-100">
 <div class="bg-success card-header d-flex flex-column py-1 text-white">
 <div class="d-flex">
-<i class="fa-2x fa-html5 fab"></i>
+<i class="fa-2x fa-php fab"></i>
 <div class="ml-auto my-auto">
-5 &#x447;&#x430;&#x441;&#x43E;&#x432;
+19 &#x447;&#x430;&#x441;&#x43E;&#x432;
 </div>
 </div>
 </div>
 <div class="card-body d-flex flex-column">
 <div class="d-flex">
-<h5 class="mr-1">&#x412;&#x432;&#x435;&#x434;&#x435;&#x43D;&#x438;&#x435; &#x432; &#x432;&#x435;&#x431;-&#x440;&#x430;&#x437;&#x440;&#x430;&#x431;&#x43E;&#x442;&#x43A;&#x443;</h5>
+<h5 class="mr-1">PHP: &#x41E;&#x441;&#x43D;&#x43E;&#x432;&#x44B;</h5>
 </div>
-<div class="text-muted mb-2">&#x41F;&#x43E;&#x43F;&#x44B;&#x442;&#x43A;&#x430; &#x441;&#x438;&#x441;&#x442;&#x435;&#x43C;&#x430;&#x442;&#x438;&#x437;&#x438;&#x440;&#x43E;&#x432;&#x430;&#x442;&#x44C; &#x437;&#x43D;&#x430;&#x43D;&#x438;&#x44F; &#x43E; &#x432;&#x435;&#x431;-&#x440;&#x430;&#x437;&#x440;&#x430;&#x431;&#x43E;&#x442;&#x43A;&#x435; &#x438; &#x43F;&#x43E;&#x437;&#x43D;&#x430;&#x43A;&#x43E;&#x43C;&#x438;&#x442;...</div>
+<div class="text-muted mb-2">&#x42D;&#x442;&#x43E;&#x442; &#x43A;&#x443;&#x440;&#x441; &#x431;&#x430;&#x437;&#x438;&#x440;&#x443;&#x435;&#x442;&#x441;&#x44F; &#x43D;&#x430; &#x43C;&#x430;&#x442;&#x435;&#x440;&#x438;&#x430;&#x43B;&#x435; [Code Basics](https://ru.cod...</div>
 <div class="mt-auto d-flex">
 <div class="ml-auto">
-<a class="x-link-without-decoration stretched-link" href="/courses/intro_to_web_development">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
+<a class="x-link-without-decoration stretched-link" href="/courses/php-basics">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
+</a></div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="mb-5 col-lg-4 col-sm-6 col-12">
+<div class="card x-shadow-fade-in-lg h-100">
+<div class="bg-success card-header d-flex flex-column py-1 text-white">
+<div class="d-flex">
+<i class="fa-2x fa-js fab"></i>
+<div class="ml-auto my-auto">
+22 &#x447;&#x430;&#x441;&#x430;
+</div>
+</div>
+</div>
+<div class="card-body d-flex flex-column">
+<div class="d-flex">
+<h5 class="mr-1">JS: &#x424;&#x443;&#x43D;&#x43A;&#x446;&#x438;&#x438;</h5>
+<div class="ml-auto">
+<span class="badge badge-light">PRO</span>
+</div>
+</div>
+<div class="text-muted mb-2">&#x422;&#x435;&#x43C;&#x430; &#x444;&#x443;&#x43D;&#x43A;&#x446;&#x438;&#x439; &#x2014; &#x43E;&#x434;&#x43D;&#x430; &#x438;&#x437; &#x446;&#x435;&#x43D;&#x442;&#x440;&#x430;&#x43B;&#x44C;&#x43D;&#x44B;&#x445; &#x432; JavaScript. &#x418;&#x445; &#x43C;&#x43E;&#x449;&#x44C; &#x43F;&#x43E;&#x437;&#x432;&#x43E;...</div>
+<div class="mt-auto d-flex">
+<div class="ml-auto">
+<a class="x-link-without-decoration stretched-link" href="/courses/js-functions-hard-way">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
+</a></div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="mb-5 col-lg-4 col-sm-6 col-12">
+<div class="card x-shadow-fade-in-lg h-100">
+<div class="bg-success card-header d-flex flex-column py-1 text-white">
+<div class="d-flex">
+<i class="fa-2x fa-terminal fal"></i>
+<div class="ml-auto my-auto">
+24 &#x447;&#x430;&#x441;&#x430;
+</div>
+</div>
+</div>
+<div class="card-body d-flex flex-column">
+<div class="d-flex">
+<h5 class="mr-1">&#x411;&#x430;&#x437;&#x44B; &#x434;&#x430;&#x43D;&#x43D;&#x44B;&#x445;: SQL (DDL/DML)</h5>
+<div class="ml-auto">
+<span class="badge badge-light">PRO</span>
+</div>
+</div>
+<div class="text-muted mb-2">DDL &#x438; DML &#x44D;&#x442;&#x43E; &#x43F;&#x43E;&#x434;&#x43C;&#x43D;&#x43E;&#x436;&#x435;&#x441;&#x442;&#x432;&#x430; &#x44F;&#x437;&#x44B;&#x43A;&#x430; SQL &#x43E;&#x442;&#x432;&#x435;&#x447;&#x430;&#x44E;&#x449;&#x438;&#x435; &#x437;&#x430; &#x441;&#x43E;&#x437;&#x434;&#x430;&#x43D;&#x438;&#x435; &#x441;&#x442;...</div>
+<div class="mt-auto d-flex">
+<div class="ml-auto">
+<a class="x-link-without-decoration stretched-link" href="/courses/postgresql-ddl">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
+</a></div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="mb-5 col-lg-4 col-sm-6 col-12">
+<div class="card x-shadow-fade-in-lg h-100">
+<div class="bg-success card-header d-flex flex-column py-1 text-white">
+<div class="d-flex">
+<i class="fa-2x fa-php fab"></i>
+<div class="ml-auto my-auto">
+15 &#x447;&#x430;&#x441;&#x43E;&#x432;
+</div>
+</div>
+</div>
+<div class="card-body d-flex flex-column">
+<div class="d-flex">
+<h5 class="mr-1">PHP: &#x410;&#x431;&#x441;&#x442;&#x440;&#x430;&#x43A;&#x446;&#x438;&#x44F; &#x441; &#x43F;&#x43E;&#x43C;&#x43E;&#x449;&#x44C;&#x44E; &#x434;&#x430;&#x43D;&#x43D;&#x44B;&#x445;</h5>
+<div class="ml-auto">
+<span class="badge badge-light">PRO</span>
+</div>
+</div>
+<div class="text-muted mb-2">&#x41F;&#x440;&#x43E;&#x433;&#x440;&#x430;&#x43C;&#x43C;&#x438;&#x440;&#x43E;&#x432;&#x430;&#x43D;&#x438;&#x435; &#x43D;&#x435; &#x43E;&#x433;&#x440;&#x430;&#x43D;&#x438;&#x447;&#x438;&#x432;&#x430;&#x435;&#x442;&#x441;&#x44F; &#x43E;&#x434;&#x43D;&#x438;&#x43C;&#x438; &#x43B;&#x438;&#x448;&#x44C; &#x432;&#x44B;&#x447;&#x438;&#x441;&#x43B;&#x435;&#x43D;&#x438;&#x44F;&#x43C;&#x438;. &#x41B;...</div>
+<div class="mt-auto d-flex">
+<div class="ml-auto">
+<a class="x-link-without-decoration stretched-link" href="/courses/php-data-abstraction">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
+</a></div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="mb-5 col-lg-4 col-sm-6 col-12">
+<div class="card x-shadow-fade-in-lg h-100">
+<div class="bg-success card-header d-flex flex-column py-1 text-white">
+<div class="d-flex">
+<i class="fa-2x fa-terminal fal"></i>
+<div class="ml-auto my-auto">
+7 &#x447;&#x430;&#x441;&#x43E;&#x432;
+</div>
+</div>
+</div>
+<div class="card-body d-flex flex-column">
+<div class="d-flex">
+<h5 class="mr-1">Linux: &#x41F;&#x43E;&#x43B;&#x44C;&#x437;&#x43E;&#x432;&#x430;&#x442;&#x435;&#x43B;&#x438;</h5>
+<div class="ml-auto">
+<span class="badge badge-light">PRO</span>
+</div>
+</div>
+<div class="text-muted mb-2">&#x423;&#x43C;&#x435;&#x43D;&#x438;&#x435; &#x440;&#x430;&#x431;&#x43E;&#x442;&#x430;&#x442;&#x44C; &#x441; &#x43E;&#x43F;&#x435;&#x440;&#x430;&#x446;&#x438;&#x43E;&#x43D;&#x43D;&#x43E;&#x439; &#x441;&#x438;&#x441;&#x442;&#x435;&#x43C;&#x43E;&#x439; Linux &#x2013; &#x43E;&#x434;&#x438;&#x43D; &#x438;&#x437; &#x432;&#x430;&#x436;&#x43D;&#x435;&#x439;...</div>
+<div class="mt-auto d-flex">
+<div class="ml-auto">
+<a class="x-link-without-decoration stretched-link" href="/courses/linux-users">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
 </a></div>
 </div>
 </div>
@@ -845,30 +926,6 @@ Hexlet
 <div class="card x-shadow-fade-in-lg h-100">
 <div class="bg-success card-header d-flex flex-column py-1 text-white">
 <div class="d-flex">
-<i class="fa-2x fa-php fab"></i>
-<div class="ml-auto my-auto">
-19 &#x447;&#x430;&#x441;&#x43E;&#x432;
-</div>
-</div>
-</div>
-<div class="card-body d-flex flex-column">
-<div class="d-flex">
-<h5 class="mr-1">PHP: &#x41E;&#x441;&#x43D;&#x43E;&#x432;&#x44B;</h5>
-</div>
-<div class="text-muted mb-2">&#x42D;&#x442;&#x43E;&#x442; &#x43A;&#x443;&#x440;&#x441; &#x431;&#x430;&#x437;&#x438;&#x440;&#x443;&#x435;&#x442;&#x441;&#x44F; &#x43D;&#x430; &#x43C;&#x430;&#x442;&#x435;&#x440;&#x438;&#x430;&#x43B;&#x435; [Code Basics](https://ru.cod...</div>
-<div class="mt-auto d-flex">
-<div class="ml-auto">
-<a class="x-link-without-decoration stretched-link" href="/courses/php-basics">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
-</a></div>
-</div>
-</div>
-</div>
-
-</div>
-<div class="mb-5 col-lg-4 col-sm-6 col-12">
-<div class="card x-shadow-fade-in-lg h-100">
-<div class="bg-success card-header d-flex flex-column py-1 text-white">
-<div class="d-flex">
 <i class="fa-2x fa-js fab"></i>
 <div class="ml-auto my-auto">
 60 &#x447;&#x430;&#x441;&#x43E;&#x432;
@@ -895,48 +952,21 @@ Hexlet
 <div class="d-flex">
 <i class="fa-2x fa-js fab"></i>
 <div class="ml-auto my-auto">
-20 &#x447;&#x430;&#x441;&#x43E;&#x432;
+28 &#x447;&#x430;&#x441;&#x43E;&#x432;
 </div>
 </div>
 </div>
 <div class="card-body d-flex flex-column">
 <div class="d-flex">
-<h5 class="mr-1">JS: &#x41F;&#x43E;&#x441;&#x43B;&#x435;&#x434;&#x43E;&#x432;&#x430;&#x442;&#x435;&#x43B;&#x44C;&#x43D;&#x43E;&#x441;&#x442;&#x438;</h5>
+<h5 class="mr-1">JS: &#x410;&#x432;&#x442;&#x43E;&#x43C;&#x430;&#x442;&#x438;&#x447;&#x435;&#x441;&#x43A;&#x43E;&#x435; &#x442;&#x435;&#x441;&#x442;&#x438;&#x440;&#x43E;&#x432;&#x430;&#x43D;&#x438;&#x435;</h5>
 <div class="ml-auto">
 <span class="badge badge-light">PRO</span>
 </div>
 </div>
-<div class="text-muted mb-2">&#x41F;&#x440;&#x43E;&#x434;&#x43E;&#x43B;&#x436;&#x435;&#x43D;&#x438;&#x435; &#x438;&#x437;&#x443;&#x447;&#x435;&#x43D;&#x438;&#x44F; &#x441;&#x43E;&#x441;&#x442;&#x430;&#x432;&#x43D;&#x44B;&#x445; &#x434;&#x430;&#x43D;&#x43D;&#x44B;&#x445; &#x43D;&#x430; &#x431;&#x43E;&#x43B;&#x435;&#x435; &#x43F;&#x440;&#x43E;&#x434;&#x432;&#x438;&#x43D;&#x443;&#x442;&#x43E;&#x43C; &#x443;&#x440;&#x43E;...</div>
+<div class="text-muted mb-2">&#x410;&#x432;&#x442;&#x43E;&#x43C;&#x430;&#x442;&#x438;&#x437;&#x438;&#x440;&#x43E;&#x432;&#x430;&#x43D;&#x43D;&#x43E;&#x435; &#x442;&#x435;&#x441;&#x442;&#x438;&#x440;&#x43E;&#x432;&#x430;&#x43D;&#x438;&#x435; &#x2013; &#x43D;&#x435;&#x43E;&#x442;&#x44A;&#x435;&#x43C;&#x43B;&#x435;&#x43C;&#x430;&#x44F; &#x447;&#x430;&#x441;&#x442;&#x44C; &#x43F;&#x440;&#x43E;&#x446;&#x435;&#x441;&#x441;&#x430; ...</div>
 <div class="mt-auto d-flex">
 <div class="ml-auto">
-<a class="x-link-without-decoration stretched-link" href="/courses/sequences">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
-</a></div>
-</div>
-</div>
-</div>
-
-</div>
-<div class="mb-5 col-lg-4 col-sm-6 col-12">
-<div class="card x-shadow-fade-in-lg h-100">
-<div class="bg-success card-header d-flex flex-column py-1 text-white">
-<div class="d-flex">
-<i class="fa-2x fa-js fab"></i>
-<div class="ml-auto my-auto">
-5 &#x447;&#x430;&#x441;&#x43E;&#x432;
-</div>
-</div>
-</div>
-<div class="card-body d-flex flex-column">
-<div class="d-flex">
-<h5 class="mr-1">JS: &#x41E;&#x431;&#x44A;&#x435;&#x43A;&#x442;&#x44B;</h5>
-<div class="ml-auto">
-<span class="badge badge-light">PRO</span>
-</div>
-</div>
-<div class="text-muted mb-2">&#x41E;&#x431;&#x44A;&#x435;&#x43A;&#x442; &#x2014; &#x430;&#x431;&#x441;&#x442;&#x440;&#x430;&#x43A;&#x442;&#x43D;&#x44B;&#x439; &#x442;&#x438;&#x43F; &#x434;&#x430;&#x43D;&#x43D;&#x44B;&#x445;, &#x43A;&#x43E;&#x43B;&#x43B;&#x435;&#x43A;&#x446;&#x438;&#x44F; &#x43F;&#x430;&#x440; &#xAB;&#x43A;&#x43B;&#x44E;&#x447;-&#x437;&#x43D;&#x430;&#x447;&#x435;&#x43D;&#x438;&#x435;&#xBB;...</div>
-<div class="mt-auto d-flex">
-<div class="ml-auto">
-<a class="x-link-without-decoration stretched-link" href="/courses/js-objects">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
+<a class="x-link-without-decoration stretched-link" href="/courses/js-testing">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
 </a></div>
 </div>
 </div>
@@ -949,7 +979,7 @@ Hexlet
 <div class="d-flex">
 <i class="fa-2x fa-python fab"></i>
 <div class="ml-auto my-auto">
-12 &#x447;&#x430;&#x441;&#x43E;&#x432;
+13 &#x447;&#x430;&#x441;&#x43E;&#x432;
 </div>
 </div>
 </div>
@@ -1009,15 +1039,15 @@ Hexlet
 </div>
 <div class="card-body d-flex flex-column">
 <div class="d-flex">
-<h5 class="mr-1">JS: &#x421;&#x43E;&#x441;&#x442;&#x430;&#x432;&#x43D;&#x44B;&#x435; &#x434;&#x430;&#x43D;&#x43D;&#x44B;&#x435;</h5>
+<h5 class="mr-1">JS: &#x41F;&#x43E;&#x441;&#x43B;&#x435;&#x434;&#x43E;&#x432;&#x430;&#x442;&#x435;&#x43B;&#x44C;&#x43D;&#x43E;&#x441;&#x442;&#x438;</h5>
 <div class="ml-auto">
 <span class="badge badge-light">PRO</span>
 </div>
 </div>
-<div class="text-muted mb-2">&#x421;&#x43B;&#x435;&#x434;&#x443;&#x44E;&#x449;&#x438;&#x439; &#x448;&#x430;&#x433; &#x43F;&#x43E;&#x441;&#x43B;&#x435; &#x43E;&#x441;&#x432;&#x43E;&#x435;&#x43D;&#x438;&#x44F; &#x43E;&#x441;&#x43D;&#x43E;&#x432; &#x43F;&#x440;&#x43E;&#x433;&#x440;&#x430;&#x43C;&#x43C;&#x438;&#x440;&#x43E;&#x432;&#x430;&#x43D;&#x438;&#x44F; &#x44D;&#x442;&#x43E; &#x438;&#x437;&#x443;&#x447;&#x435;&#x43D;...</div>
+<div class="text-muted mb-2">&#x41F;&#x440;&#x43E;&#x434;&#x43E;&#x43B;&#x436;&#x435;&#x43D;&#x438;&#x435; &#x438;&#x437;&#x443;&#x447;&#x435;&#x43D;&#x438;&#x44F; &#x441;&#x43E;&#x441;&#x442;&#x430;&#x432;&#x43D;&#x44B;&#x445; &#x434;&#x430;&#x43D;&#x43D;&#x44B;&#x445; &#x43D;&#x430; &#x431;&#x43E;&#x43B;&#x435;&#x435; &#x43F;&#x440;&#x43E;&#x434;&#x432;&#x438;&#x43D;&#x443;&#x442;&#x43E;&#x43C; &#x443;&#x440;&#x43E;...</div>
 <div class="mt-auto d-flex">
 <div class="ml-auto">
-<a class="x-link-without-decoration stretched-link" href="/courses/compound_data">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
+<a class="x-link-without-decoration stretched-link" href="/courses/sequences">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
 </a></div>
 </div>
 </div>
@@ -1082,182 +1112,20 @@ Hexlet
 <div class="card x-shadow-fade-in-lg h-100">
 <div class="bg-success card-header d-flex flex-column py-1 text-white">
 <div class="d-flex">
-<i class="fa-2x fa-php fab"></i>
+<i class="fa-2x fa-python fab"></i>
 <div class="ml-auto my-auto">
-49 &#x447;&#x430;&#x441;&#x43E;&#x432;
+4 &#x447;&#x430;&#x441;&#x430;
 </div>
 </div>
 </div>
 <div class="card-body d-flex flex-column">
 <div class="d-flex">
-<h5 class="mr-1">PHP: &#x412;&#x432;&#x435;&#x434;&#x435;&#x43D;&#x438;&#x435; &#x432; &#x41E;&#x41E;&#x41F;</h5>
-<div class="ml-auto">
-<span class="badge badge-light">PRO</span>
+<h5 class="mr-1">&#x41A;&#x43B;&#x44E;&#x447;&#x435;&#x432;&#x44B;&#x435; &#x430;&#x441;&#x43F;&#x435;&#x43A;&#x442;&#x44B; &#x440;&#x430;&#x437;&#x440;&#x430;&#x431;&#x43E;&#x442;&#x43A;&#x438; &#x43D;&#x430; Python</h5>
 </div>
-</div>
-<div class="text-muted mb-2">PHP - &#x43E;&#x431;&#x44A;&#x435;&#x43A;&#x442;&#x43D;&#x43E;-&#x43E;&#x440;&#x438;&#x435;&#x43D;&#x442;&#x438;&#x440;&#x43E;&#x432;&#x430;&#x43D;&#x43D;&#x44B;&#x439; &#x44F;&#x437;&#x44B;&#x43A; &#x43F;&#x440;&#x43E;&#x433;&#x440;&#x430;&#x43C;&#x43C;&#x438;&#x440;&#x43E;&#x432;&#x430;&#x43D;&#x438;&#x44F;, &#x438;&#x441;&#x43F;&#x43E;&#x43B;&#x44C;&#x437;&#x443;...</div>
+<div class="text-muted mb-2">&#x42D;&#x442;&#x43E;&#x442; &#x43E;&#x431;&#x437;&#x43E;&#x440;&#x43D;&#x44B;&#x439; &#x43A;&#x443;&#x440;&#x441; &#x437;&#x430;&#x442;&#x440;&#x430;&#x433;&#x438;&#x432;&#x430;&#x435;&#x442; &#x43E;&#x441;&#x43D;&#x43E;&#x432;&#x43D;&#x44B;&#x435; &#x430;&#x441;&#x43F;&#x435;&#x43A;&#x442;&#x44B; &#x441;&#x43E;&#x432;&#x440;&#x435;&#x43C;&#x435;&#x43D;&#x43D;&#x43E;&#x439; &#x440;&#x430;...</div>
 <div class="mt-auto d-flex">
 <div class="ml-auto">
-<a class="x-link-without-decoration stretched-link" href="/courses/php-introduction-to-oop">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
-</a></div>
-</div>
-</div>
-</div>
-
-</div>
-<div class="mb-5 col-lg-4 col-sm-6 col-12">
-<div class="card x-shadow-fade-in-lg h-100">
-<div class="bg-success card-header d-flex flex-column py-1 text-white">
-<div class="d-flex">
-<i class="fa-2x fa-js fab"></i>
-<div class="ml-auto my-auto">
-43 &#x447;&#x430;&#x441;&#x430;
-</div>
-</div>
-</div>
-<div class="card-body d-flex flex-column">
-<div class="d-flex">
-<h5 class="mr-1">JS: &#x41C;&#x430;&#x441;&#x441;&#x438;&#x432;&#x44B;</h5>
-<div class="ml-auto">
-<span class="badge badge-light">PRO</span>
-</div>
-</div>
-<div class="text-muted mb-2">&#x41C;&#x430;&#x441;&#x441;&#x438;&#x432;&#x44B; &#x2014; &#x43E;&#x441;&#x43D;&#x43E;&#x432;&#x43D;&#x43E;&#x439; &#x441;&#x43F;&#x43E;&#x441;&#x43E;&#x431; &#x43E;&#x431;&#x44A;&#x435;&#x434;&#x438;&#x43D;&#x44F;&#x442;&#x44C; &#x434;&#x430;&#x43D;&#x43D;&#x44B;&#x435; &#x432; &#x43A;&#x43E;&#x43B;&#x43B;&#x435;&#x43A;&#x446;&#x438;&#x438;. &#x412;&#x44B;&#x432;&#x43E;&#x434;...</div>
-<div class="mt-auto d-flex">
-<div class="ml-auto">
-<a class="x-link-without-decoration stretched-link" href="/courses/js-arrays">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
-</a></div>
-</div>
-</div>
-</div>
-
-</div>
-<div class="mb-5 col-lg-4 col-sm-6 col-12">
-<div class="card x-shadow-fade-in-lg h-100">
-<div class="bg-success card-header d-flex flex-column py-1 text-white">
-<div class="d-flex">
-<i class="fa-2x fa-js fab"></i>
-<div class="ml-auto my-auto">
-45 &#x447;&#x430;&#x441;&#x43E;&#x432;
-</div>
-</div>
-</div>
-<div class="card-body d-flex flex-column">
-<div class="d-flex">
-<h5 class="mr-1">&#x412;&#x432;&#x435;&#x434;&#x435;&#x43D;&#x438;&#x435; &#x432; &#x43F;&#x440;&#x43E;&#x433;&#x440;&#x430;&#x43C;&#x43C;&#x438;&#x440;&#x43E;&#x432;&#x430;&#x43D;&#x438;&#x435;</h5>
-</div>
-<div class="text-muted mb-2">&#x427;&#x442;&#x43E; &#x442;&#x430;&#x43A;&#x43E;&#x435; &#x43A;&#x43E;&#x43C;&#x43F;&#x44C;&#x44E;&#x442;&#x435;&#x440; &#x43D;&#x430; &#x441;&#x430;&#x43C;&#x43E;&#x43C; &#x434;&#x435;&#x43B;&#x435;? &#x41F;&#x43E;&#x43D;&#x438;&#x43C;&#x430;&#x435;&#x442; &#x43B;&#x438; &#x43E;&#x43D; &#x44F;&#x437;&#x44B;&#x43A;&#x438; &#x43F;&#x440;&#x43E;&#x433;&#x440;&#x430;...</div>
-<div class="mt-auto d-flex">
-<div class="ml-auto">
-<a class="x-link-without-decoration stretched-link" href="/courses/introduction_to_programming">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
-</a></div>
-</div>
-</div>
-</div>
-
-</div>
-<div class="mb-5 col-lg-4 col-sm-6 col-12">
-<div class="card x-shadow-fade-in-lg h-100">
-<div class="bg-success card-header d-flex flex-column py-1 text-white">
-<div class="d-flex">
-<i class="fa-2x fa-code fal"></i>
-<div class="ml-auto my-auto">
-6 &#x447;&#x430;&#x441;&#x43E;&#x432;
-</div>
-</div>
-</div>
-<div class="card-body d-flex flex-column">
-<div class="d-flex">
-<h5 class="mr-1">Java &#x434;&#x43B;&#x44F; &#x432;&#x435;&#x431;-&#x441;&#x435;&#x440;&#x432;&#x438;&#x441;&#x43E;&#x432; Amazon (AWS)</h5>
-<div class="ml-auto">
-<span class="badge badge-light">PRO</span>
-</div>
-</div>
-<div class="text-muted mb-2">&#x412;&#x432;&#x43E;&#x434;&#x43D;&#x44B;&#x439; &#x43A;&#x443;&#x440;&#x441; &#x43F;&#x43E; Amazon Web Services, &#x43D;&#x430; &#x43A;&#x43E;&#x442;&#x43E;&#x440;&#x43E;&#x43C; &#x43C;&#x44B; &#x441; &#x43D;&#x443;&#x43B;&#x44F; &#x440;&#x430;&#x441;&#x441;...</div>
-<div class="mt-auto d-flex">
-<div class="ml-auto">
-<a class="x-link-without-decoration stretched-link" href="/courses/aws">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
-</a></div>
-</div>
-</div>
-</div>
-
-</div>
-<div class="mb-5 col-lg-4 col-sm-6 col-12">
-<div class="card x-shadow-fade-in-lg h-100">
-<div class="bg-success card-header d-flex flex-column py-1 text-white">
-<div class="d-flex">
-<i class="fa-2x fa-js fab"></i>
-<div class="ml-auto my-auto">
-15 &#x447;&#x430;&#x441;&#x43E;&#x432;
-</div>
-</div>
-</div>
-<div class="card-body d-flex flex-column">
-<div class="d-flex">
-<h5 class="mr-1">JS: HTTP Server</h5>
-<div class="ml-auto">
-<span class="badge badge-light">PRO</span>
-</div>
-</div>
-<div class="text-muted mb-2">&#x42D;&#x442;&#x43E;&#x442; &#x43A;&#x443;&#x440;&#x441; &#x43F;&#x43E;&#x441;&#x432;&#x44F;&#x449;&#x435;&#x43D; &#x437;&#x43D;&#x430;&#x43A;&#x43E;&#x43C;&#x441;&#x442;&#x432;&#x443; &#x441; &#x43F;&#x440;&#x438;&#x43D;&#x446;&#x438;&#x43F;&#x430;&#x43C;&#x438; &#x440;&#x430;&#x437;&#x440;&#x430;&#x431;&#x43E;&#x442;&#x43A;&#x438; &#x43A;&#x43B;&#x438;&#x435;&#x43D;&#x442;-&#x441;...</div>
-<div class="mt-auto d-flex">
-<div class="ml-auto">
-<a class="x-link-without-decoration stretched-link" href="/courses/js-http-server">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
-</a></div>
-</div>
-</div>
-</div>
-
-</div>
-<div class="mb-5 col-lg-4 col-sm-6 col-12">
-<div class="card x-shadow-fade-in-lg h-100">
-<div class="bg-success card-header d-flex flex-column py-1 text-white">
-<div class="d-flex">
-<i class="fa-2x fa-code fal"></i>
-<div class="ml-auto my-auto">
-2 &#x447;&#x430;&#x441;&#x430;
-</div>
-</div>
-</div>
-<div class="card-body d-flex flex-column">
-<div class="d-flex">
-<h5 class="mr-1">Maven - &#x430;&#x432;&#x442;&#x43E;&#x43C;&#x430;&#x442;&#x438;&#x437;&#x430;&#x446;&#x438;&#x44F; &#x441;&#x431;&#x43E;&#x440;&#x43A;&#x438; &#x43F;&#x440;&#x43E;&#x435;&#x43A;&#x442;&#x43E;&#x432;.</h5>
-<div class="ml-auto">
-<span class="badge badge-light">PRO</span>
-</div>
-</div>
-<div class="text-muted mb-2">&#x42D;&#x442;&#x43E;&#x442; &#x43A;&#x443;&#x440;&#x441; &#x43D;&#x435;&#x43E;&#x431;&#x445;&#x43E;&#x434;&#x438;&#x43C; &#x434;&#x43B;&#x44F; &#x442;&#x435;&#x445;, &#x43A;&#x442;&#x43E; &#x445;&#x43E;&#x447;&#x435;&#x442; &#x438;&#x437;&#x443;&#x447;&#x438;&#x442;&#x44C; &#x438;&#x43D;&#x441;&#x442;&#x440;&#x443;&#x43C;&#x435;&#x43D;&#x442; &#x430;&#x432;&#x442;&#x43E;...</div>
-<div class="mt-auto d-flex">
-<div class="ml-auto">
-<a class="x-link-without-decoration stretched-link" href="/courses/maven">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
-</a></div>
-</div>
-</div>
-</div>
-
-</div>
-<div class="mb-5 col-lg-4 col-sm-6 col-12">
-<div class="card x-shadow-fade-in-lg h-100">
-<div class="bg-success card-header d-flex flex-column py-1 text-white">
-<div class="d-flex">
-<i class="fa-2x fa-code fal"></i>
-<div class="ml-auto my-auto">
-24 &#x447;&#x430;&#x441;&#x430;
-</div>
-</div>
-</div>
-<div class="card-body d-flex flex-column">
-<div class="d-flex">
-<h5 class="mr-1">Java Generics</h5>
-<div class="ml-auto">
-<span class="badge badge-light">PRO</span>
-</div>
-</div>
-<div class="text-muted mb-2">&#x41E;&#x431;&#x43E;&#x431;&#x449;&#x451;&#x43D;&#x43D;&#x44B;&#x435; &#x442;&#x438;&#x43F;&#x44B; &#x44F;&#x432;&#x43B;&#x44F;&#x44E;&#x442;&#x441;&#x44F; &#x437;&#x43D;&#x430;&#x447;&#x438;&#x442;&#x435;&#x43B;&#x44C;&#x43D;&#x44B;&#x43C; &#x443;&#x43B;&#x443;&#x447;&#x448;&#x435;&#x43D;&#x438;&#x435;&#x43C; &#x43D;&#x435;&#x437;&#x430;&#x432;&#x438;&#x441;&#x438;&#x43C;&#x43E;&#x441;&#x442;&#x438;...</div>
-<div class="mt-auto d-flex">
-<div class="ml-auto">
-<a class="x-link-without-decoration stretched-link" href="/courses/java_generics">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
+<a class="x-link-without-decoration stretched-link" href="/courses/python-development-course">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
 </a></div>
 </div>
 </div>
@@ -1270,21 +1138,21 @@ Hexlet
 <div class="d-flex">
 <i class="fa-2x fa-php fab"></i>
 <div class="ml-auto my-auto">
-47 &#x447;&#x430;&#x441;&#x43E;&#x432;
+31 &#x447;&#x430;&#x441;
 </div>
 </div>
 </div>
 <div class="card-body d-flex flex-column">
 <div class="d-flex">
-<h5 class="mr-1">&#x412;&#x435;&#x431;-&#x440;&#x430;&#x437;&#x440;&#x430;&#x431;&#x43E;&#x442;&#x43A;&#x430; &#x43D;&#x430; PHP</h5>
+<h5 class="mr-1">PHP: &#x41F;&#x43E;&#x433;&#x440;&#x443;&#x436;&#x430;&#x44F;&#x441;&#x44C; &#x432; &#x43A;&#x43B;&#x430;&#x441;&#x441;&#x44B;</h5>
 <div class="ml-auto">
 <span class="badge badge-light">PRO</span>
 </div>
 </div>
-<div class="text-muted mb-2">&#x412; &#x43A;&#x443;&#x440;&#x441;&#x435; &#x440;&#x430;&#x437;&#x431;&#x438;&#x440;&#x430;&#x435;&#x442;&#x441;&#x44F; &#x431;&#x43E;&#x43B;&#x44C;&#x448;&#x430;&#x44F; &#x447;&#x430;&#x441;&#x442;&#x44C; &#x43A;&#x43B;&#x44E;&#x447;&#x435;&#x432;&#x44B;&#x445; &#x442;&#x435;&#x43C; &#x432;&#x435;&#x431;-&#x440;&#x430;&#x437;&#x440;&#x430;&#x431;&#x43E;&#x442;&#x43A;&#x438;,...</div>
+<div class="text-muted mb-2">&#x41D;&#x430;&#x441;&#x43B;&#x435;&#x434;&#x43E;&#x432;&#x430;&#x43D;&#x438;&#x435; &#x2013; &#x43E;&#x434;&#x43D;&#x430; &#x438;&#x437; &#x441;&#x430;&#x43C;&#x44B;&#x445; &#x441;&#x43B;&#x43E;&#x436;&#x43D;&#x44B;&#x445; &#x43A;&#x43E;&#x43D;&#x446;&#x435;&#x43F;&#x446;&#x438;&#x439; &#x432; &#x43E;&#x431;&#x44A;&#x435;&#x43A;&#x442;&#x43D;&#x43E;-&#x43E;&#x440;&#x438;&#x435;...</div>
 <div class="mt-auto d-flex">
 <div class="ml-auto">
-<a class="x-link-without-decoration stretched-link" href="/courses/php-mvc">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
+<a class="x-link-without-decoration stretched-link" href="/courses/php-classes">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
 </a></div>
 </div>
 </div>
@@ -1322,404 +1190,6 @@ Hexlet
 <div class="card x-shadow-fade-in-lg h-100">
 <div class="bg-success card-header d-flex flex-column py-1 text-white">
 <div class="d-flex">
-<i class="fa-2x fa-python fab"></i>
-<div class="ml-auto my-auto">
-15 &#x447;&#x430;&#x441;&#x43E;&#x432;
-</div>
-</div>
-</div>
-<div class="card-body d-flex flex-column">
-<div class="d-flex">
-<h5 class="mr-1">Python: &#x410;&#x431;&#x441;&#x442;&#x440;&#x430;&#x43A;&#x446;&#x438;&#x44F; &#x441; &#x43F;&#x43E;&#x43C;&#x43E;&#x449;&#x44C;&#x44E; &#x434;&#x430;&#x43D;&#x43D;&#x44B;&#x445;</h5>
-<div class="ml-auto">
-<span class="badge badge-light">PRO</span>
-</div>
-</div>
-<div class="text-muted mb-2">&#x41F;&#x440;&#x43E;&#x433;&#x440;&#x430;&#x43C;&#x43C;&#x438;&#x440;&#x43E;&#x432;&#x430;&#x43D;&#x438;&#x435; &#x43D;&#x435; &#x43E;&#x433;&#x440;&#x430;&#x43D;&#x438;&#x447;&#x438;&#x432;&#x430;&#x435;&#x442;&#x441;&#x44F; &#x43E;&#x434;&#x43D;&#x438;&#x43C;&#x438; &#x43B;&#x438;&#x448;&#x44C; &#x432;&#x44B;&#x447;&#x438;&#x441;&#x43B;&#x435;&#x43D;&#x438;&#x44F;&#x43C;&#x438;. &#x41B;...</div>
-<div class="mt-auto d-flex">
-<div class="ml-auto">
-<a class="x-link-without-decoration stretched-link" href="/courses/python-data-abstraction">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
-</a></div>
-</div>
-</div>
-</div>
-
-</div>
-<div class="mb-5 col-lg-4 col-sm-6 col-12">
-<div class="card x-shadow-fade-in-lg h-100">
-<div class="bg-success card-header d-flex flex-column py-1 text-white">
-<div class="d-flex">
-<i class="fa-2x fa-js fab"></i>
-<div class="ml-auto my-auto">
-36 &#x447;&#x430;&#x441;&#x43E;&#x432;
-</div>
-</div>
-</div>
-<div class="card-body d-flex flex-column">
-<div class="d-flex">
-<h5 class="mr-1">JS: &#x41F;&#x43E;&#x43B;&#x438;&#x43C;&#x43E;&#x440;&#x444;&#x438;&#x437;&#x43C;</h5>
-<div class="ml-auto">
-<span class="badge badge-light">PRO</span>
-</div>
-</div>
-<div class="text-muted mb-2">&#x41F;&#x43E;&#x43B;&#x438;&#x43C;&#x43E;&#x440;&#x444;&#x438;&#x437;&#x43C; - &#x43F;&#x43E;&#x436;&#x430;&#x43B;&#x443;&#x439;, &#x433;&#x43B;&#x430;&#x432;&#x43D;&#x430;&#x44F; &#x43E;&#x442;&#x43B;&#x438;&#x447;&#x438;&#x442;&#x435;&#x43B;&#x44C;&#x43D;&#x430;&#x44F; &#x447;&#x435;&#x440;&#x442;&#x430; &#x441;&#x43E;&#x432;&#x440;&#x435;&#x43C;&#x435;&#x43D;&#x43D;&#x43E;&#x433;...</div>
-<div class="mt-auto d-flex">
-<div class="ml-auto">
-<a class="x-link-without-decoration stretched-link" href="/courses/js-polymorphism">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
-</a></div>
-</div>
-</div>
-</div>
-
-</div>
-<div class="mb-5 col-lg-4 col-sm-6 col-12">
-<div class="card x-shadow-fade-in-lg h-100">
-<div class="bg-success card-header d-flex flex-column py-1 text-white">
-<div class="d-flex">
-<i class="fa-2x fa-code fal"></i>
-<div class="ml-auto my-auto">
-19 &#x447;&#x430;&#x441;&#x43E;&#x432;
-</div>
-</div>
-</div>
-<div class="card-body d-flex flex-column">
-<div class="d-flex">
-<h5 class="mr-1">&#x412;&#x432;&#x435;&#x434;&#x435;&#x43D;&#x438;&#x435; &#x432; &#x421;&#x438;</h5>
-</div>
-<div class="text-muted mb-2">&#x41E;&#x434;&#x438;&#x43D; &#x438;&#x437; &#x430;&#x432;&#x442;&#x43E;&#x440;&#x43E;&#x432; &#x43A;&#x43B;&#x430;&#x441;&#x441;&#x438;&#x447;&#x435;&#x441;&#x43A;&#x43E;&#x433;&#x43E; &#x43F;&#x43E;&#x441;&#x43E;&#x431;&#x438;&#x44F; &#x43F;&#x43E; &#x43F;&#x440;&#x43E;&#x433;&#x440;&#x430;&#x43C;&#x43C;&#x438;&#x440;&#x43E;&#x432;&#x430;&#x43D;&#x438;&#x44E; &#x43D;&#x430; &#x421;...</div>
-<div class="mt-auto d-flex">
-<div class="ml-auto">
-<a class="x-link-without-decoration stretched-link" href="/courses/introduction_to_c">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
-</a></div>
-</div>
-</div>
-</div>
-
-</div>
-<div class="mb-5 col-lg-4 col-sm-6 col-12">
-<div class="card x-shadow-fade-in-lg h-100">
-<div class="bg-success card-header d-flex flex-column py-1 text-white">
-<div class="d-flex">
-<i class="fa-2x fa-code fal"></i>
-<div class="ml-auto my-auto">
-6 &#x447;&#x430;&#x441;&#x43E;&#x432;
-</div>
-</div>
-</div>
-<div class="card-body d-flex flex-column">
-<div class="d-flex">
-<h5 class="mr-1">&#x41E;&#x43F;&#x435;&#x440;&#x430;&#x446;&#x438;&#x43E;&#x43D;&#x43D;&#x44B;&#x435; &#x441;&#x438;&#x441;&#x442;&#x435;&#x43C;&#x44B;</h5>
-</div>
-<div class="text-muted mb-2">&#x41A;&#x443;&#x440;&#x441; &#x43F;&#x43E;&#x441;&#x432;&#x44F;&#x449;&#x435;&#x43D; &#x433;&#x43B;&#x430;&#x432;&#x43D;&#x44B;&#x43C; &#x43F;&#x440;&#x438;&#x43D;&#x446;&#x438;&#x43F;&#x430;&#x43C;, &#x43B;&#x435;&#x436;&#x430;&#x449;&#x438;&#x43C; &#x432; &#x43E;&#x441;&#x43D;&#x43E;&#x432;&#x435; &#x434;&#x438;&#x437;&#x430;&#x439;&#x43D;&#x430; &#x43E;&#x43F;&#x435;&#x440;...</div>
-<div class="mt-auto d-flex">
-<div class="ml-auto">
-<a class="x-link-without-decoration stretched-link" href="/courses/operating_systems">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
-</a></div>
-</div>
-</div>
-</div>
-
-</div>
-<div class="mb-5 col-lg-4 col-sm-6 col-12">
-<div class="card x-shadow-fade-in-lg h-100">
-<div class="bg-success card-header d-flex flex-column py-1 text-white">
-<div class="d-flex">
-<i class="fa-2x fa-php fab"></i>
-<div class="ml-auto my-auto">
-19 &#x447;&#x430;&#x441;&#x43E;&#x432;
-</div>
-</div>
-</div>
-<div class="card-body d-flex flex-column">
-<div class="d-flex">
-<h5 class="mr-1">PHP: &#x410;&#x441;&#x441;&#x43E;&#x446;&#x438;&#x430;&#x442;&#x438;&#x432;&#x43D;&#x44B;&#x435; &#x43C;&#x430;&#x441;&#x441;&#x438;&#x432;&#x44B;</h5>
-<div class="ml-auto">
-<span class="badge badge-light">PRO</span>
-</div>
-</div>
-<div class="text-muted mb-2">&#x410;&#x441;&#x441;&#x43E;&#x446;&#x438;&#x430;&#x442;&#x438;&#x432;&#x43D;&#x44B;&#x439; &#x43C;&#x430;&#x441;&#x441;&#x438;&#x432; &#x2014; &#x430;&#x431;&#x441;&#x442;&#x440;&#x430;&#x43A;&#x442;&#x43D;&#x44B;&#x439; &#x442;&#x438;&#x43F; &#x434;&#x430;&#x43D;&#x43D;&#x44B;&#x445;, &#x43A;&#x43E;&#x43B;&#x43B;&#x435;&#x43A;&#x446;&#x438;&#x44F; &#x43F;&#x430;&#x440; &#xAB;...</div>
-<div class="mt-auto d-flex">
-<div class="ml-auto">
-<a class="x-link-without-decoration stretched-link" href="/courses/php-associative-arrays">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
-</a></div>
-</div>
-</div>
-</div>
-
-</div>
-<div class="mb-5 col-lg-4 col-sm-6 col-12">
-<div class="card x-shadow-fade-in-lg h-100">
-<div class="bg-success card-header d-flex flex-column py-1 text-white">
-<div class="d-flex">
-<i class="fa-2x fa-js fab"></i>
-<div class="ml-auto my-auto">
-27 &#x447;&#x430;&#x441;&#x43E;&#x432;
-</div>
-</div>
-</div>
-<div class="card-body d-flex flex-column">
-<div class="d-flex">
-<h5 class="mr-1">JS: &#x41A;&#x43E;&#x43B;&#x43B;&#x435;&#x43A;&#x446;&#x438;&#x438;</h5>
-<div class="ml-auto">
-<span class="badge badge-light">PRO</span>
-</div>
-</div>
-<div class="text-muted mb-2">&#x42D;&#x442;&#x43E;&#x442; &#x43A;&#x443;&#x440;&#x441; &#x43F;&#x43E;&#x441;&#x432;&#x44F;&#x449;&#x435;&#x43D; &#x43A;&#x43E;&#x43D;&#x43A;&#x440;&#x435;&#x442;&#x43D;&#x44B;&#x43C; &#x43F;&#x440;&#x438;&#x435;&#x43C;&#x430;&#x43C; &#x432; &#x440;&#x430;&#x431;&#x43E;&#x442;&#x435; &#x441; &#x43A;&#x43E;&#x43B;&#x43B;&#x435;&#x43A;&#x446;&#x438;&#x44F;&#x43C;&#x438;, ...</div>
-<div class="mt-auto d-flex">
-<div class="ml-auto">
-<a class="x-link-without-decoration stretched-link" href="/courses/js_collections">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
-</a></div>
-</div>
-</div>
-</div>
-
-</div>
-<div class="mb-5 col-lg-4 col-sm-6 col-12">
-<div class="card x-shadow-fade-in-lg h-100">
-<div class="bg-success card-header d-flex flex-column py-1 text-white">
-<div class="d-flex">
-<i class="fa-2x fa-js fab"></i>
-<div class="ml-auto my-auto">
-38 &#x447;&#x430;&#x441;&#x43E;&#x432;
-</div>
-</div>
-</div>
-<div class="card-body d-flex flex-column">
-<div class="d-flex">
-<h5 class="mr-1">JS: &#x410;&#x441;&#x438;&#x43D;&#x445;&#x440;&#x43E;&#x43D;&#x43D;&#x43E;&#x435; &#x43F;&#x440;&#x43E;&#x433;&#x440;&#x430;&#x43C;&#x43C;&#x438;&#x440;&#x43E;&#x432;&#x430;&#x43D;&#x438;&#x435;</h5>
-<div class="ml-auto">
-<span class="badge badge-light">PRO</span>
-</div>
-</div>
-<div class="text-muted mb-2">&#x41A;&#x443;&#x440;&#x441; &#x43F;&#x43E;&#x441;&#x432;&#x44F;&#x449;&#x435;&#x43D; &#x437;&#x43D;&#x430;&#x43A;&#x43E;&#x43C;&#x441;&#x442;&#x432;&#x443; &#x441; &#x430;&#x441;&#x438;&#x43D;&#x445;&#x440;&#x43E;&#x43D;&#x43D;&#x43E;&#x439; &#x43C;&#x43E;&#x434;&#x435;&#x43B;&#x44C;&#x44E; &#x43F;&#x440;&#x43E;&#x433;&#x440;&#x430;&#x43C;&#x43C;&#x438;&#x440;&#x43E;&#x432;&#x430;&#x43D;&#x438;...</div>
-<div class="mt-auto d-flex">
-<div class="ml-auto">
-<a class="x-link-without-decoration stretched-link" href="/courses/js-asynchronous-programming">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
-</a></div>
-</div>
-</div>
-</div>
-
-</div>
-<div class="mb-5 col-lg-4 col-sm-6 col-12">
-<div class="card x-shadow-fade-in-lg h-100">
-<div class="bg-success card-header d-flex flex-column py-1 text-white">
-<div class="d-flex">
-<i class="fa-2x fa-code fal"></i>
-<div class="ml-auto my-auto">
-34 &#x447;&#x430;&#x441;&#x430;
-</div>
-</div>
-</div>
-<div class="card-body d-flex flex-column">
-<div class="d-flex">
-<h5 class="mr-1">&#x412;&#x432;&#x435;&#x434;&#x435;&#x43D;&#x438;&#x435; &#x432; Ruby</h5>
-</div>
-<div class="text-muted mb-2">Ruby &#x2013; &#x43F;&#x43E;&#x43F;&#x443;&#x43B;&#x44F;&#x440;&#x43D;&#x44B;&#x439; &#x434;&#x438;&#x43D;&#x430;&#x43C;&#x438;&#x447;&#x435;&#x441;&#x43A;&#x438;&#x439; &#x44F;&#x437;&#x44B;&#x43A;, &#x43D;&#x430; &#x43A;&#x43E;&#x442;&#x43E;&#x440;&#x43E;&#x43C; &#x43D;&#x430;&#x43F;&#x438;&#x441;&#x430;&#x43D; &#x43B;&#x435;&#x433;&#x435;&#x43D;&#x434;...</div>
-<div class="mt-auto d-flex">
-<div class="ml-auto">
-<a class="x-link-without-decoration stretched-link" href="/courses/ruby">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
-</a></div>
-</div>
-</div>
-</div>
-
-</div>
-<div class="mb-5 col-lg-4 col-sm-6 col-12">
-<div class="card x-shadow-fade-in-lg h-100">
-<div class="bg-success card-header d-flex flex-column py-1 text-white">
-<div class="d-flex">
-<i class="fa-2x fa-js fab"></i>
-<div class="ml-auto my-auto">
-22 &#x447;&#x430;&#x441;&#x430;
-</div>
-</div>
-</div>
-<div class="card-body d-flex flex-column">
-<div class="d-flex">
-<h5 class="mr-1">JS: &#x41F;&#x440;&#x43E;&#x442;&#x43E;&#x442;&#x438;&#x43F;&#x44B;
-</h5>
-<div class="ml-auto">
-<span class="badge badge-light">PRO</span>
-</div>
-</div>
-<div class="text-muted mb-2">&#x42D;&#x442;&#x43E;&#x442; &#x43A;&#x443;&#x440;&#x441; &#x43F;&#x43E;&#x441;&#x432;&#x44F;&#x449;&#x451;&#x43D; &#x440;&#x435;&#x430;&#x43B;&#x438;&#x437;&#x430;&#x446;&#x438;&#x438; &#x43E;&#x431;&#x44A;&#x435;&#x43A;&#x442;&#x43D;&#x43E;-&#x43E;&#x440;&#x438;&#x435;&#x43D;&#x442;&#x438;&#x440;&#x43E;&#x432;&#x430;&#x43D;&#x43D;&#x43E;&#x433;&#x43E; &#x43F;&#x440;&#x43E;&#x433;&#x440;&#x430;...</div>
-<div class="mt-auto d-flex">
-<div class="ml-auto">
-<a class="x-link-without-decoration stretched-link" href="/courses/js_prototypes">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
-</a></div>
-</div>
-</div>
-</div>
-
-</div>
-<div class="mb-5 col-lg-4 col-sm-6 col-12">
-<div class="card x-shadow-fade-in-lg h-100">
-<div class="bg-success card-header d-flex flex-column py-1 text-white">
-<div class="d-flex">
-<i class="fa-2x fa-php fab"></i>
-<div class="ml-auto my-auto">
-42 &#x447;&#x430;&#x441;&#x430;
-</div>
-</div>
-</div>
-<div class="card-body d-flex flex-column">
-<div class="d-flex">
-<h5 class="mr-1">PHP: Laravel</h5>
-<div class="ml-auto">
-<span class="badge badge-light">PRO</span>
-</div>
-</div>
-<div class="text-muted mb-2">&#x41B;&#x430;&#x440;&#x430;&#x432;&#x435;&#x43B; &#x2013;&#xA0;&#x43F;&#x43E;&#x43F;&#x443;&#x43B;&#x44F;&#x440;&#x43D;&#x44B;&#x439; &#x432;&#x435;&#x431;-&#x444;&#x440;&#x435;&#x439;&#x43C;&#x432;&#x43E;&#x440;&#x43A; &#x43D;&#x430; PHP, &#x43F;&#x440;&#x435;&#x434;&#x43D;&#x430;&#x437;&#x43D;&#x430;&#x447;&#x435;&#x43D;&#x43D;&#x44B;&#x439; &#x434;&#x43B;&#x44F;...</div>
-<div class="mt-auto d-flex">
-<div class="ml-auto">
-<a class="x-link-without-decoration stretched-link" href="/courses/php-laravel">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
-</a></div>
-</div>
-</div>
-</div>
-
-</div>
-<div class="mb-5 col-lg-4 col-sm-6 col-12">
-<div class="card x-shadow-fade-in-lg h-100">
-<div class="bg-success card-header d-flex flex-column py-1 text-white">
-<div class="d-flex">
-<i class="fa-2x fa-js fab"></i>
-<div class="ml-auto my-auto">
-15 &#x447;&#x430;&#x441;&#x43E;&#x432;
-</div>
-</div>
-</div>
-<div class="card-body d-flex flex-column">
-<div class="d-flex">
-<h5 class="mr-1">JS: &#x410;&#x431;&#x441;&#x442;&#x440;&#x430;&#x43A;&#x446;&#x438;&#x44F; &#x441; &#x43F;&#x43E;&#x43C;&#x43E;&#x449;&#x44C;&#x44E; &#x434;&#x430;&#x43D;&#x43D;&#x44B;&#x445;</h5>
-<div class="ml-auto">
-<span class="badge badge-light">PRO</span>
-</div>
-</div>
-<div class="text-muted mb-2">&#x41F;&#x440;&#x43E;&#x433;&#x440;&#x430;&#x43C;&#x43C;&#x438;&#x440;&#x43E;&#x432;&#x430;&#x43D;&#x438;&#x435; &#x43D;&#x435; &#x43E;&#x433;&#x440;&#x430;&#x43D;&#x438;&#x447;&#x438;&#x432;&#x430;&#x435;&#x442;&#x441;&#x44F; &#x43E;&#x434;&#x43D;&#x438;&#x43C;&#x438; &#x43B;&#x438;&#x448;&#x44C; &#x432;&#x44B;&#x447;&#x438;&#x441;&#x43B;&#x435;&#x43D;&#x438;&#x44F;&#x43C;&#x438;. &#x41B;...</div>
-<div class="mt-auto d-flex">
-<div class="ml-auto">
-<a class="x-link-without-decoration stretched-link" href="/courses/js-data-abstraction">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
-</a></div>
-</div>
-</div>
-</div>
-
-</div>
-<div class="mb-5 col-lg-4 col-sm-6 col-12">
-<div class="card x-shadow-fade-in-lg h-100">
-<div class="bg-success card-header d-flex flex-column py-1 text-white">
-<div class="d-flex">
-<i class="fa-2x fa-python fab"></i>
-<div class="ml-auto my-auto">
-3 &#x447;&#x430;&#x441;&#x430;
-</div>
-</div>
-</div>
-<div class="card-body d-flex flex-column">
-<div class="d-flex">
-<h5 class="mr-1">Python: &#x41E;&#x441;&#x43D;&#x43E;&#x432;&#x44B; &#x442;&#x435;&#x43A;&#x441;&#x442;&#x43E;&#x432;&#x43E;&#x433;&#x43E; &#x432;&#x432;&#x43E;&#x434;&#x430;-&#x432;&#x44B;&#x432;&#x43E;&#x434;&#x430;</h5>
-<div class="ml-auto">
-<span class="badge badge-light">PRO</span>
-</div>
-</div>
-<div class="text-muted mb-2">&#x41F;&#x440;&#x430;&#x43A;&#x442;&#x438;&#x447;&#x435;&#x441;&#x43A;&#x438; &#x43B;&#x44E;&#x431;&#x430;&#x44F; &#x43F;&#x440;&#x43E;&#x433;&#x440;&#x430;&#x43C;&#x43C;&#x430; &#x440;&#x430;&#x431;&#x43E;&#x442;&#x430;&#x435;&#x442; &#x441; &#x444;&#x430;&#x439;&#x43B;&#x430;&#x43C;&#x438;. &#x42D;&#x442;&#x43E; &#x43C;&#x43E;&#x433;&#x443;&#x442; &#x431;&#x44B;&#x442;&#x44C;...</div>
-<div class="mt-auto d-flex">
-<div class="ml-auto">
-<a class="x-link-without-decoration stretched-link" href="/courses/python-io">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
-</a></div>
-</div>
-</div>
-</div>
-
-</div>
-<div class="mb-5 col-lg-4 col-sm-6 col-12">
-<div class="card x-shadow-fade-in-lg h-100">
-<div class="bg-success card-header d-flex flex-column py-1 text-white">
-<div class="d-flex">
-<i class="fa-2x fa-js fab"></i>
-<div class="ml-auto my-auto">
-22 &#x447;&#x430;&#x441;&#x430;
-</div>
-</div>
-</div>
-<div class="card-body d-flex flex-column">
-<div class="d-flex">
-<h5 class="mr-1">JS: &#x41F;&#x440;&#x43E;&#x433;&#x440;&#x430;&#x43C;&#x43C;&#x438;&#x440;&#x43E;&#x432;&#x430;&#x43D;&#x438;&#x435;, &#x443;&#x43F;&#x440;&#x430;&#x432;&#x43B;&#x44F;&#x435;&#x43C;&#x43E;&#x435; &#x434;&#x430;&#x43D;&#x43D;&#x44B;&#x43C;&#x438;
-</h5>
-<div class="ml-auto">
-<span class="badge badge-light">PRO</span>
-</div>
-</div>
-<div class="text-muted mb-2">&#x412; &#x442;&#x435;&#x447;&#x435;&#x43D;&#x438;&#x435; &#x44D;&#x442;&#x43E;&#x433;&#x43E; &#x43A;&#x443;&#x440;&#x441;&#x430; &#x43C;&#x44B; &#x431;&#x443;&#x434;&#x435;&#x43C; &#x43F;&#x438;&#x441;&#x430;&#x442;&#x44C; &#x441;&#x43E;&#x431;&#x441;&#x442;&#x432;&#x435;&#x43D;&#x43D;&#x443;&#x44E; &#x43A;&#x430;&#x440;&#x442;&#x43E;&#x447;&#x43D;&#x443;&#x44E; &#x438;&#x433;...</div>
-<div class="mt-auto d-flex">
-<div class="ml-auto">
-<a class="x-link-without-decoration stretched-link" href="/courses/ddp">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
-</a></div>
-</div>
-</div>
-</div>
-
-</div>
-<div class="mb-5 col-lg-4 col-sm-6 col-12">
-<div class="card x-shadow-fade-in-lg h-100">
-<div class="bg-success card-header d-flex flex-column py-1 text-white">
-<div class="d-flex">
-<i class="fa-2x fa-php fab"></i>
-<div class="ml-auto my-auto">
-35 &#x447;&#x430;&#x441;&#x43E;&#x432;
-</div>
-</div>
-</div>
-<div class="card-body d-flex flex-column">
-<div class="d-flex">
-<h5 class="mr-1">PHP: &#x424;&#x443;&#x43D;&#x43A;&#x446;&#x438;&#x438;</h5>
-<div class="ml-auto">
-<span class="badge badge-light">PRO</span>
-</div>
-</div>
-<div class="text-muted mb-2">&#x424;&#x443;&#x43D;&#x43A;&#x446;&#x438;&#x438; &#x432; PHP &#x441;&#x43F;&#x43E;&#x441;&#x43E;&#x431;&#x43D;&#x44B; &#x43D;&#x430; &#x431;&#x43E;&#x43B;&#x44C;&#x448;&#x435;&#x435;! &#x412; &#x44D;&#x442;&#x43E;&#x43C; &#x43A;&#x443;&#x440;&#x441;&#x435; &#x432;&#x44B; &#x43F;&#x43E;&#x437;&#x43D;&#x430;&#x43A;&#x43E;&#x43C;&#x438;&#x442;&#x435;...</div>
-<div class="mt-auto d-flex">
-<div class="ml-auto">
-<a class="x-link-without-decoration stretched-link" href="/courses/php-functions">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
-</a></div>
-</div>
-</div>
-</div>
-
-</div>
-<div class="mb-5 col-lg-4 col-sm-6 col-12">
-<div class="card x-shadow-fade-in-lg h-100">
-<div class="bg-success card-header d-flex flex-column py-1 text-white">
-<div class="d-flex">
-<i class="fa-2x fa-php fab"></i>
-<div class="ml-auto my-auto">
-43 &#x447;&#x430;&#x441;&#x430;
-</div>
-</div>
-</div>
-<div class="card-body d-flex flex-column">
-<div class="d-flex">
-<h5 class="mr-1">PHP: &#x41C;&#x430;&#x441;&#x441;&#x438;&#x432;&#x44B;</h5>
-<div class="ml-auto">
-<span class="badge badge-light">PRO</span>
-</div>
-</div>
-<div class="text-muted mb-2">&#x41C;&#x430;&#x441;&#x441;&#x438;&#x432;&#x44B; &#x2014; &#x43E;&#x441;&#x43D;&#x43E;&#x432;&#x43D;&#x43E;&#x439; &#x441;&#x43F;&#x43E;&#x441;&#x43E;&#x431; &#x43E;&#x431;&#x44A;&#x435;&#x434;&#x438;&#x43D;&#x44F;&#x442;&#x44C; &#x434;&#x430;&#x43D;&#x43D;&#x44B;&#x435; &#x432; &#x43A;&#x43E;&#x43B;&#x43B;&#x435;&#x43A;&#x446;&#x438;&#x438;. &#x412;&#x44B;&#x432;&#x43E;&#x434;...</div>
-<div class="mt-auto d-flex">
-<div class="ml-auto">
-<a class="x-link-without-decoration stretched-link" href="/courses/php-arrays">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
-</a></div>
-</div>
-</div>
-</div>
-
-</div>
-<div class="mb-5 col-lg-4 col-sm-6 col-12">
-<div class="card x-shadow-fade-in-lg h-100">
-<div class="bg-success card-header d-flex flex-column py-1 text-white">
-<div class="d-flex">
 <i class="fa-2x fa-js fab"></i>
 <div class="ml-auto my-auto">
 20 &#x447;&#x430;&#x441;&#x43E;&#x432;
@@ -1728,15 +1198,15 @@ Hexlet
 </div>
 <div class="card-body d-flex flex-column">
 <div class="d-flex">
-<h5 class="mr-1">JS: &#x41F;&#x440;&#x435;&#x434;&#x43C;&#x435;&#x442;&#x43D;&#x43E;-&#x43E;&#x440;&#x438;&#x435;&#x43D;&#x442;&#x438;&#x440;&#x43E;&#x432;&#x430;&#x43D;&#x43D;&#x43E;&#x435; &#x43F;&#x440;&#x43E;&#x435;&#x43A;&#x442;&#x438;&#x440;&#x43E;&#x432;&#x430;&#x43D;&#x438;&#x435;</h5>
+<h5 class="mr-1">JS: &#x421;&#x43E;&#x441;&#x442;&#x430;&#x432;&#x43D;&#x44B;&#x435; &#x434;&#x430;&#x43D;&#x43D;&#x44B;&#x435;</h5>
 <div class="ml-auto">
 <span class="badge badge-light">PRO</span>
 </div>
 </div>
-<div class="text-muted mb-2">&#x41A;&#x443;&#x440;&#x441; &#x43F;&#x43E;&#x441;&#x432;&#x44F;&#x449;&#x435;&#x43D; &#x43F;&#x440;&#x43E;&#x446;&#x435;&#x441;&#x441;&#x443; &#x441;&#x43E;&#x437;&#x434;&#x430;&#x43D;&#x438;&#x44F; &#x43F;&#x440;&#x43E;&#x433;&#x440;&#x430;&#x43C;&#x43C;&#x43D;&#x44B;&#x445; &#x430;&#x431;&#x441;&#x442;&#x440;&#x430;&#x43A;&#x446;&#x438;&#x439; &#x2014; &#x43C;&#x43E;&#x434;&#x435;&#x43B;...</div>
+<div class="text-muted mb-2">&#x421;&#x43B;&#x435;&#x434;&#x443;&#x44E;&#x449;&#x438;&#x439; &#x448;&#x430;&#x433; &#x43F;&#x43E;&#x441;&#x43B;&#x435; &#x43E;&#x441;&#x432;&#x43E;&#x435;&#x43D;&#x438;&#x44F; &#x43E;&#x441;&#x43D;&#x43E;&#x432; &#x43F;&#x440;&#x43E;&#x433;&#x440;&#x430;&#x43C;&#x43C;&#x438;&#x440;&#x43E;&#x432;&#x430;&#x43D;&#x438;&#x44F; &#x44D;&#x442;&#x43E; &#x438;&#x437;&#x443;&#x447;&#x435;&#x43D;...</div>
 <div class="mt-auto d-flex">
 <div class="ml-auto">
-<a class="x-link-without-decoration stretched-link" href="/courses/js-ddd">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
+<a class="x-link-without-decoration stretched-link" href="/courses/compound_data">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
 </a></div>
 </div>
 </div>
@@ -1748,166 +1218,6 @@ Hexlet
 <div class="bg-success card-header d-flex flex-column py-1 text-white">
 <div class="d-flex">
 <i class="fa-2x fa-js fab"></i>
-<div class="ml-auto my-auto">
-24 &#x447;&#x430;&#x441;&#x430;
-</div>
-</div>
-</div>
-<div class="card-body d-flex flex-column">
-<div class="d-flex">
-<h5 class="mr-1">JS: &#x41F;&#x440;&#x43E;&#x434;&#x432;&#x438;&#x43D;&#x443;&#x442;&#x43E;&#x435; &#x442;&#x435;&#x441;&#x442;&#x438;&#x440;&#x43E;&#x432;&#x430;&#x43D;&#x438;&#x435;</h5>
-<div class="ml-auto">
-<span class="badge badge-light">PRO</span>
-</div>
-</div>
-<div class="text-muted mb-2">&#x41A;&#x443;&#x440;&#x441; &#x43F;&#x43E;&#x441;&#x432;&#x44F;&#x449;&#x435;&#x43D; &#x43F;&#x440;&#x43E;&#x434;&#x432;&#x438;&#x43D;&#x443;&#x442;&#x44B;&#x43C; &#x441;&#x43F;&#x43E;&#x441;&#x43E;&#x431;&#x430;&#x43C; &#x442;&#x435;&#x441;&#x442;&#x438;&#x440;&#x43E;&#x432;&#x430;&#x43D;&#x438;&#x44F; &#x43F;&#x440;&#x43E;&#x433;&#x440;&#x430;&#x43C;&#x43C;. &#x41A; &#x43D;&#x438;...</div>
-<div class="mt-auto d-flex">
-<div class="ml-auto">
-<a class="x-link-without-decoration stretched-link" href="/courses/js-advanced-testing">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
-</a></div>
-</div>
-</div>
-</div>
-
-</div>
-<div class="mb-5 col-lg-4 col-sm-6 col-12">
-<div class="card x-shadow-fade-in-lg h-100">
-<div class="bg-success card-header d-flex flex-column py-1 text-white">
-<div class="d-flex">
-<i class="fa-2x fa-php fab"></i>
-<div class="ml-auto my-auto">
-26 &#x447;&#x430;&#x441;&#x43E;&#x432;
-</div>
-</div>
-</div>
-<div class="card-body d-flex flex-column">
-<div class="d-flex">
-<h5 class="mr-1">PHP: &#x420;&#x430;&#x437;&#x440;&#x430;&#x431;&#x43E;&#x442;&#x43A;&#x430; &#x43C;&#x438;&#x43A;&#x440;&#x43E;&#x444;&#x440;&#x435;&#x439;&#x43C;&#x432;&#x43E;&#x440;&#x43A;&#x430;</h5>
-<div class="ml-auto">
-<span class="badge badge-light">PRO</span>
-</div>
-</div>
-<div class="text-muted mb-2">&#x424;&#x440;&#x435;&#x439;&#x43C;&#x432;&#x43E;&#x440;&#x43A;&#x438; &#x2014; &#x43E;&#x441;&#x43D;&#x43E;&#x432;&#x43D;&#x43E;&#x439; &#x441;&#x43F;&#x43E;&#x441;&#x43E;&#x431; &#x441;&#x43E;&#x437;&#x434;&#x430;&#x432;&#x430;&#x442;&#x44C; &#x441;&#x43B;&#x43E;&#x436;&#x43D;&#x44B;&#x435; &#x441;&#x430;&#x439;&#x442;&#x44B; &#x432; &#x438;&#x43D;&#x442;&#x435;&#x440;&#x43D;&#x435;...</div>
-<div class="mt-auto d-flex">
-<div class="ml-auto">
-<a class="x-link-without-decoration stretched-link" href="/courses/php-web">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
-</a></div>
-</div>
-</div>
-</div>
-
-</div>
-<div class="mb-5 col-lg-4 col-sm-6 col-12">
-<div class="card x-shadow-fade-in-lg h-100">
-<div class="bg-success card-header d-flex flex-column py-1 text-white">
-<div class="d-flex">
-<i class="fa-2x fa-python fab"></i>
-<div class="ml-auto my-auto">
-4 &#x447;&#x430;&#x441;&#x430;
-</div>
-</div>
-</div>
-<div class="card-body d-flex flex-column">
-<div class="d-flex">
-<h5 class="mr-1">&#x41A;&#x43B;&#x44E;&#x447;&#x435;&#x432;&#x44B;&#x435; &#x430;&#x441;&#x43F;&#x435;&#x43A;&#x442;&#x44B; &#x440;&#x430;&#x437;&#x440;&#x430;&#x431;&#x43E;&#x442;&#x43A;&#x438; &#x43D;&#x430; Python</h5>
-</div>
-<div class="text-muted mb-2">&#x42D;&#x442;&#x43E;&#x442; &#x43E;&#x431;&#x437;&#x43E;&#x440;&#x43D;&#x44B;&#x439; &#x43A;&#x443;&#x440;&#x441; &#x437;&#x430;&#x442;&#x440;&#x430;&#x433;&#x438;&#x432;&#x430;&#x435;&#x442; &#x43E;&#x441;&#x43D;&#x43E;&#x432;&#x43D;&#x44B;&#x435; &#x430;&#x441;&#x43F;&#x435;&#x43A;&#x442;&#x44B; &#x441;&#x43E;&#x432;&#x440;&#x435;&#x43C;&#x435;&#x43D;&#x43D;&#x43E;&#x439; &#x440;&#x430;...</div>
-<div class="mt-auto d-flex">
-<div class="ml-auto">
-<a class="x-link-without-decoration stretched-link" href="/courses/python-development-course">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
-</a></div>
-</div>
-</div>
-</div>
-
-</div>
-<div class="mb-5 col-lg-4 col-sm-6 col-12">
-<div class="card x-shadow-fade-in-lg h-100">
-<div class="bg-success card-header d-flex flex-column py-1 text-white">
-<div class="d-flex">
-<i class="fa-2x fa-js fab"></i>
-<div class="ml-auto my-auto">
-49 &#x447;&#x430;&#x441;&#x43E;&#x432;
-</div>
-</div>
-</div>
-<div class="card-body d-flex flex-column">
-<div class="d-flex">
-<h5 class="mr-1">JS: React</h5>
-<div class="ml-auto">
-<span class="badge badge-light">PRO</span>
-</div>
-</div>
-<div class="text-muted mb-2">React &#x2014; &#x431;&#x438;&#x431;&#x43B;&#x438;&#x43E;&#x442;&#x435;&#x43A;&#x430;, &#x43A;&#x43E;&#x442;&#x43E;&#x440;&#x430;&#x44F; &#x43F;&#x435;&#x440;&#x435;&#x432;&#x435;&#x440;&#x43D;&#x443;&#x43B;&#x430; &#x43D;&#x430;&#x448;&#x438; &#x43F;&#x440;&#x435;&#x434;&#x441;&#x442;&#x430;&#x432;&#x43B;&#x435;&#x43D;&#x438;&#x44F; &#x43E; &#x442;...</div>
-<div class="mt-auto d-flex">
-<div class="ml-auto">
-<a class="x-link-without-decoration stretched-link" href="/courses/js-react">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
-</a></div>
-</div>
-</div>
-</div>
-
-</div>
-<div class="mb-5 col-lg-4 col-sm-6 col-12">
-<div class="card x-shadow-fade-in-lg h-100">
-<div class="bg-success card-header d-flex flex-column py-1 text-white">
-<div class="d-flex">
-<i class="fa-2x fa-js fab"></i>
-<div class="ml-auto my-auto">
-17 &#x447;&#x430;&#x441;&#x43E;&#x432;
-</div>
-</div>
-</div>
-<div class="card-body d-flex flex-column">
-<div class="d-flex">
-<h5 class="mr-1">JS: &#x420;&#x430;&#x437;&#x440;&#x430;&#x431;&#x43E;&#x442;&#x43A;&#x430; &#x430;&#x431;&#x441;&#x442;&#x440;&#x430;&#x43A;&#x446;&#x438;&#x439; &#x434;&#x43B;&#x44F; &#x430;&#x441;&#x438;&#x43D;&#x445;&#x440;&#x43E;&#x43D;&#x43D;&#x43E;&#x441;&#x442;&#x438;
-</h5>
-<div class="ml-auto">
-<span class="badge badge-light">PRO</span>
-</div>
-</div>
-<div class="text-muted mb-2">&#x41F;&#x440;&#x435;&#x434;&#x44B;&#x434;&#x443;&#x449;&#x430;&#x44F; &#x432;&#x435;&#x440;&#x441;&#x438;&#x44F; &#x43A;&#x443;&#x440;&#x441;&#x430; &#x43F;&#x43E; &#x430;&#x441;&#x438;&#x43D;&#x445;&#x440;&#x43E;&#x43D;&#x43D;&#x43E;&#x43C;&#x443; &#x43F;&#x440;&#x43E;&#x433;&#x440;&#x430;&#x43C;&#x43C;&#x438;&#x440;&#x43E;&#x432;&#x430;&#x43D;&#x438;&#x44E;. &#x41F;&#x43E;&#x43B;&#x435;...</div>
-<div class="mt-auto d-flex">
-<div class="ml-auto">
-<a class="x-link-without-decoration stretched-link" href="/courses/js_async">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
-</a></div>
-</div>
-</div>
-</div>
-
-</div>
-<div class="mb-5 col-lg-4 col-sm-6 col-12">
-<div class="card x-shadow-fade-in-lg h-100">
-<div class="bg-success card-header d-flex flex-column py-1 text-white">
-<div class="d-flex">
-<i class="fa-2x fa-python fab"></i>
-<div class="ml-auto my-auto">
-2 &#x447;&#x430;&#x441;&#x430;
-</div>
-</div>
-</div>
-<div class="card-body d-flex flex-column">
-<div class="d-flex">
-<h5 class="mr-1">&#x41C;&#x438;&#x43A;&#x440;&#x43E;&#x444;&#x440;&#x435;&#x439;&#x43C;&#x432;&#x43E;&#x440;&#x43A; Flask</h5>
-<div class="ml-auto">
-<span class="badge badge-light">PRO</span>
-</div>
-</div>
-<div class="text-muted mb-2">&#x41A;&#x443;&#x440;&#x441; &#x437;&#x43D;&#x430;&#x43A;&#x43E;&#x43C;&#x438;&#x442; &#x441; &#x43E;&#x447;&#x435;&#x43D;&#x44C; &#x43F;&#x43E;&#x43F;&#x443;&#x43B;&#x44F;&#x440;&#x43D;&#x44B;&#x43C; &#x441;&#x440;&#x435;&#x434;&#x438; &#x43F;&#x438;&#x442;&#x43E;&#x43D;&#x438;&#x441;&#x442;&#x43E;&#x432; &#x43C;&#x438;&#x43A;&#x440;&#x43E;&#x444;&#x440;&#x435;&#x439;&#x43C;&#x432;&#x43E;...</div>
-<div class="mt-auto d-flex">
-<div class="ml-auto">
-<a class="x-link-without-decoration stretched-link" href="/courses/python-flask">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
-</a></div>
-</div>
-</div>
-</div>
-
-</div>
-<div class="mb-5 col-lg-4 col-sm-6 col-12">
-<div class="card x-shadow-fade-in-lg h-100">
-<div class="bg-success card-header d-flex flex-column py-1 text-white">
-<div class="d-flex">
-<i class="fa-2x fa-html5 fab"></i>
 <div class="ml-auto my-auto">
 8 &#x447;&#x430;&#x441;&#x43E;&#x432;
 </div>
@@ -1915,63 +1225,15 @@ Hexlet
 </div>
 <div class="card-body d-flex flex-column">
 <div class="d-flex">
-<h5 class="mr-1">&#x41E;&#x441;&#x43D;&#x43E;&#x432;&#x44B; HTML, CSS &#x438; &#x432;&#x435;&#x431;-&#x434;&#x438;&#x437;&#x430;&#x439;&#x43D;&#x430;</h5>
-</div>
-<div class="text-muted mb-2">&#x41A;&#x443;&#x440;&#x441; &#x43F;&#x43E;&#x441;&#x432;&#x44F;&#x449;&#x435;&#x43D; &#x431;&#x430;&#x437;&#x43E;&#x432;&#x44B;&#x43C; &#x43A;&#x43E;&#x43D;&#x446;&#x435;&#x43F;&#x446;&#x438;&#x44F;&#x43C; &#x432;&#x435;&#x431;-&#x434;&#x438;&#x437;&#x430;&#x439;&#x43D;&#x430;, &#x44F;&#x437;&#x44B;&#x43A;&#x430; &#x440;&#x430;&#x437;&#x43C;&#x435;&#x442;&#x43A;&#x438; H...</div>
-<div class="mt-auto d-flex">
-<div class="ml-auto">
-<a class="x-link-without-decoration stretched-link" href="/courses/html">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
-</a></div>
-</div>
-</div>
-</div>
-
-</div>
-<div class="mb-5 col-lg-4 col-sm-6 col-12">
-<div class="card x-shadow-fade-in-lg h-100">
-<div class="bg-success card-header d-flex flex-column py-1 text-white">
-<div class="d-flex">
-<i class="fa-2x fa-terminal fal"></i>
-<div class="ml-auto my-auto">
-24 &#x447;&#x430;&#x441;&#x430;
-</div>
-</div>
-</div>
-<div class="card-body d-flex flex-column">
-<div class="d-flex">
-<h5 class="mr-1">&#x411;&#x430;&#x437;&#x44B; &#x434;&#x430;&#x43D;&#x43D;&#x44B;&#x445;: SQL (DDL/DML)</h5>
+<h5 class="mr-1">JS: &#x410;&#x440;&#x445;&#x438;&#x442;&#x435;&#x43A;&#x442;&#x443;&#x440;&#x430; &#x444;&#x440;&#x43E;&#x43D;&#x442;&#x435;&#x43D;&#x434;&#x430;</h5>
 <div class="ml-auto">
 <span class="badge badge-light">PRO</span>
 </div>
 </div>
-<div class="text-muted mb-2">DDL &#x438; DML &#x44D;&#x442;&#x43E; &#x43F;&#x43E;&#x434;&#x43C;&#x43D;&#x43E;&#x436;&#x435;&#x441;&#x442;&#x432;&#x430; &#x44F;&#x437;&#x44B;&#x43A;&#x430; SQL &#x43E;&#x442;&#x432;&#x435;&#x447;&#x430;&#x44E;&#x449;&#x438;&#x435; &#x437;&#x430; &#x441;&#x43E;&#x437;&#x434;&#x430;&#x43D;&#x438;&#x435; &#x441;&#x442;...</div>
+<div class="text-muted mb-2">&#x41D;&#x435;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x44F; &#x43D;&#x430; &#x43E;&#x431;&#x438;&#x43B;&#x438;&#x435; &#x440;&#x430;&#x437;&#x43B;&#x438;&#x447;&#x43D;&#x44B;&#x445; &#x444;&#x440;&#x435;&#x439;&#x43C;&#x432;&#x43E;&#x440;&#x43A;&#x43E;&#x432; &#x438; &#x441;&#x43F;&#x43E;&#x441;&#x43E;&#x431;&#x43E;&#x432; &#x440;&#x430;&#x437;&#x440;&#x430;&#x431;&#x43E;&#x442;&#x43A;&#x438;...</div>
 <div class="mt-auto d-flex">
 <div class="ml-auto">
-<a class="x-link-without-decoration stretched-link" href="/courses/postgresql-ddl">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
-</a></div>
-</div>
-</div>
-</div>
-
-</div>
-<div class="mb-5 col-lg-4 col-sm-6 col-12">
-<div class="card x-shadow-fade-in-lg h-100">
-<div class="bg-success card-header d-flex flex-column py-1 text-white">
-<div class="d-flex">
-<i class="fa-2x fa-python fab"></i>
-<div class="ml-auto my-auto">
-13 &#x447;&#x430;&#x441;&#x43E;&#x432;
-</div>
-</div>
-</div>
-<div class="card-body d-flex flex-column">
-<div class="d-flex">
-<h5 class="mr-1">Python: &#x41E;&#x441;&#x43D;&#x43E;&#x432;&#x44B;</h5>
-</div>
-<div class="text-muted mb-2">&#x42D;&#x442;&#x43E;&#x442; &#x43A;&#x443;&#x440;&#x441; &#x431;&#x430;&#x437;&#x438;&#x440;&#x443;&#x435;&#x442;&#x441;&#x44F; &#x43D;&#x430; &#x43C;&#x430;&#x442;&#x435;&#x440;&#x438;&#x430;&#x43B;&#x435; [Code Basics](https://ru.cod...</div>
-<div class="mt-auto d-flex">
-<div class="ml-auto">
-<a class="x-link-without-decoration stretched-link" href="/courses/python-basics">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
+<a class="x-link-without-decoration stretched-link" href="/courses/js-frontend-architecture">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
 </a></div>
 </div>
 </div>
@@ -2011,6 +1273,962 @@ Hexlet
 <div class="d-flex">
 <i class="fa-2x fa-js fab"></i>
 <div class="ml-auto my-auto">
+22 &#x447;&#x430;&#x441;&#x430;
+</div>
+</div>
+</div>
+<div class="card-body d-flex flex-column">
+<div class="d-flex">
+<h5 class="mr-1">JS: &#x41F;&#x440;&#x43E;&#x433;&#x440;&#x430;&#x43C;&#x43C;&#x438;&#x440;&#x43E;&#x432;&#x430;&#x43D;&#x438;&#x435;, &#x443;&#x43F;&#x440;&#x430;&#x432;&#x43B;&#x44F;&#x435;&#x43C;&#x43E;&#x435; &#x434;&#x430;&#x43D;&#x43D;&#x44B;&#x43C;&#x438;</h5>
+<div class="ml-auto">
+<span class="badge badge-light">PRO</span>
+</div>
+</div>
+<div class="text-muted mb-2">&#x412; &#x442;&#x435;&#x447;&#x435;&#x43D;&#x438;&#x435; &#x44D;&#x442;&#x43E;&#x433;&#x43E; &#x43A;&#x443;&#x440;&#x441;&#x430; &#x43C;&#x44B; &#x431;&#x443;&#x434;&#x435;&#x43C; &#x43F;&#x438;&#x441;&#x430;&#x442;&#x44C; &#x441;&#x43E;&#x431;&#x441;&#x442;&#x432;&#x435;&#x43D;&#x43D;&#x443;&#x44E; &#x43A;&#x430;&#x440;&#x442;&#x43E;&#x447;&#x43D;&#x443;&#x44E; &#x438;&#x433;...</div>
+<div class="mt-auto d-flex">
+<div class="ml-auto">
+<a class="x-link-without-decoration stretched-link" href="/courses/ddp">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
+</a></div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="mb-5 col-lg-4 col-sm-6 col-12">
+<div class="card x-shadow-fade-in-lg h-100">
+<div class="bg-success card-header d-flex flex-column py-1 text-white">
+<div class="d-flex">
+<i class="fa-2x fa-js fab"></i>
+<div class="ml-auto my-auto">
+15 &#x447;&#x430;&#x441;&#x43E;&#x432;
+</div>
+</div>
+</div>
+<div class="card-body d-flex flex-column">
+<div class="d-flex">
+<h5 class="mr-1">JS: HTTP Server</h5>
+<div class="ml-auto">
+<span class="badge badge-light">PRO</span>
+</div>
+</div>
+<div class="text-muted mb-2">&#x42D;&#x442;&#x43E;&#x442; &#x43A;&#x443;&#x440;&#x441; &#x43F;&#x43E;&#x441;&#x432;&#x44F;&#x449;&#x435;&#x43D; &#x437;&#x43D;&#x430;&#x43A;&#x43E;&#x43C;&#x441;&#x442;&#x432;&#x443; &#x441; &#x43F;&#x440;&#x438;&#x43D;&#x446;&#x438;&#x43F;&#x430;&#x43C;&#x438; &#x440;&#x430;&#x437;&#x440;&#x430;&#x431;&#x43E;&#x442;&#x43A;&#x438; &#x43A;&#x43B;&#x438;&#x435;&#x43D;&#x442;-&#x441;...</div>
+<div class="mt-auto d-flex">
+<div class="ml-auto">
+<a class="x-link-without-decoration stretched-link" href="/courses/js-http-server">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
+</a></div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="mb-5 col-lg-4 col-sm-6 col-12">
+<div class="card x-shadow-fade-in-lg h-100">
+<div class="bg-success card-header d-flex flex-column py-1 text-white">
+<div class="d-flex">
+<i class="fa-2x fa-code fal"></i>
+<div class="ml-auto my-auto">
+6 &#x447;&#x430;&#x441;&#x43E;&#x432;
+</div>
+</div>
+</div>
+<div class="card-body d-flex flex-column">
+<div class="d-flex">
+<h5 class="mr-1">Java &#x434;&#x43B;&#x44F; &#x432;&#x435;&#x431;-&#x441;&#x435;&#x440;&#x432;&#x438;&#x441;&#x43E;&#x432; Amazon (AWS)</h5>
+<div class="ml-auto">
+<span class="badge badge-light">PRO</span>
+</div>
+</div>
+<div class="text-muted mb-2">&#x412;&#x432;&#x43E;&#x434;&#x43D;&#x44B;&#x439; &#x43A;&#x443;&#x440;&#x441; &#x43F;&#x43E; Amazon Web Services, &#x43D;&#x430; &#x43A;&#x43E;&#x442;&#x43E;&#x440;&#x43E;&#x43C; &#x43C;&#x44B; &#x441; &#x43D;&#x443;&#x43B;&#x44F; &#x440;&#x430;&#x441;&#x441;...</div>
+<div class="mt-auto d-flex">
+<div class="ml-auto">
+<a class="x-link-without-decoration stretched-link" href="/courses/aws">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
+</a></div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="mb-5 col-lg-4 col-sm-6 col-12">
+<div class="card x-shadow-fade-in-lg h-100">
+<div class="bg-success card-header d-flex flex-column py-1 text-white">
+<div class="d-flex">
+<i class="fa-2x fa-code fal"></i>
+<div class="ml-auto my-auto">
+20 &#x447;&#x430;&#x441;&#x43E;&#x432;
+</div>
+</div>
+</div>
+<div class="card-body d-flex flex-column">
+<div class="d-flex">
+<h5 class="mr-1">Java: &#x41C;&#x43D;&#x43E;&#x433;&#x43E;&#x43F;&#x43E;&#x442;&#x43E;&#x447;&#x43D;&#x43E;&#x441;&#x442;&#x44C;</h5>
+<div class="ml-auto">
+<span class="badge badge-light">PRO</span>
+</div>
+</div>
+<div class="text-muted mb-2">&#x414;&#x430;&#x43D;&#x43D;&#x44B;&#x439; &#x43A;&#x443;&#x440;&#x441; &#x43F;&#x43E;&#x441;&#x432;&#x44F;&#x449;&#x451;&#x43D; &#x438;&#x437;&#x443;&#x447;&#x435;&#x43D;&#x438;&#x44E; &#x43C;&#x43D;&#x43E;&#x433;&#x43E;&#x43F;&#x43E;&#x442;&#x43E;&#x447;&#x43D;&#x43E;&#x441;&#x442;&#x438; &#x432; Java. &#x41C;&#x43D;&#x43E;&#x433;&#x43E;&#x43F;&#x43E;&#x442;...</div>
+<div class="mt-auto d-flex">
+<div class="ml-auto">
+<a class="x-link-without-decoration stretched-link" href="/courses/concurrency">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
+</a></div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="mb-5 col-lg-4 col-sm-6 col-12">
+<div class="card x-shadow-fade-in-lg h-100">
+<div class="bg-success card-header d-flex flex-column py-1 text-white">
+<div class="d-flex">
+<i class="fa-2x fa-code fal"></i>
+<div class="ml-auto my-auto">
+24 &#x447;&#x430;&#x441;&#x430;
+</div>
+</div>
+</div>
+<div class="card-body d-flex flex-column">
+<div class="d-flex">
+<h5 class="mr-1">Java Generics</h5>
+<div class="ml-auto">
+<span class="badge badge-light">PRO</span>
+</div>
+</div>
+<div class="text-muted mb-2">&#x41E;&#x431;&#x43E;&#x431;&#x449;&#x451;&#x43D;&#x43D;&#x44B;&#x435; &#x442;&#x438;&#x43F;&#x44B; &#x44F;&#x432;&#x43B;&#x44F;&#x44E;&#x442;&#x441;&#x44F; &#x437;&#x43D;&#x430;&#x447;&#x438;&#x442;&#x435;&#x43B;&#x44C;&#x43D;&#x44B;&#x43C; &#x443;&#x43B;&#x443;&#x447;&#x448;&#x435;&#x43D;&#x438;&#x435;&#x43C; &#x43D;&#x435;&#x437;&#x430;&#x432;&#x438;&#x441;&#x438;&#x43C;&#x43E;&#x441;&#x442;&#x438;...</div>
+<div class="mt-auto d-flex">
+<div class="ml-auto">
+<a class="x-link-without-decoration stretched-link" href="/courses/java_generics">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
+</a></div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="mb-5 col-lg-4 col-sm-6 col-12">
+<div class="card x-shadow-fade-in-lg h-100">
+<div class="bg-success card-header d-flex flex-column py-1 text-white">
+<div class="d-flex">
+<i class="fa-2x fa-code fal"></i>
+<div class="ml-auto my-auto">
+6 &#x447;&#x430;&#x441;&#x43E;&#x432;
+</div>
+</div>
+</div>
+<div class="card-body d-flex flex-column">
+<div class="d-flex">
+<h5 class="mr-1">&#x41E;&#x43F;&#x435;&#x440;&#x430;&#x446;&#x438;&#x43E;&#x43D;&#x43D;&#x44B;&#x435; &#x441;&#x438;&#x441;&#x442;&#x435;&#x43C;&#x44B;</h5>
+</div>
+<div class="text-muted mb-2">&#x41A;&#x443;&#x440;&#x441; &#x43F;&#x43E;&#x441;&#x432;&#x44F;&#x449;&#x435;&#x43D; &#x433;&#x43B;&#x430;&#x432;&#x43D;&#x44B;&#x43C; &#x43F;&#x440;&#x438;&#x43D;&#x446;&#x438;&#x43F;&#x430;&#x43C;, &#x43B;&#x435;&#x436;&#x430;&#x449;&#x438;&#x43C; &#x432; &#x43E;&#x441;&#x43D;&#x43E;&#x432;&#x435; &#x434;&#x438;&#x437;&#x430;&#x439;&#x43D;&#x430; &#x43E;&#x43F;&#x435;&#x440;...</div>
+<div class="mt-auto d-flex">
+<div class="ml-auto">
+<a class="x-link-without-decoration stretched-link" href="/courses/operating_systems">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
+</a></div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="mb-5 col-lg-4 col-sm-6 col-12">
+<div class="card x-shadow-fade-in-lg h-100">
+<div class="bg-success card-header d-flex flex-column py-1 text-white">
+<div class="d-flex">
+<i class="fa-2x fa-php fab"></i>
+<div class="ml-auto my-auto">
+17 &#x447;&#x430;&#x441;&#x43E;&#x432;
+</div>
+</div>
+</div>
+<div class="card-body d-flex flex-column">
+<div class="d-flex">
+<h5 class="mr-1">PHP: &#x421;&#x43E;&#x441;&#x442;&#x430;&#x432;&#x43D;&#x44B;&#x435; &#x434;&#x430;&#x43D;&#x43D;&#x44B;&#x435;</h5>
+<div class="ml-auto">
+<span class="badge badge-light">PRO</span>
+</div>
+</div>
+<div class="text-muted mb-2">&#x421;&#x43B;&#x435;&#x434;&#x443;&#x44E;&#x449;&#x438;&#x439; &#x448;&#x430;&#x433; &#x43F;&#x43E;&#x441;&#x43B;&#x435; &#x43E;&#x441;&#x432;&#x43E;&#x435;&#x43D;&#x438;&#x44F; &#x43E;&#x441;&#x43D;&#x43E;&#x432; &#x43F;&#x440;&#x43E;&#x433;&#x440;&#x430;&#x43C;&#x43C;&#x438;&#x440;&#x43E;&#x432;&#x430;&#x43D;&#x438;&#x44F; &#x44D;&#x442;&#x43E; &#x438;&#x437;&#x443;&#x447;&#x435;&#x43D;...</div>
+<div class="mt-auto d-flex">
+<div class="ml-auto">
+<a class="x-link-without-decoration stretched-link" href="/courses/php-compound-data">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
+</a></div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="mb-5 col-lg-4 col-sm-6 col-12">
+<div class="card x-shadow-fade-in-lg h-100">
+<div class="bg-success card-header d-flex flex-column py-1 text-white">
+<div class="d-flex">
+<i class="fa-2x fa-php fab"></i>
+<div class="ml-auto my-auto">
+21 &#x447;&#x430;&#x441;
+</div>
+</div>
+</div>
+<div class="card-body d-flex flex-column">
+<div class="d-flex">
+<h5 class="mr-1">PHP: &#x424;&#x443;&#x43D;&#x43A;&#x446;&#x438;&#x43E;&#x43D;&#x430;&#x43B;&#x44C;&#x43D;&#x43E;&#x435; &#x43F;&#x440;&#x43E;&#x433;&#x440;&#x430;&#x43C;&#x43C;&#x438;&#x440;&#x43E;&#x432;&#x430;&#x43D;&#x438;&#x435;</h5>
+<div class="ml-auto">
+<span class="badge badge-light">PRO</span>
+</div>
+</div>
+<div class="text-muted mb-2">&#x412; &#x44D;&#x442;&#x43E;&#x43C; &#x43A;&#x443;&#x440;&#x441;&#x435; &#x43C;&#x44B; &#x43D;&#x430;&#x443;&#x447;&#x438;&#x43C;&#x441;&#x44F; &#x438;&#x441;&#x43F;&#x43E;&#x43B;&#x44C;&#x437;&#x43E;&#x432;&#x430;&#x442;&#x44C; &#x444;&#x443;&#x43D;&#x43A;&#x446;&#x438;&#x43E;&#x43D;&#x430;&#x43B;&#x44C;&#x43D;&#x44B;&#x435; &#x432;&#x43E;&#x437;&#x43C;&#x43E;&#x436;&#x43D;&#x43E;&#x441;...</div>
+<div class="mt-auto d-flex">
+<div class="ml-auto">
+<a class="x-link-without-decoration stretched-link" href="/courses/php-functional">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
+</a></div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="mb-5 col-lg-4 col-sm-6 col-12">
+<div class="card x-shadow-fade-in-lg h-100">
+<div class="bg-success card-header d-flex flex-column py-1 text-white">
+<div class="d-flex">
+<i class="fa-2x fa-js fab"></i>
+<div class="ml-auto my-auto">
+36 &#x447;&#x430;&#x441;&#x43E;&#x432;
+</div>
+</div>
+</div>
+<div class="card-body d-flex flex-column">
+<div class="d-flex">
+<h5 class="mr-1">JS: &#x41F;&#x43E;&#x43B;&#x438;&#x43C;&#x43E;&#x440;&#x444;&#x438;&#x437;&#x43C;</h5>
+<div class="ml-auto">
+<span class="badge badge-light">PRO</span>
+</div>
+</div>
+<div class="text-muted mb-2">&#x41F;&#x43E;&#x43B;&#x438;&#x43C;&#x43E;&#x440;&#x444;&#x438;&#x437;&#x43C; - &#x43F;&#x43E;&#x436;&#x430;&#x43B;&#x443;&#x439;, &#x433;&#x43B;&#x430;&#x432;&#x43D;&#x430;&#x44F; &#x43E;&#x442;&#x43B;&#x438;&#x447;&#x438;&#x442;&#x435;&#x43B;&#x44C;&#x43D;&#x430;&#x44F; &#x447;&#x435;&#x440;&#x442;&#x430; &#x441;&#x43E;&#x432;&#x440;&#x435;&#x43C;&#x435;&#x43D;&#x43D;&#x43E;&#x433;...</div>
+<div class="mt-auto d-flex">
+<div class="ml-auto">
+<a class="x-link-without-decoration stretched-link" href="/courses/js-polymorphism">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
+</a></div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="mb-5 col-lg-4 col-sm-6 col-12">
+<div class="card x-shadow-fade-in-lg h-100">
+<div class="bg-success card-header d-flex flex-column py-1 text-white">
+<div class="d-flex">
+<i class="fa-2x fa-code fal"></i>
+<div class="ml-auto my-auto">
+34 &#x447;&#x430;&#x441;&#x430;
+</div>
+</div>
+</div>
+<div class="card-body d-flex flex-column">
+<div class="d-flex">
+<h5 class="mr-1">&#x412;&#x432;&#x435;&#x434;&#x435;&#x43D;&#x438;&#x435; &#x432; Ruby</h5>
+</div>
+<div class="text-muted mb-2">Ruby &#x2013; &#x43F;&#x43E;&#x43F;&#x443;&#x43B;&#x44F;&#x440;&#x43D;&#x44B;&#x439; &#x434;&#x438;&#x43D;&#x430;&#x43C;&#x438;&#x447;&#x435;&#x441;&#x43A;&#x438;&#x439; &#x44F;&#x437;&#x44B;&#x43A;, &#x43D;&#x430; &#x43A;&#x43E;&#x442;&#x43E;&#x440;&#x43E;&#x43C; &#x43D;&#x430;&#x43F;&#x438;&#x441;&#x430;&#x43D; &#x43B;&#x435;&#x433;&#x435;&#x43D;&#x434;...</div>
+<div class="mt-auto d-flex">
+<div class="ml-auto">
+<a class="x-link-without-decoration stretched-link" href="/courses/ruby">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
+</a></div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="mb-5 col-lg-4 col-sm-6 col-12">
+<div class="card x-shadow-fade-in-lg h-100">
+<div class="bg-success card-header d-flex flex-column py-1 text-white">
+<div class="d-flex">
+<i class="fa-2x fa-python fab"></i>
+<div class="ml-auto my-auto">
+15 &#x447;&#x430;&#x441;&#x43E;&#x432;
+</div>
+</div>
+</div>
+<div class="card-body d-flex flex-column">
+<div class="d-flex">
+<h5 class="mr-1">Python: &#x410;&#x431;&#x441;&#x442;&#x440;&#x430;&#x43A;&#x446;&#x438;&#x44F; &#x441; &#x43F;&#x43E;&#x43C;&#x43E;&#x449;&#x44C;&#x44E; &#x434;&#x430;&#x43D;&#x43D;&#x44B;&#x445;</h5>
+<div class="ml-auto">
+<span class="badge badge-light">PRO</span>
+</div>
+</div>
+<div class="text-muted mb-2">&#x41F;&#x440;&#x43E;&#x433;&#x440;&#x430;&#x43C;&#x43C;&#x438;&#x440;&#x43E;&#x432;&#x430;&#x43D;&#x438;&#x435; &#x43D;&#x435; &#x43E;&#x433;&#x440;&#x430;&#x43D;&#x438;&#x447;&#x438;&#x432;&#x430;&#x435;&#x442;&#x441;&#x44F; &#x43E;&#x434;&#x43D;&#x438;&#x43C;&#x438; &#x43B;&#x438;&#x448;&#x44C; &#x432;&#x44B;&#x447;&#x438;&#x441;&#x43B;&#x435;&#x43D;&#x438;&#x44F;&#x43C;&#x438;. &#x41B;...</div>
+<div class="mt-auto d-flex">
+<div class="ml-auto">
+<a class="x-link-without-decoration stretched-link" href="/courses/python-data-abstraction">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
+</a></div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="mb-5 col-lg-4 col-sm-6 col-12">
+<div class="card x-shadow-fade-in-lg h-100">
+<div class="bg-success card-header d-flex flex-column py-1 text-white">
+<div class="d-flex">
+<i class="fa-2x fa-js fab"></i>
+<div class="ml-auto my-auto">
+27 &#x447;&#x430;&#x441;&#x43E;&#x432;
+</div>
+</div>
+</div>
+<div class="card-body d-flex flex-column">
+<div class="d-flex">
+<h5 class="mr-1">JS: &#x41A;&#x43E;&#x43B;&#x43B;&#x435;&#x43A;&#x446;&#x438;&#x438;</h5>
+<div class="ml-auto">
+<span class="badge badge-light">PRO</span>
+</div>
+</div>
+<div class="text-muted mb-2">&#x42D;&#x442;&#x43E;&#x442; &#x43A;&#x443;&#x440;&#x441; &#x43F;&#x43E;&#x441;&#x432;&#x44F;&#x449;&#x435;&#x43D; &#x43A;&#x43E;&#x43D;&#x43A;&#x440;&#x435;&#x442;&#x43D;&#x44B;&#x43C; &#x43F;&#x440;&#x438;&#x435;&#x43C;&#x430;&#x43C; &#x432; &#x440;&#x430;&#x431;&#x43E;&#x442;&#x435; &#x441; &#x43A;&#x43E;&#x43B;&#x43B;&#x435;&#x43A;&#x446;&#x438;&#x44F;&#x43C;&#x438;, ...</div>
+<div class="mt-auto d-flex">
+<div class="ml-auto">
+<a class="x-link-without-decoration stretched-link" href="/courses/js_collections">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
+</a></div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="mb-5 col-lg-4 col-sm-6 col-12">
+<div class="card x-shadow-fade-in-lg h-100">
+<div class="bg-success card-header d-flex flex-column py-1 text-white">
+<div class="d-flex">
+<i class="fa-2x fa-js fab"></i>
+<div class="ml-auto my-auto">
+15 &#x447;&#x430;&#x441;&#x43E;&#x432;
+</div>
+</div>
+</div>
+<div class="card-body d-flex flex-column">
+<div class="d-flex">
+<h5 class="mr-1">JS: &#x410;&#x431;&#x441;&#x442;&#x440;&#x430;&#x43A;&#x446;&#x438;&#x44F; &#x441; &#x43F;&#x43E;&#x43C;&#x43E;&#x449;&#x44C;&#x44E; &#x434;&#x430;&#x43D;&#x43D;&#x44B;&#x445;</h5>
+<div class="ml-auto">
+<span class="badge badge-light">PRO</span>
+</div>
+</div>
+<div class="text-muted mb-2">&#x41F;&#x440;&#x43E;&#x433;&#x440;&#x430;&#x43C;&#x43C;&#x438;&#x440;&#x43E;&#x432;&#x430;&#x43D;&#x438;&#x435; &#x43D;&#x435; &#x43E;&#x433;&#x440;&#x430;&#x43D;&#x438;&#x447;&#x438;&#x432;&#x430;&#x435;&#x442;&#x441;&#x44F; &#x43E;&#x434;&#x43D;&#x438;&#x43C;&#x438; &#x43B;&#x438;&#x448;&#x44C; &#x432;&#x44B;&#x447;&#x438;&#x441;&#x43B;&#x435;&#x43D;&#x438;&#x44F;&#x43C;&#x438;. &#x41B;...</div>
+<div class="mt-auto d-flex">
+<div class="ml-auto">
+<a class="x-link-without-decoration stretched-link" href="/courses/js-data-abstraction">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
+</a></div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="mb-5 col-lg-4 col-sm-6 col-12">
+<div class="card x-shadow-fade-in-lg h-100">
+<div class="bg-success card-header d-flex flex-column py-1 text-white">
+<div class="d-flex">
+<i class="fa-2x fa-js fab"></i>
+<div class="ml-auto my-auto">
+22 &#x447;&#x430;&#x441;&#x430;
+</div>
+</div>
+</div>
+<div class="card-body d-flex flex-column">
+<div class="d-flex">
+<h5 class="mr-1">JS: &#x41F;&#x440;&#x43E;&#x442;&#x43E;&#x442;&#x438;&#x43F;&#x44B;
+</h5>
+<div class="ml-auto">
+<span class="badge badge-light">PRO</span>
+</div>
+</div>
+<div class="text-muted mb-2">&#x42D;&#x442;&#x43E;&#x442; &#x43A;&#x443;&#x440;&#x441; &#x43F;&#x43E;&#x441;&#x432;&#x44F;&#x449;&#x451;&#x43D; &#x440;&#x435;&#x430;&#x43B;&#x438;&#x437;&#x430;&#x446;&#x438;&#x438; &#x43E;&#x431;&#x44A;&#x435;&#x43A;&#x442;&#x43D;&#x43E;-&#x43E;&#x440;&#x438;&#x435;&#x43D;&#x442;&#x438;&#x440;&#x43E;&#x432;&#x430;&#x43D;&#x43D;&#x43E;&#x433;&#x43E; &#x43F;&#x440;&#x43E;&#x433;&#x440;&#x430;...</div>
+<div class="mt-auto d-flex">
+<div class="ml-auto">
+<a class="x-link-without-decoration stretched-link" href="/courses/js_prototypes">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
+</a></div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="mb-5 col-lg-4 col-sm-6 col-12">
+<div class="card x-shadow-fade-in-lg h-100">
+<div class="bg-success card-header d-flex flex-column py-1 text-white">
+<div class="d-flex">
+<i class="fa-2x fa-python fab"></i>
+<div class="ml-auto my-auto">
+3 &#x447;&#x430;&#x441;&#x430;
+</div>
+</div>
+</div>
+<div class="card-body d-flex flex-column">
+<div class="d-flex">
+<h5 class="mr-1">Python: &#x41E;&#x441;&#x43D;&#x43E;&#x432;&#x44B; &#x442;&#x435;&#x43A;&#x441;&#x442;&#x43E;&#x432;&#x43E;&#x433;&#x43E; &#x432;&#x432;&#x43E;&#x434;&#x430;-&#x432;&#x44B;&#x432;&#x43E;&#x434;&#x430;</h5>
+<div class="ml-auto">
+<span class="badge badge-light">PRO</span>
+</div>
+</div>
+<div class="text-muted mb-2">&#x41F;&#x440;&#x430;&#x43A;&#x442;&#x438;&#x447;&#x435;&#x441;&#x43A;&#x438; &#x43B;&#x44E;&#x431;&#x430;&#x44F; &#x43F;&#x440;&#x43E;&#x433;&#x440;&#x430;&#x43C;&#x43C;&#x430; &#x440;&#x430;&#x431;&#x43E;&#x442;&#x430;&#x435;&#x442; &#x441; &#x444;&#x430;&#x439;&#x43B;&#x430;&#x43C;&#x438;. &#x42D;&#x442;&#x43E; &#x43C;&#x43E;&#x433;&#x443;&#x442; &#x431;&#x44B;&#x442;&#x44C;...</div>
+<div class="mt-auto d-flex">
+<div class="ml-auto">
+<a class="x-link-without-decoration stretched-link" href="/courses/python-io">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
+</a></div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="mb-5 col-lg-4 col-sm-6 col-12">
+<div class="card x-shadow-fade-in-lg h-100">
+<div class="bg-success card-header d-flex flex-column py-1 text-white">
+<div class="d-flex">
+<i class="fa-2x fa-php fab"></i>
+<div class="ml-auto my-auto">
+42 &#x447;&#x430;&#x441;&#x430;
+</div>
+</div>
+</div>
+<div class="card-body d-flex flex-column">
+<div class="d-flex">
+<h5 class="mr-1">PHP: Laravel</h5>
+<div class="ml-auto">
+<span class="badge badge-light">PRO</span>
+</div>
+</div>
+<div class="text-muted mb-2">&#x41B;&#x430;&#x440;&#x430;&#x432;&#x435;&#x43B; &#x2013;&#xA0;&#x43F;&#x43E;&#x43F;&#x443;&#x43B;&#x44F;&#x440;&#x43D;&#x44B;&#x439; &#x432;&#x435;&#x431;-&#x444;&#x440;&#x435;&#x439;&#x43C;&#x432;&#x43E;&#x440;&#x43A; &#x43D;&#x430; PHP, &#x43F;&#x440;&#x435;&#x434;&#x43D;&#x430;&#x437;&#x43D;&#x430;&#x447;&#x435;&#x43D;&#x43D;&#x44B;&#x439; &#x434;&#x43B;&#x44F;...</div>
+<div class="mt-auto d-flex">
+<div class="ml-auto">
+<a class="x-link-without-decoration stretched-link" href="/courses/php-laravel">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
+</a></div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="mb-5 col-lg-4 col-sm-6 col-12">
+<div class="card x-shadow-fade-in-lg h-100">
+<div class="bg-success card-header d-flex flex-column py-1 text-white">
+<div class="d-flex">
+<i class="fa-2x fa-code fal"></i>
+<div class="ml-auto my-auto">
+2 &#x447;&#x430;&#x441;&#x430;
+</div>
+</div>
+</div>
+<div class="card-body d-flex flex-column">
+<div class="d-flex">
+<h5 class="mr-1">Maven - &#x430;&#x432;&#x442;&#x43E;&#x43C;&#x430;&#x442;&#x438;&#x437;&#x430;&#x446;&#x438;&#x44F; &#x441;&#x431;&#x43E;&#x440;&#x43A;&#x438; &#x43F;&#x440;&#x43E;&#x435;&#x43A;&#x442;&#x43E;&#x432;.</h5>
+<div class="ml-auto">
+<span class="badge badge-light">PRO</span>
+</div>
+</div>
+<div class="text-muted mb-2">&#x42D;&#x442;&#x43E;&#x442; &#x43A;&#x443;&#x440;&#x441; &#x43D;&#x435;&#x43E;&#x431;&#x445;&#x43E;&#x434;&#x438;&#x43C; &#x434;&#x43B;&#x44F; &#x442;&#x435;&#x445;, &#x43A;&#x442;&#x43E; &#x445;&#x43E;&#x447;&#x435;&#x442; &#x438;&#x437;&#x443;&#x447;&#x438;&#x442;&#x44C; &#x438;&#x43D;&#x441;&#x442;&#x440;&#x443;&#x43C;&#x435;&#x43D;&#x442; &#x430;&#x432;&#x442;&#x43E;...</div>
+<div class="mt-auto d-flex">
+<div class="ml-auto">
+<a class="x-link-without-decoration stretched-link" href="/courses/maven">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
+</a></div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="mb-5 col-lg-4 col-sm-6 col-12">
+<div class="card x-shadow-fade-in-lg h-100">
+<div class="bg-success card-header d-flex flex-column py-1 text-white">
+<div class="d-flex">
+<i class="fa-2x fa-code fal"></i>
+<div class="ml-auto my-auto">
+5 &#x447;&#x430;&#x441;&#x43E;&#x432;
+</div>
+</div>
+</div>
+<div class="card-body d-flex flex-column">
+<div class="d-flex">
+<h5 class="mr-1">&#x418;&#x437;&#x443;&#x447;&#x435;&#x43D;&#x438;&#x435; &#x430;&#x43D;&#x433;&#x43B;&#x438;&#x439;&#x441;&#x43A;&#x43E;&#x433;&#x43E; &#x44F;&#x437;&#x44B;&#x43A;&#x430;</h5>
+</div>
+<div class="text-muted mb-2">&#x42D;&#x442;&#x43E;&#x442; &#x442;&#x435;&#x43A;&#x441;&#x442;&#x43E;&#x432;&#x44B;&#x439; &#x43A;&#x443;&#x440;&#x441; &#x43F;&#x43E;&#x43C;&#x43E;&#x436;&#x435;&#x442; &#x432;&#x430;&#x43C; &#x438;&#x437;&#x443;&#x447;&#x430;&#x442;&#x44C; &#x430;&#x43D;&#x433;&#x43B;&#x438;&#x439;&#x441;&#x43A;&#x438;&#x439; &#x44F;&#x437;&#x44B;&#x43A;. &#x41E;&#x43D; &#x43F;&#x43E;...</div>
+<div class="mt-auto d-flex">
+<div class="ml-auto">
+<a class="x-link-without-decoration stretched-link" href="/courses/learning_english">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
+</a></div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="mb-5 col-lg-4 col-sm-6 col-12">
+<div class="card x-shadow-fade-in-lg h-100">
+<div class="bg-success card-header d-flex flex-column py-1 text-white">
+<div class="d-flex">
+<i class="fa-2x fa-php fab"></i>
+<div class="ml-auto my-auto">
+19 &#x447;&#x430;&#x441;&#x43E;&#x432;
+</div>
+</div>
+</div>
+<div class="card-body d-flex flex-column">
+<div class="d-flex">
+<h5 class="mr-1">PHP: &#x410;&#x441;&#x441;&#x43E;&#x446;&#x438;&#x430;&#x442;&#x438;&#x432;&#x43D;&#x44B;&#x435; &#x43C;&#x430;&#x441;&#x441;&#x438;&#x432;&#x44B;</h5>
+<div class="ml-auto">
+<span class="badge badge-light">PRO</span>
+</div>
+</div>
+<div class="text-muted mb-2">&#x410;&#x441;&#x441;&#x43E;&#x446;&#x438;&#x430;&#x442;&#x438;&#x432;&#x43D;&#x44B;&#x439; &#x43C;&#x430;&#x441;&#x441;&#x438;&#x432; &#x2014; &#x430;&#x431;&#x441;&#x442;&#x440;&#x430;&#x43A;&#x442;&#x43D;&#x44B;&#x439; &#x442;&#x438;&#x43F; &#x434;&#x430;&#x43D;&#x43D;&#x44B;&#x445;, &#x43A;&#x43E;&#x43B;&#x43B;&#x435;&#x43A;&#x446;&#x438;&#x44F; &#x43F;&#x430;&#x440; &#xAB;...</div>
+<div class="mt-auto d-flex">
+<div class="ml-auto">
+<a class="x-link-without-decoration stretched-link" href="/courses/php-associative-arrays">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
+</a></div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="mb-5 col-lg-4 col-sm-6 col-12">
+<div class="card x-shadow-fade-in-lg h-100">
+<div class="bg-success card-header d-flex flex-column py-1 text-white">
+<div class="d-flex">
+<i class="fa-2x fa-js fab"></i>
+<div class="ml-auto my-auto">
+38 &#x447;&#x430;&#x441;&#x43E;&#x432;
+</div>
+</div>
+</div>
+<div class="card-body d-flex flex-column">
+<div class="d-flex">
+<h5 class="mr-1">JS: &#x410;&#x441;&#x438;&#x43D;&#x445;&#x440;&#x43E;&#x43D;&#x43D;&#x43E;&#x435; &#x43F;&#x440;&#x43E;&#x433;&#x440;&#x430;&#x43C;&#x43C;&#x438;&#x440;&#x43E;&#x432;&#x430;&#x43D;&#x438;&#x435;</h5>
+<div class="ml-auto">
+<span class="badge badge-light">PRO</span>
+</div>
+</div>
+<div class="text-muted mb-2">&#x41A;&#x443;&#x440;&#x441; &#x43F;&#x43E;&#x441;&#x432;&#x44F;&#x449;&#x435;&#x43D; &#x437;&#x43D;&#x430;&#x43A;&#x43E;&#x43C;&#x441;&#x442;&#x432;&#x443; &#x441; &#x430;&#x441;&#x438;&#x43D;&#x445;&#x440;&#x43E;&#x43D;&#x43D;&#x43E;&#x439; &#x43C;&#x43E;&#x434;&#x435;&#x43B;&#x44C;&#x44E; &#x43F;&#x440;&#x43E;&#x433;&#x440;&#x430;&#x43C;&#x43C;&#x438;&#x440;&#x43E;&#x432;&#x430;&#x43D;&#x438;...</div>
+<div class="mt-auto d-flex">
+<div class="ml-auto">
+<a class="x-link-without-decoration stretched-link" href="/courses/js-asynchronous-programming">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
+</a></div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="mb-5 col-lg-4 col-sm-6 col-12">
+<div class="card x-shadow-fade-in-lg h-100">
+<div class="bg-success card-header d-flex flex-column py-1 text-white">
+<div class="d-flex">
+<i class="fa-2x fa-php fab"></i>
+<div class="ml-auto my-auto">
+47 &#x447;&#x430;&#x441;&#x43E;&#x432;
+</div>
+</div>
+</div>
+<div class="card-body d-flex flex-column">
+<div class="d-flex">
+<h5 class="mr-1">&#x412;&#x435;&#x431;-&#x440;&#x430;&#x437;&#x440;&#x430;&#x431;&#x43E;&#x442;&#x43A;&#x430; &#x43D;&#x430; PHP</h5>
+<div class="ml-auto">
+<span class="badge badge-light">PRO</span>
+</div>
+</div>
+<div class="text-muted mb-2">&#x412; &#x43A;&#x443;&#x440;&#x441;&#x435; &#x440;&#x430;&#x437;&#x431;&#x438;&#x440;&#x430;&#x435;&#x442;&#x441;&#x44F; &#x431;&#x43E;&#x43B;&#x44C;&#x448;&#x430;&#x44F; &#x447;&#x430;&#x441;&#x442;&#x44C; &#x43A;&#x43B;&#x44E;&#x447;&#x435;&#x432;&#x44B;&#x445; &#x442;&#x435;&#x43C; &#x432;&#x435;&#x431;-&#x440;&#x430;&#x437;&#x440;&#x430;&#x431;&#x43E;&#x442;&#x43A;&#x438;,...</div>
+<div class="mt-auto d-flex">
+<div class="ml-auto">
+<a class="x-link-without-decoration stretched-link" href="/courses/php-mvc">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
+</a></div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="mb-5 col-lg-4 col-sm-6 col-12">
+<div class="card x-shadow-fade-in-lg h-100">
+<div class="bg-success card-header d-flex flex-column py-1 text-white">
+<div class="d-flex">
+<i class="fa-2x fa-js fab"></i>
+<div class="ml-auto my-auto">
+17 &#x447;&#x430;&#x441;&#x43E;&#x432;
+</div>
+</div>
+</div>
+<div class="card-body d-flex flex-column">
+<div class="d-flex">
+<h5 class="mr-1">JS: &#x414;&#x435;&#x440;&#x435;&#x432;&#x44C;&#x44F;</h5>
+<div class="ml-auto">
+<span class="badge badge-light">PRO</span>
+</div>
+</div>
+<div class="text-muted mb-2">&#x42D;&#x442;&#x43E;&#x442; &#x43A;&#x443;&#x440;&#x441; &#x43F;&#x43E;&#x441;&#x432;&#x44F;&#x449;&#x435;&#x43D; &#x437;&#x43D;&#x430;&#x43A;&#x43E;&#x43C;&#x441;&#x442;&#x432;&#x443; &#x441; &#x43E;&#x434;&#x43D;&#x43E;&#x439; &#x438;&#x437; &#x43D;&#x430;&#x438;&#x431;&#x43E;&#x43B;&#x435;&#x435; &#x447;&#x430;&#x441;&#x442;&#x43E; &#x438;&#x441;&#x43F;&#x43E;&#x43B;&#x44C;...</div>
+<div class="mt-auto d-flex">
+<div class="ml-auto">
+<a class="x-link-without-decoration stretched-link" href="/courses/js-trees">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
+</a></div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="mb-5 col-lg-4 col-sm-6 col-12">
+<div class="card x-shadow-fade-in-lg h-100">
+<div class="bg-success card-header d-flex flex-column py-1 text-white">
+<div class="d-flex">
+<i class="fa-2x fa-php fab"></i>
+<div class="ml-auto my-auto">
+35 &#x447;&#x430;&#x441;&#x43E;&#x432;
+</div>
+</div>
+</div>
+<div class="card-body d-flex flex-column">
+<div class="d-flex">
+<h5 class="mr-1">PHP: &#x424;&#x443;&#x43D;&#x43A;&#x446;&#x438;&#x438;</h5>
+<div class="ml-auto">
+<span class="badge badge-light">PRO</span>
+</div>
+</div>
+<div class="text-muted mb-2">&#x424;&#x443;&#x43D;&#x43A;&#x446;&#x438;&#x438; &#x432; PHP &#x441;&#x43F;&#x43E;&#x441;&#x43E;&#x431;&#x43D;&#x44B; &#x43D;&#x430; &#x431;&#x43E;&#x43B;&#x44C;&#x448;&#x435;&#x435;! &#x412; &#x44D;&#x442;&#x43E;&#x43C; &#x43A;&#x443;&#x440;&#x441;&#x435; &#x432;&#x44B; &#x43F;&#x43E;&#x437;&#x43D;&#x430;&#x43A;&#x43E;&#x43C;&#x438;&#x442;&#x435;...</div>
+<div class="mt-auto d-flex">
+<div class="ml-auto">
+<a class="x-link-without-decoration stretched-link" href="/courses/php-functions">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
+</a></div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="mb-5 col-lg-4 col-sm-6 col-12">
+<div class="card x-shadow-fade-in-lg h-100">
+<div class="bg-success card-header d-flex flex-column py-1 text-white">
+<div class="d-flex">
+<i class="fa-2x fa-js fab"></i>
+<div class="ml-auto my-auto">
+24 &#x447;&#x430;&#x441;&#x430;
+</div>
+</div>
+</div>
+<div class="card-body d-flex flex-column">
+<div class="d-flex">
+<h5 class="mr-1">JS: &#x41F;&#x440;&#x43E;&#x434;&#x432;&#x438;&#x43D;&#x443;&#x442;&#x43E;&#x435; &#x442;&#x435;&#x441;&#x442;&#x438;&#x440;&#x43E;&#x432;&#x430;&#x43D;&#x438;&#x435;</h5>
+<div class="ml-auto">
+<span class="badge badge-light">PRO</span>
+</div>
+</div>
+<div class="text-muted mb-2">&#x41A;&#x443;&#x440;&#x441; &#x43F;&#x43E;&#x441;&#x432;&#x44F;&#x449;&#x435;&#x43D; &#x43F;&#x440;&#x43E;&#x434;&#x432;&#x438;&#x43D;&#x443;&#x442;&#x44B;&#x43C; &#x441;&#x43F;&#x43E;&#x441;&#x43E;&#x431;&#x430;&#x43C; &#x442;&#x435;&#x441;&#x442;&#x438;&#x440;&#x43E;&#x432;&#x430;&#x43D;&#x438;&#x44F; &#x43F;&#x440;&#x43E;&#x433;&#x440;&#x430;&#x43C;&#x43C;. &#x41A; &#x43D;&#x438;...</div>
+<div class="mt-auto d-flex">
+<div class="ml-auto">
+<a class="x-link-without-decoration stretched-link" href="/courses/js-advanced-testing">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
+</a></div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="mb-5 col-lg-4 col-sm-6 col-12">
+<div class="card x-shadow-fade-in-lg h-100">
+<div class="bg-success card-header d-flex flex-column py-1 text-white">
+<div class="d-flex">
+<i class="fa-2x fa-html5 fab"></i>
+<div class="ml-auto my-auto">
+8 &#x447;&#x430;&#x441;&#x43E;&#x432;
+</div>
+</div>
+</div>
+<div class="card-body d-flex flex-column">
+<div class="d-flex">
+<h5 class="mr-1">&#x41E;&#x441;&#x43D;&#x43E;&#x432;&#x44B; HTML, CSS &#x438; &#x432;&#x435;&#x431;-&#x434;&#x438;&#x437;&#x430;&#x439;&#x43D;&#x430;</h5>
+</div>
+<div class="text-muted mb-2">&#x41A;&#x443;&#x440;&#x441; &#x43F;&#x43E;&#x441;&#x432;&#x44F;&#x449;&#x435;&#x43D; &#x431;&#x430;&#x437;&#x43E;&#x432;&#x44B;&#x43C; &#x43A;&#x43E;&#x43D;&#x446;&#x435;&#x43F;&#x446;&#x438;&#x44F;&#x43C; &#x432;&#x435;&#x431;-&#x434;&#x438;&#x437;&#x430;&#x439;&#x43D;&#x430;, &#x44F;&#x437;&#x44B;&#x43A;&#x430; &#x440;&#x430;&#x437;&#x43C;&#x435;&#x442;&#x43A;&#x438; H...</div>
+<div class="mt-auto d-flex">
+<div class="ml-auto">
+<a class="x-link-without-decoration stretched-link" href="/courses/html">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
+</a></div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="mb-5 col-lg-4 col-sm-6 col-12">
+<div class="card x-shadow-fade-in-lg h-100">
+<div class="bg-success card-header d-flex flex-column py-1 text-white">
+<div class="d-flex">
+<i class="fa-2x fa-js fab"></i>
+<div class="ml-auto my-auto">
+43 &#x447;&#x430;&#x441;&#x430;
+</div>
+</div>
+</div>
+<div class="card-body d-flex flex-column">
+<div class="d-flex">
+<h5 class="mr-1">JS: &#x41C;&#x430;&#x441;&#x441;&#x438;&#x432;&#x44B;</h5>
+<div class="ml-auto">
+<span class="badge badge-light">PRO</span>
+</div>
+</div>
+<div class="text-muted mb-2">&#x41C;&#x430;&#x441;&#x441;&#x438;&#x432;&#x44B; &#x2014; &#x43E;&#x441;&#x43D;&#x43E;&#x432;&#x43D;&#x43E;&#x439; &#x441;&#x43F;&#x43E;&#x441;&#x43E;&#x431; &#x43E;&#x431;&#x44A;&#x435;&#x434;&#x438;&#x43D;&#x44F;&#x442;&#x44C; &#x434;&#x430;&#x43D;&#x43D;&#x44B;&#x435; &#x432; &#x43A;&#x43E;&#x43B;&#x43B;&#x435;&#x43A;&#x446;&#x438;&#x438;. &#x412;&#x44B;&#x432;&#x43E;&#x434;...</div>
+<div class="mt-auto d-flex">
+<div class="ml-auto">
+<a class="x-link-without-decoration stretched-link" href="/courses/js-arrays">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
+</a></div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="mb-5 col-lg-4 col-sm-6 col-12">
+<div class="card x-shadow-fade-in-lg h-100">
+<div class="bg-success card-header d-flex flex-column py-1 text-white">
+<div class="d-flex">
+<i class="fa-2x fa-js fab"></i>
+<div class="ml-auto my-auto">
+17 &#x447;&#x430;&#x441;&#x43E;&#x432;
+</div>
+</div>
+</div>
+<div class="card-body d-flex flex-column">
+<div class="d-flex">
+<h5 class="mr-1">JS: &#x420;&#x430;&#x437;&#x440;&#x430;&#x431;&#x43E;&#x442;&#x43A;&#x430; &#x430;&#x431;&#x441;&#x442;&#x440;&#x430;&#x43A;&#x446;&#x438;&#x439; &#x434;&#x43B;&#x44F; &#x430;&#x441;&#x438;&#x43D;&#x445;&#x440;&#x43E;&#x43D;&#x43D;&#x43E;&#x441;&#x442;&#x438;
+</h5>
+<div class="ml-auto">
+<span class="badge badge-light">PRO</span>
+</div>
+</div>
+<div class="text-muted mb-2">&#x41F;&#x440;&#x435;&#x434;&#x44B;&#x434;&#x443;&#x449;&#x430;&#x44F; &#x432;&#x435;&#x440;&#x441;&#x438;&#x44F; &#x43A;&#x443;&#x440;&#x441;&#x430; &#x43F;&#x43E; &#x430;&#x441;&#x438;&#x43D;&#x445;&#x440;&#x43E;&#x43D;&#x43D;&#x43E;&#x43C;&#x443; &#x43F;&#x440;&#x43E;&#x433;&#x440;&#x430;&#x43C;&#x43C;&#x438;&#x440;&#x43E;&#x432;&#x430;&#x43D;&#x438;&#x44E;. &#x41F;&#x43E;&#x43B;&#x435;...</div>
+<div class="mt-auto d-flex">
+<div class="ml-auto">
+<a class="x-link-without-decoration stretched-link" href="/courses/js_async">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
+</a></div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="mb-5 col-lg-4 col-sm-6 col-12">
+<div class="card x-shadow-fade-in-lg h-100">
+<div class="bg-success card-header d-flex flex-column py-1 text-white">
+<div class="d-flex">
+<i class="fa-2x fa-php fab"></i>
+<div class="ml-auto my-auto">
+26 &#x447;&#x430;&#x441;&#x43E;&#x432;
+</div>
+</div>
+</div>
+<div class="card-body d-flex flex-column">
+<div class="d-flex">
+<h5 class="mr-1">PHP: &#x420;&#x430;&#x437;&#x440;&#x430;&#x431;&#x43E;&#x442;&#x43A;&#x430; &#x43C;&#x438;&#x43A;&#x440;&#x43E;&#x444;&#x440;&#x435;&#x439;&#x43C;&#x432;&#x43E;&#x440;&#x43A;&#x430;</h5>
+<div class="ml-auto">
+<span class="badge badge-light">PRO</span>
+</div>
+</div>
+<div class="text-muted mb-2">&#x424;&#x440;&#x435;&#x439;&#x43C;&#x432;&#x43E;&#x440;&#x43A;&#x438; &#x2014; &#x43E;&#x441;&#x43D;&#x43E;&#x432;&#x43D;&#x43E;&#x439; &#x441;&#x43F;&#x43E;&#x441;&#x43E;&#x431; &#x441;&#x43E;&#x437;&#x434;&#x430;&#x432;&#x430;&#x442;&#x44C; &#x441;&#x43B;&#x43E;&#x436;&#x43D;&#x44B;&#x435; &#x441;&#x430;&#x439;&#x442;&#x44B; &#x432; &#x438;&#x43D;&#x442;&#x435;&#x440;&#x43D;&#x435;...</div>
+<div class="mt-auto d-flex">
+<div class="ml-auto">
+<a class="x-link-without-decoration stretched-link" href="/courses/php-web">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
+</a></div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="mb-5 col-lg-4 col-sm-6 col-12">
+<div class="card x-shadow-fade-in-lg h-100">
+<div class="bg-success card-header d-flex flex-column py-1 text-white">
+<div class="d-flex">
+<i class="fa-2x fa-js fab"></i>
+<div class="ml-auto my-auto">
+20 &#x447;&#x430;&#x441;&#x43E;&#x432;
+</div>
+</div>
+</div>
+<div class="card-body d-flex flex-column">
+<div class="d-flex">
+<h5 class="mr-1">JS: &#x41F;&#x440;&#x435;&#x434;&#x43C;&#x435;&#x442;&#x43D;&#x43E;-&#x43E;&#x440;&#x438;&#x435;&#x43D;&#x442;&#x438;&#x440;&#x43E;&#x432;&#x430;&#x43D;&#x43D;&#x43E;&#x435; &#x43F;&#x440;&#x43E;&#x435;&#x43A;&#x442;&#x438;&#x440;&#x43E;&#x432;&#x430;&#x43D;&#x438;&#x435;</h5>
+<div class="ml-auto">
+<span class="badge badge-light">PRO</span>
+</div>
+</div>
+<div class="text-muted mb-2">&#x41A;&#x443;&#x440;&#x441; &#x43F;&#x43E;&#x441;&#x432;&#x44F;&#x449;&#x435;&#x43D; &#x43F;&#x440;&#x43E;&#x446;&#x435;&#x441;&#x441;&#x443; &#x441;&#x43E;&#x437;&#x434;&#x430;&#x43D;&#x438;&#x44F; &#x43F;&#x440;&#x43E;&#x433;&#x440;&#x430;&#x43C;&#x43C;&#x43D;&#x44B;&#x445; &#x430;&#x431;&#x441;&#x442;&#x440;&#x430;&#x43A;&#x446;&#x438;&#x439; &#x2014; &#x43C;&#x43E;&#x434;&#x435;&#x43B;...</div>
+<div class="mt-auto d-flex">
+<div class="ml-auto">
+<a class="x-link-without-decoration stretched-link" href="/courses/js-ddd">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
+</a></div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="mb-5 col-lg-4 col-sm-6 col-12">
+<div class="card x-shadow-fade-in-lg h-100">
+<div class="bg-success card-header d-flex flex-column py-1 text-white">
+<div class="d-flex">
+<i class="fa-2x fa-python fab"></i>
+<div class="ml-auto my-auto">
+2 &#x447;&#x430;&#x441;&#x430;
+</div>
+</div>
+</div>
+<div class="card-body d-flex flex-column">
+<div class="d-flex">
+<h5 class="mr-1">&#x41C;&#x438;&#x43A;&#x440;&#x43E;&#x444;&#x440;&#x435;&#x439;&#x43C;&#x432;&#x43E;&#x440;&#x43A; Flask</h5>
+<div class="ml-auto">
+<span class="badge badge-light">PRO</span>
+</div>
+</div>
+<div class="text-muted mb-2">&#x41A;&#x443;&#x440;&#x441; &#x437;&#x43D;&#x430;&#x43A;&#x43E;&#x43C;&#x438;&#x442; &#x441; &#x43E;&#x447;&#x435;&#x43D;&#x44C; &#x43F;&#x43E;&#x43F;&#x443;&#x43B;&#x44F;&#x440;&#x43D;&#x44B;&#x43C; &#x441;&#x440;&#x435;&#x434;&#x438; &#x43F;&#x438;&#x442;&#x43E;&#x43D;&#x438;&#x441;&#x442;&#x43E;&#x432; &#x43C;&#x438;&#x43A;&#x440;&#x43E;&#x444;&#x440;&#x435;&#x439;&#x43C;&#x432;&#x43E;...</div>
+<div class="mt-auto d-flex">
+<div class="ml-auto">
+<a class="x-link-without-decoration stretched-link" href="/courses/python-flask">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
+</a></div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="mb-5 col-lg-4 col-sm-6 col-12">
+<div class="card x-shadow-fade-in-lg h-100">
+<div class="bg-success card-header d-flex flex-column py-1 text-white">
+<div class="d-flex">
+<i class="fa-2x fa-html5 fab"></i>
+<div class="ml-auto my-auto">
+5 &#x447;&#x430;&#x441;&#x43E;&#x432;
+</div>
+</div>
+</div>
+<div class="card-body d-flex flex-column">
+<div class="d-flex">
+<h5 class="mr-1">&#x412;&#x432;&#x435;&#x434;&#x435;&#x43D;&#x438;&#x435; &#x432; &#x432;&#x435;&#x431;-&#x440;&#x430;&#x437;&#x440;&#x430;&#x431;&#x43E;&#x442;&#x43A;&#x443;</h5>
+</div>
+<div class="text-muted mb-2">&#x41F;&#x43E;&#x43F;&#x44B;&#x442;&#x43A;&#x430; &#x441;&#x438;&#x441;&#x442;&#x435;&#x43C;&#x430;&#x442;&#x438;&#x437;&#x438;&#x440;&#x43E;&#x432;&#x430;&#x442;&#x44C; &#x437;&#x43D;&#x430;&#x43D;&#x438;&#x44F; &#x43E; &#x432;&#x435;&#x431;-&#x440;&#x430;&#x437;&#x440;&#x430;&#x431;&#x43E;&#x442;&#x43A;&#x435; &#x438; &#x43F;&#x43E;&#x437;&#x43D;&#x430;&#x43A;&#x43E;&#x43C;&#x438;&#x442;...</div>
+<div class="mt-auto d-flex">
+<div class="ml-auto">
+<a class="x-link-without-decoration stretched-link" href="/courses/intro_to_web_development">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
+</a></div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="mb-5 col-lg-4 col-sm-6 col-12">
+<div class="card x-shadow-fade-in-lg h-100">
+<div class="bg-success card-header d-flex flex-column py-1 text-white">
+<div class="d-flex">
+<i class="fa-2x fa-php fab"></i>
+<div class="ml-auto my-auto">
+23 &#x447;&#x430;&#x441;&#x430;
+</div>
+</div>
+</div>
+<div class="card-body d-flex flex-column">
+<div class="d-flex">
+<h5 class="mr-1">PHP: Eloquent (ORM)</h5>
+<div class="ml-auto">
+<span class="badge badge-light">PRO</span>
+</div>
+</div>
+<div class="text-muted mb-2">ORM &#x2013; &#x43E;&#x434;&#x43D;&#x430; &#x438;&#x437; &#x43A;&#x43B;&#x44E;&#x447;&#x435;&#x432;&#x44B;&#x445; &#x447;&#x430;&#x441;&#x442;&#x435;&#x439; &#x441;&#x43E;&#x432;&#x440;&#x435;&#x43C;&#x435;&#x43D;&#x43D;&#x43E;&#x439; &#x432;&#x435;&#x431;-&#x440;&#x430;&#x437;&#x440;&#x430;&#x431;&#x43E;&#x442;&#x43A;&#x438;. &#x418;&#x43C;&#x435;&#x43D;...</div>
+<div class="mt-auto d-flex">
+<div class="ml-auto">
+<a class="x-link-without-decoration stretched-link" href="/courses/php-orm-eloquent">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
+</a></div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="mb-5 col-lg-4 col-sm-6 col-12">
+<div class="card x-shadow-fade-in-lg h-100">
+<div class="bg-success card-header d-flex flex-column py-1 text-white">
+<div class="d-flex">
+<i class="fa-2x fa-js fab"></i>
+<div class="ml-auto my-auto">
+49 &#x447;&#x430;&#x441;&#x43E;&#x432;
+</div>
+</div>
+</div>
+<div class="card-body d-flex flex-column">
+<div class="d-flex">
+<h5 class="mr-1">JS: React</h5>
+<div class="ml-auto">
+<span class="badge badge-light">PRO</span>
+</div>
+</div>
+<div class="text-muted mb-2">React &#x2014; &#x431;&#x438;&#x431;&#x43B;&#x438;&#x43E;&#x442;&#x435;&#x43A;&#x430;, &#x43A;&#x43E;&#x442;&#x43E;&#x440;&#x430;&#x44F; &#x43F;&#x435;&#x440;&#x435;&#x432;&#x435;&#x440;&#x43D;&#x443;&#x43B;&#x430; &#x43D;&#x430;&#x448;&#x438; &#x43F;&#x440;&#x435;&#x434;&#x441;&#x442;&#x430;&#x432;&#x43B;&#x435;&#x43D;&#x438;&#x44F; &#x43E; &#x442;...</div>
+<div class="mt-auto d-flex">
+<div class="ml-auto">
+<a class="x-link-without-decoration stretched-link" href="/courses/js-react">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
+</a></div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="mb-5 col-lg-4 col-sm-6 col-12">
+<div class="card x-shadow-fade-in-lg h-100">
+<div class="bg-success card-header d-flex flex-column py-1 text-white">
+<div class="d-flex">
+<i class="fa-2x fa-php fab"></i>
+<div class="ml-auto my-auto">
+7 &#x447;&#x430;&#x441;&#x43E;&#x432;
+</div>
+</div>
+</div>
+<div class="card-body d-flex flex-column">
+<div class="d-flex">
+<h5 class="mr-1">&#x41A;&#x43B;&#x44E;&#x447;&#x435;&#x432;&#x44B;&#x435; &#x430;&#x441;&#x43F;&#x435;&#x43A;&#x442;&#x44B; &#x432;&#x435;&#x431;-&#x440;&#x430;&#x437;&#x440;&#x430;&#x431;&#x43E;&#x442;&#x43A;&#x438; &#x43D;&#x430; PHP</h5>
+</div>
+<div class="text-muted mb-2">&#x42D;&#x442;&#x43E;&#x442; &#x43E;&#x431;&#x437;&#x43E;&#x440;&#x43D;&#x44B;&#x439; &#x43A;&#x443;&#x440;&#x441; &#x437;&#x430;&#x442;&#x440;&#x430;&#x433;&#x438;&#x432;&#x430;&#x435;&#x442; &#x43E;&#x441;&#x43D;&#x43E;&#x432;&#x43D;&#x44B;&#x435; &#x430;&#x441;&#x43F;&#x435;&#x43A;&#x442;&#x44B; &#x441;&#x43E;&#x432;&#x440;&#x435;&#x43C;&#x435;&#x43D;&#x43D;&#x43E;&#x439; &#x432;&#x435;...</div>
+<div class="mt-auto d-flex">
+<div class="ml-auto">
+<a class="x-link-without-decoration stretched-link" href="/courses/php-overview-of-web-development">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
+</a></div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="mb-5 col-lg-4 col-sm-6 col-12">
+<div class="card x-shadow-fade-in-lg h-100">
+<div class="bg-success card-header d-flex flex-column py-1 text-white">
+<div class="d-flex">
+<i class="fa-2x fa-code fal"></i>
+<div class="ml-auto my-auto">
+38 &#x447;&#x430;&#x441;&#x43E;&#x432;
+</div>
+</div>
+</div>
+<div class="card-body d-flex flex-column">
+<div class="d-flex">
+<h5 class="mr-1">Java: &#x421;&#x442;&#x440;&#x443;&#x43A;&#x442;&#x443;&#x440;&#x44B; &#x434;&#x430;&#x43D;&#x43D;&#x44B;&#x445;</h5>
+<div class="ml-auto">
+<span class="badge badge-light">PRO</span>
+</div>
+</div>
+<div class="text-muted mb-2">&#x423; &#x43A;&#x443;&#x440;&#x441;&#x430; &#x441;&#x440;&#x430;&#x437;&#x443; &#x434;&#x432;&#x435; &#x446;&#x435;&#x43B;&#x438;: &#x43F;&#x43E;&#x437;&#x43D;&#x430;&#x43A;&#x43E;&#x43C;&#x438;&#x442;&#x44C; &#x432;&#x430;&#x441; &#x441; &#x43E;&#x441;&#x43D;&#x43E;&#x432;&#x43D;&#x44B;&#x43C;&#x438; &#x441;&#x442;&#x440;&#x443;&#x43A;&#x442;&#x443;&#x440;&#x430;&#x43C;...</div>
+<div class="mt-auto d-flex">
+<div class="ml-auto">
+<a class="x-link-without-decoration stretched-link" href="/courses/collections">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
+</a></div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="mb-5 col-lg-4 col-sm-6 col-12">
+<div class="card x-shadow-fade-in-lg h-100">
+<div class="bg-success card-header d-flex flex-column py-1 text-white">
+<div class="d-flex">
+<i class="fa-2x fa-code fal"></i>
+<div class="ml-auto my-auto">
+24 &#x447;&#x430;&#x441;&#x430;
+</div>
+</div>
+</div>
+<div class="card-body d-flex flex-column">
+<div class="d-flex">
+<h5 class="mr-1">&#x420;&#x435;&#x433;&#x443;&#x43B;&#x44F;&#x440;&#x43D;&#x44B;&#x435; &#x432;&#x44B;&#x440;&#x430;&#x436;&#x435;&#x43D;&#x438;&#x44F;</h5>
+<div class="ml-auto">
+<span class="badge badge-light">PRO</span>
+</div>
+</div>
+<div class="text-muted mb-2">&#x41F;&#x440;&#x430;&#x43A;&#x442;&#x438;&#x447;&#x435;&#x441;&#x43A;&#x438; &#x43A;&#x430;&#x436;&#x434;&#x44B;&#x439; &#x43F;&#x440;&#x43E;&#x433;&#x440;&#x430;&#x43C;&#x43C;&#x438;&#x441;&#x442; &#x441;&#x442;&#x430;&#x43B;&#x43A;&#x438;&#x432;&#x430;&#x435;&#x442;&#x441;&#x44F; &#x441; &#x440;&#x435;&#x433;&#x443;&#x43B;&#x44F;&#x440;&#x43D;&#x44B;&#x43C;&#x438; &#x432;&#x44B;&#x440;&#x430;...</div>
+<div class="mt-auto d-flex">
+<div class="ml-auto">
+<a class="x-link-without-decoration stretched-link" href="/courses/regexp">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
+</a></div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="mb-5 col-lg-4 col-sm-6 col-12">
+<div class="card x-shadow-fade-in-lg h-100">
+<div class="bg-success card-header d-flex flex-column py-1 text-white">
+<div class="d-flex">
+<i class="fa-2x fa-js fab"></i>
+<div class="ml-auto my-auto">
 8 &#x447;&#x430;&#x441;&#x43E;&#x432;
 </div>
 </div>
@@ -2033,23 +2251,77 @@ Hexlet
 <div class="card x-shadow-fade-in-lg h-100">
 <div class="bg-success card-header d-flex flex-column py-1 text-white">
 <div class="d-flex">
-<i class="fa-2x fa-php fab"></i>
+<i class="fa-2x fa-js fab"></i>
 <div class="ml-auto my-auto">
-9 &#x447;&#x430;&#x441;&#x43E;&#x432;
+28 &#x447;&#x430;&#x441;&#x43E;&#x432;
 </div>
 </div>
 </div>
 <div class="card-body d-flex flex-column">
 <div class="d-flex">
-<h5 class="mr-1">PHP: Eloquent (ORM)</h5>
+<h5 class="mr-1">JS: Express</h5>
 <div class="ml-auto">
 <span class="badge badge-light">PRO</span>
 </div>
 </div>
-<div class="text-muted mb-2">ORM &#x2013; &#x43E;&#x434;&#x43D;&#x430; &#x438;&#x437; &#x43A;&#x43B;&#x44E;&#x447;&#x435;&#x432;&#x44B;&#x445; &#x447;&#x430;&#x441;&#x442;&#x435;&#x439; &#x441;&#x43E;&#x432;&#x440;&#x435;&#x43C;&#x435;&#x43D;&#x43D;&#x43E;&#x439; &#x432;&#x435;&#x431;-&#x440;&#x430;&#x437;&#x440;&#x430;&#x431;&#x43E;&#x442;&#x43A;&#x438;. &#x418;&#x43C;&#x435;&#x43D;...</div>
+<div class="text-muted mb-2">&#x42D;&#x442;&#x43E;&#x442; &#x43A;&#x443;&#x440;&#x441; &#x43F;&#x43E;&#x441;&#x432;&#x44F;&#x449;&#x435;&#x43D; JavaScript-&#x43C;&#x438;&#x43A;&#x440;&#x43E;&#x444;&#x440;&#x435;&#x439;&#x43C;&#x432;&#x43E;&#x440;&#x43A;&#x443; Express &#x438; &#x433;&#x43B;&#x430;&#x432;&#x43D;&#x44B;...</div>
 <div class="mt-auto d-flex">
 <div class="ml-auto">
-<a class="x-link-without-decoration stretched-link" href="/courses/php-orm-eloquent">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
+<a class="x-link-without-decoration stretched-link" href="/courses/js-express">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
+</a></div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="mb-5 col-lg-4 col-sm-6 col-12">
+<div class="card x-shadow-fade-in-lg h-100">
+<div class="bg-success card-header d-flex flex-column py-1 text-white">
+<div class="d-flex">
+<i class="fa-2x fa-php fab"></i>
+<div class="ml-auto my-auto">
+19 &#x447;&#x430;&#x441;&#x43E;&#x432;
+</div>
+</div>
+</div>
+<div class="card-body d-flex flex-column">
+<div class="d-flex">
+<h5 class="mr-1">PHP: &#x410;&#x432;&#x442;&#x43E;&#x43C;&#x430;&#x442;&#x438;&#x447;&#x435;&#x441;&#x43A;&#x43E;&#x435; &#x442;&#x435;&#x441;&#x442;&#x438;&#x440;&#x43E;&#x432;&#x430;&#x43D;&#x438;&#x435;</h5>
+<div class="ml-auto">
+<span class="badge badge-light">PRO</span>
+</div>
+</div>
+<div class="text-muted mb-2">&#x41F;&#x43E;&#x43A;&#x440;&#x44B;&#x432;&#x430;&#x442;&#x44C; &#x43B;&#x438; &#x43A;&#x43E;&#x434; &#x442;&#x435;&#x441;&#x442;&#x430;&#x43C;&#x438;? &#x422;&#x430;&#x43A;&#x43E;&#x433;&#x43E; &#x432;&#x43E;&#x43F;&#x440;&#x43E;&#x441;&#x430; &#x443; &#x43F;&#x440;&#x43E;&#x444;&#x435;&#x441;&#x441;&#x438;&#x43E;&#x43D;&#x430;&#x43B;&#x44C;&#x43D;&#x44B;&#x445; &#x440;&#x430;...</div>
+<div class="mt-auto d-flex">
+<div class="ml-auto">
+<a class="x-link-without-decoration stretched-link" href="/courses/php-testing">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
+</a></div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="mb-5 col-lg-4 col-sm-6 col-12">
+<div class="card x-shadow-fade-in-lg h-100">
+<div class="bg-success card-header d-flex flex-column py-1 text-white">
+<div class="d-flex">
+<i class="fa-2x fa-php fab"></i>
+<div class="ml-auto my-auto">
+43 &#x447;&#x430;&#x441;&#x430;
+</div>
+</div>
+</div>
+<div class="card-body d-flex flex-column">
+<div class="d-flex">
+<h5 class="mr-1">PHP: &#x41C;&#x430;&#x441;&#x441;&#x438;&#x432;&#x44B;</h5>
+<div class="ml-auto">
+<span class="badge badge-light">PRO</span>
+</div>
+</div>
+<div class="text-muted mb-2">&#x41C;&#x430;&#x441;&#x441;&#x438;&#x432;&#x44B; &#x2014; &#x43E;&#x441;&#x43D;&#x43E;&#x432;&#x43D;&#x43E;&#x439; &#x441;&#x43F;&#x43E;&#x441;&#x43E;&#x431; &#x43E;&#x431;&#x44A;&#x435;&#x434;&#x438;&#x43D;&#x44F;&#x442;&#x44C; &#x434;&#x430;&#x43D;&#x43D;&#x44B;&#x435; &#x432; &#x43A;&#x43E;&#x43B;&#x43B;&#x435;&#x43A;&#x446;&#x438;&#x438;. &#x412;&#x44B;&#x432;&#x43E;&#x434;...</div>
+<div class="mt-auto d-flex">
+<div class="ml-auto">
+<a class="x-link-without-decoration stretched-link" href="/courses/php-arrays">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
 </a></div>
 </div>
 </div>
@@ -2084,23 +2356,179 @@ Hexlet
 <div class="card x-shadow-fade-in-lg h-100">
 <div class="bg-success card-header d-flex flex-column py-1 text-white">
 <div class="d-flex">
-<i class="fa-2x fa-code fal"></i>
+<i class="fa-2x fa-python fab"></i>
 <div class="ml-auto my-auto">
-24 &#x447;&#x430;&#x441;&#x430;
+13 &#x447;&#x430;&#x441;&#x43E;&#x432;
 </div>
 </div>
 </div>
 <div class="card-body d-flex flex-column">
 <div class="d-flex">
-<h5 class="mr-1">&#x420;&#x435;&#x433;&#x443;&#x43B;&#x44F;&#x440;&#x43D;&#x44B;&#x435; &#x432;&#x44B;&#x440;&#x430;&#x436;&#x435;&#x43D;&#x438;&#x44F;</h5>
+<h5 class="mr-1">Python: &#x41E;&#x441;&#x43D;&#x43E;&#x432;&#x44B;</h5>
+</div>
+<div class="text-muted mb-2">&#x42D;&#x442;&#x43E;&#x442; &#x43A;&#x443;&#x440;&#x441; &#x431;&#x430;&#x437;&#x438;&#x440;&#x443;&#x435;&#x442;&#x441;&#x44F; &#x43D;&#x430; &#x43C;&#x430;&#x442;&#x435;&#x440;&#x438;&#x430;&#x43B;&#x435; [Code Basics](https://ru.cod...</div>
+<div class="mt-auto d-flex">
+<div class="ml-auto">
+<a class="x-link-without-decoration stretched-link" href="/courses/python-basics">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
+</a></div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="mb-5 col-lg-4 col-sm-6 col-12">
+<div class="card x-shadow-fade-in-lg h-100">
+<div class="bg-success card-header d-flex flex-column py-1 text-white">
+<div class="d-flex">
+<i class="fa-2x fa-html5 fab"></i>
+<div class="ml-auto my-auto">
+13 &#x447;&#x430;&#x441;&#x43E;&#x432;
+</div>
+</div>
+</div>
+<div class="card-body d-flex flex-column">
+<div class="d-flex">
+<h5 class="mr-1">CSS: &#x41F;&#x43E;&#x437;&#x438;&#x446;&#x438;&#x43E;&#x43D;&#x438;&#x440;&#x43E;&#x432;&#x430;&#x43D;&#x438;&#x435;</h5>
 <div class="ml-auto">
 <span class="badge badge-light">PRO</span>
 </div>
 </div>
-<div class="text-muted mb-2">&#x41F;&#x440;&#x430;&#x43A;&#x442;&#x438;&#x447;&#x435;&#x441;&#x43A;&#x438; &#x43A;&#x430;&#x436;&#x434;&#x44B;&#x439; &#x43F;&#x440;&#x43E;&#x433;&#x440;&#x430;&#x43C;&#x43C;&#x438;&#x441;&#x442; &#x441;&#x442;&#x430;&#x43B;&#x43A;&#x438;&#x432;&#x430;&#x435;&#x442;&#x441;&#x44F; &#x441; &#x440;&#x435;&#x433;&#x443;&#x43B;&#x44F;&#x440;&#x43D;&#x44B;&#x43C;&#x438; &#x432;&#x44B;&#x440;&#x430;...</div>
+<div class="text-muted mb-2">&#x41A;&#x443;&#x440;&#x441; &#x43F;&#x43E;&#x441;&#x432;&#x44F;&#x449;&#x451;&#x43D; &#x43F;&#x43E;&#x437;&#x438;&#x446;&#x438;&#x43E;&#x43D;&#x438;&#x440;&#x43E;&#x432;&#x430;&#x43D;&#x438;&#x44E; HTML &#x44D;&#x43B;&#x435;&#x43C;&#x435;&#x43D;&#x442;&#x43E;&#x432;. &#x412; &#x43D;&#x430;&#x441;&#x442;&#x43E;&#x44F;&#x449;&#x435;&#x435; &#x432;&#x440;&#x435;...</div>
 <div class="mt-auto d-flex">
 <div class="ml-auto">
-<a class="x-link-without-decoration stretched-link" href="/courses/regexp">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
+<a class="x-link-without-decoration stretched-link" href="/courses/css-positioning">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
+</a></div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="mb-5 col-lg-4 col-sm-6 col-12">
+<div class="card x-shadow-fade-in-lg h-100">
+<div class="bg-success card-header d-flex flex-column py-1 text-white">
+<div class="d-flex">
+<i class="fa-2x fa-js fab"></i>
+<div class="ml-auto my-auto">
+45 &#x447;&#x430;&#x441;&#x43E;&#x432;
+</div>
+</div>
+</div>
+<div class="card-body d-flex flex-column">
+<div class="d-flex">
+<h5 class="mr-1">&#x412;&#x432;&#x435;&#x434;&#x435;&#x43D;&#x438;&#x435; &#x432; &#x43F;&#x440;&#x43E;&#x433;&#x440;&#x430;&#x43C;&#x43C;&#x438;&#x440;&#x43E;&#x432;&#x430;&#x43D;&#x438;&#x435;</h5>
+</div>
+<div class="text-muted mb-2">&#x427;&#x442;&#x43E; &#x442;&#x430;&#x43A;&#x43E;&#x435; &#x43A;&#x43E;&#x43C;&#x43F;&#x44C;&#x44E;&#x442;&#x435;&#x440; &#x43D;&#x430; &#x441;&#x430;&#x43C;&#x43E;&#x43C; &#x434;&#x435;&#x43B;&#x435;? &#x41F;&#x43E;&#x43D;&#x438;&#x43C;&#x430;&#x435;&#x442; &#x43B;&#x438; &#x43E;&#x43D; &#x44F;&#x437;&#x44B;&#x43A;&#x438; &#x43F;&#x440;&#x43E;&#x433;&#x440;&#x430;...</div>
+<div class="mt-auto d-flex">
+<div class="ml-auto">
+<a class="x-link-without-decoration stretched-link" href="/courses/introduction_to_programming">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
+</a></div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="mb-5 col-lg-4 col-sm-6 col-12">
+<div class="card x-shadow-fade-in-lg h-100">
+<div class="bg-success card-header d-flex flex-column py-1 text-white">
+<div class="d-flex">
+<i class="fa-2x fa-php fab"></i>
+<div class="ml-auto my-auto">
+49 &#x447;&#x430;&#x441;&#x43E;&#x432;
+</div>
+</div>
+</div>
+<div class="card-body d-flex flex-column">
+<div class="d-flex">
+<h5 class="mr-1">PHP: &#x412;&#x432;&#x435;&#x434;&#x435;&#x43D;&#x438;&#x435; &#x432; &#x41E;&#x41E;&#x41F;</h5>
+<div class="ml-auto">
+<span class="badge badge-light">PRO</span>
+</div>
+</div>
+<div class="text-muted mb-2">PHP &#x2014; &#x43E;&#x431;&#x44A;&#x435;&#x43A;&#x442;&#x43D;&#x43E;-&#x43E;&#x440;&#x438;&#x435;&#x43D;&#x442;&#x438;&#x440;&#x43E;&#x432;&#x430;&#x43D;&#x43D;&#x44B;&#x439; &#x44F;&#x437;&#x44B;&#x43A; &#x43F;&#x440;&#x43E;&#x433;&#x440;&#x430;&#x43C;&#x43C;&#x438;&#x440;&#x43E;&#x432;&#x430;&#x43D;&#x438;&#x44F;, &#x438;&#x441;&#x43F;&#x43E;&#x43B;&#x44C;&#x437;&#x443;...</div>
+<div class="mt-auto d-flex">
+<div class="ml-auto">
+<a class="x-link-without-decoration stretched-link" href="/courses/php-introduction-to-oop">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
+</a></div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="mb-5 col-lg-4 col-sm-6 col-12">
+<div class="card x-shadow-fade-in-lg h-100">
+<div class="bg-success card-header d-flex flex-column py-1 text-white">
+<div class="d-flex">
+<i class="fa-2x fa-js fab"></i>
+<div class="ml-auto my-auto">
+26 &#x447;&#x430;&#x441;&#x43E;&#x432;
+</div>
+</div>
+</div>
+<div class="card-body d-flex flex-column">
+<div class="d-flex">
+<h5 class="mr-1">JS: DOM API</h5>
+<div class="ml-auto">
+<span class="badge badge-light">PRO</span>
+</div>
+</div>
+<div class="text-muted mb-2">DOM &#x44F;&#x432;&#x43B;&#x44F;&#x435;&#x442;&#x441;&#x44F; &#x43E;&#x441;&#x43D;&#x43E;&#x432;&#x43E;&#x439; &#x444;&#x440;&#x43E;&#x43D;&#x442;&#x435;&#x43D;&#x434; &#x440;&#x430;&#x437;&#x440;&#x430;&#x431;&#x43E;&#x442;&#x43A;&#x438;. &#x420;&#x430;&#x431;&#x43E;&#x442;&#x430; &#x441; &#x43B;&#x44E;&#x431;&#x44B;&#x43C;&#x438; &#x444;&#x440;&#x435;&#x439;...</div>
+<div class="mt-auto d-flex">
+<div class="ml-auto">
+<a class="x-link-without-decoration stretched-link" href="/courses/js-dom">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
+</a></div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="mb-5 col-lg-4 col-sm-6 col-12">
+<div class="card x-shadow-fade-in-lg h-100">
+<div class="bg-success card-header d-flex flex-column py-1 text-white">
+<div class="d-flex">
+<i class="fa-2x fa-php fab"></i>
+<div class="ml-auto my-auto">
+43 &#x447;&#x430;&#x441;&#x430;
+</div>
+</div>
+</div>
+<div class="card-body d-flex flex-column">
+<div class="d-flex">
+<h5 class="mr-1">PHP: &#x41F;&#x43E;&#x43B;&#x438;&#x43C;&#x43E;&#x440;&#x444;&#x438;&#x437;&#x43C;</h5>
+<div class="ml-auto">
+<span class="badge badge-light">PRO</span>
+</div>
+</div>
+<div class="text-muted mb-2">&#x41F;&#x43E;&#x43B;&#x438;&#x43C;&#x43E;&#x440;&#x444;&#x438;&#x437;&#x43C; - &#x43F;&#x43E;&#x436;&#x430;&#x43B;&#x443;&#x439;, &#x433;&#x43B;&#x430;&#x432;&#x43D;&#x430;&#x44F; &#x43E;&#x442;&#x43B;&#x438;&#x447;&#x438;&#x442;&#x435;&#x43B;&#x44C;&#x43D;&#x430;&#x44F; &#x447;&#x435;&#x440;&#x442;&#x430; &#x441;&#x43E;&#x432;&#x440;&#x435;&#x43C;&#x435;&#x43D;&#x43D;&#x43E;&#x433;...</div>
+<div class="mt-auto d-flex">
+<div class="ml-auto">
+<a class="x-link-without-decoration stretched-link" href="/courses/php-polymorphism">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
+</a></div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="mb-5 col-lg-4 col-sm-6 col-12">
+<div class="card x-shadow-fade-in-lg h-100">
+<div class="bg-success card-header d-flex flex-column py-1 text-white">
+<div class="d-flex">
+<i class="fa-2x fa-python fab"></i>
+<div class="ml-auto my-auto">
+18 &#x447;&#x430;&#x441;&#x43E;&#x432;
+</div>
+</div>
+</div>
+<div class="card-body d-flex flex-column">
+<div class="d-flex">
+<h5 class="mr-1">Python: &#x421;&#x43F;&#x438;&#x441;&#x43A;&#x438;</h5>
+<div class="ml-auto">
+<span class="badge badge-light">PRO</span>
+</div>
+</div>
+<div class="text-muted mb-2">&#x41A;&#x443;&#x440;&#x441; &#x437;&#x43D;&#x430;&#x43A;&#x43E;&#x43C;&#x438;&#x442; &#x441; &#x43E;&#x434;&#x43D;&#x43E;&#x439; &#x438;&#x437; &#x441;&#x430;&#x43C;&#x44B;&#x445; &#x447;&#x430;&#x441;&#x442;&#x43E; &#x438;&#x441;&#x43F;&#x43E;&#x43B;&#x44C;&#x437;&#x443;&#x435;&#x43C;&#x44B;&#x445; &#x432; Python &#x441;&#x442;&#x440;...</div>
+<div class="mt-auto d-flex">
+<div class="ml-auto">
+<a class="x-link-without-decoration stretched-link" href="/courses/python-lists">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
 </a></div>
 </div>
 </div>
@@ -2155,354 +2583,6 @@ Hexlet
 <div class="mt-auto d-flex">
 <div class="ml-auto">
 <a class="x-link-without-decoration stretched-link" href="/courses/sql-dql">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
-</a></div>
-</div>
-</div>
-</div>
-
-</div>
-<div class="mb-5 col-lg-4 col-sm-6 col-12">
-<div class="card x-shadow-fade-in-lg h-100">
-<div class="bg-success card-header d-flex flex-column py-1 text-white">
-<div class="d-flex">
-<i class="fa-2x fa-js fab"></i>
-<div class="ml-auto my-auto">
-28 &#x447;&#x430;&#x441;&#x43E;&#x432;
-</div>
-</div>
-</div>
-<div class="card-body d-flex flex-column">
-<div class="d-flex">
-<h5 class="mr-1">JS: Express</h5>
-<div class="ml-auto">
-<span class="badge badge-light">PRO</span>
-</div>
-</div>
-<div class="text-muted mb-2">&#x42D;&#x442;&#x43E;&#x442; &#x43A;&#x443;&#x440;&#x441; &#x43F;&#x43E;&#x441;&#x432;&#x44F;&#x449;&#x435;&#x43D; JavaScript-&#x43C;&#x438;&#x43A;&#x440;&#x43E;&#x444;&#x440;&#x435;&#x439;&#x43C;&#x432;&#x43E;&#x440;&#x43A;&#x443; Express &#x438; &#x433;&#x43B;&#x430;&#x432;&#x43D;&#x44B;...</div>
-<div class="mt-auto d-flex">
-<div class="ml-auto">
-<a class="x-link-without-decoration stretched-link" href="/courses/js-express">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
-</a></div>
-</div>
-</div>
-</div>
-
-</div>
-<div class="mb-5 col-lg-4 col-sm-6 col-12">
-<div class="card x-shadow-fade-in-lg h-100">
-<div class="bg-success card-header d-flex flex-column py-1 text-white">
-<div class="d-flex">
-<i class="fa-2x fa-terminal fal"></i>
-<div class="ml-auto my-auto">
-6 &#x447;&#x430;&#x441;&#x43E;&#x432;
-</div>
-</div>
-</div>
-<div class="card-body d-flex flex-column">
-<div class="d-flex">
-<h5 class="mr-1">&#x421;&#x438;&#x441;&#x442;&#x435;&#x43C;&#x44B; &#x43A;&#x43E;&#x43D;&#x442;&#x440;&#x43E;&#x43B;&#x44F; &#x432;&#x435;&#x440;&#x441;&#x438;&#x439; (GIT)</h5>
-</div>
-<div class="text-muted mb-2">&#x425;&#x43E;&#x442;&#x44F; &#x43A;&#x443;&#x440;&#x441; &#x438; &#x43D;&#x430;&#x437;&#x44B;&#x432;&#x430;&#x435;&#x442;&#x441;&#x44F; Git, &#x432;&#x43E; &#x43C;&#x43D;&#x43E;&#x433;&#x43E;&#x43C; &#x435;&#x433;&#x43E; &#x446;&#x435;&#x43B;&#x44C; &#x2014; &#x43E;&#x431;&#x44A;&#x44F;&#x441;&#x43D;&#x438;&#x442;&#x44C; &#x437;&#x430;&#x447;...</div>
-<div class="mt-auto d-flex">
-<div class="ml-auto">
-<a class="x-link-without-decoration stretched-link" href="/courses/intro_to_git">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
-</a></div>
-</div>
-</div>
-</div>
-
-</div>
-<div class="mb-5 col-lg-4 col-sm-6 col-12">
-<div class="card x-shadow-fade-in-lg h-100">
-<div class="bg-success card-header d-flex flex-column py-1 text-white">
-<div class="d-flex">
-<i class="fa-2x fa-python fab"></i>
-<div class="ml-auto my-auto">
-17 &#x447;&#x430;&#x441;&#x43E;&#x432;
-</div>
-</div>
-</div>
-<div class="card-body d-flex flex-column">
-<div class="d-flex">
-<h5 class="mr-1">Python: &#x421;&#x43E;&#x441;&#x442;&#x430;&#x432;&#x43D;&#x44B;&#x435; &#x434;&#x430;&#x43D;&#x43D;&#x44B;&#x435;</h5>
-<div class="ml-auto">
-<span class="badge badge-light">PRO</span>
-</div>
-</div>
-<div class="text-muted mb-2">&#x421;&#x43B;&#x435;&#x434;&#x443;&#x44E;&#x449;&#x438;&#x439; &#x448;&#x430;&#x433; &#x43F;&#x43E;&#x441;&#x43B;&#x435; &#x43E;&#x441;&#x432;&#x43E;&#x435;&#x43D;&#x438;&#x44F; &#x43E;&#x441;&#x43D;&#x43E;&#x432; &#x43F;&#x440;&#x43E;&#x433;&#x440;&#x430;&#x43C;&#x43C;&#x438;&#x440;&#x43E;&#x432;&#x430;&#x43D;&#x438;&#x44F; &#x44D;&#x442;&#x43E; &#x438;&#x437;&#x443;&#x447;&#x435;&#x43D;...</div>
-<div class="mt-auto d-flex">
-<div class="ml-auto">
-<a class="x-link-without-decoration stretched-link" href="/courses/python-compound-data">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
-</a></div>
-</div>
-</div>
-</div>
-
-</div>
-<div class="mb-5 col-lg-4 col-sm-6 col-12">
-<div class="card x-shadow-fade-in-lg h-100">
-<div class="bg-success card-header d-flex flex-column py-1 text-white">
-<div class="d-flex">
-<i class="fa-2x fa-php fab"></i>
-<div class="ml-auto my-auto">
-19 &#x447;&#x430;&#x441;&#x43E;&#x432;
-</div>
-</div>
-</div>
-<div class="card-body d-flex flex-column">
-<div class="d-flex">
-<h5 class="mr-1">PHP: &#x410;&#x432;&#x442;&#x43E;&#x43C;&#x430;&#x442;&#x438;&#x447;&#x435;&#x441;&#x43A;&#x43E;&#x435; &#x442;&#x435;&#x441;&#x442;&#x438;&#x440;&#x43E;&#x432;&#x430;&#x43D;&#x438;&#x435;</h5>
-<div class="ml-auto">
-<span class="badge badge-light">PRO</span>
-</div>
-</div>
-<div class="text-muted mb-2">&#x41F;&#x43E;&#x43A;&#x440;&#x44B;&#x432;&#x430;&#x442;&#x44C; &#x43B;&#x438; &#x43A;&#x43E;&#x434; &#x442;&#x435;&#x441;&#x442;&#x430;&#x43C;&#x438;? &#x422;&#x430;&#x43A;&#x43E;&#x433;&#x43E; &#x432;&#x43E;&#x43F;&#x440;&#x43E;&#x441;&#x430; &#x443; &#x43F;&#x440;&#x43E;&#x444;&#x435;&#x441;&#x441;&#x438;&#x43E;&#x43D;&#x430;&#x43B;&#x44C;&#x43D;&#x44B;&#x445; &#x440;&#x430;...</div>
-<div class="mt-auto d-flex">
-<div class="ml-auto">
-<a class="x-link-without-decoration stretched-link" href="/courses/php-testing">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
-</a></div>
-</div>
-</div>
-</div>
-
-</div>
-<div class="mb-5 col-lg-4 col-sm-6 col-12">
-<div class="card x-shadow-fade-in-lg h-100">
-<div class="bg-success card-header d-flex flex-column py-1 text-white">
-<div class="d-flex">
-<i class="fa-2x fa-php fab"></i>
-<div class="ml-auto my-auto">
-17 &#x447;&#x430;&#x441;&#x43E;&#x432;
-</div>
-</div>
-</div>
-<div class="card-body d-flex flex-column">
-<div class="d-flex">
-<h5 class="mr-1">PHP: &#x421;&#x43E;&#x441;&#x442;&#x430;&#x432;&#x43D;&#x44B;&#x435; &#x434;&#x430;&#x43D;&#x43D;&#x44B;&#x435;</h5>
-<div class="ml-auto">
-<span class="badge badge-light">PRO</span>
-</div>
-</div>
-<div class="text-muted mb-2">&#x421;&#x43B;&#x435;&#x434;&#x443;&#x44E;&#x449;&#x438;&#x439; &#x448;&#x430;&#x433; &#x43F;&#x43E;&#x441;&#x43B;&#x435; &#x43E;&#x441;&#x432;&#x43E;&#x435;&#x43D;&#x438;&#x44F; &#x43E;&#x441;&#x43D;&#x43E;&#x432; &#x43F;&#x440;&#x43E;&#x433;&#x440;&#x430;&#x43C;&#x43C;&#x438;&#x440;&#x43E;&#x432;&#x430;&#x43D;&#x438;&#x44F; &#x44D;&#x442;&#x43E; &#x438;&#x437;&#x443;&#x447;&#x435;&#x43D;...</div>
-<div class="mt-auto d-flex">
-<div class="ml-auto">
-<a class="x-link-without-decoration stretched-link" href="/courses/php-compound-data">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
-</a></div>
-</div>
-</div>
-</div>
-
-</div>
-<div class="mb-5 col-lg-4 col-sm-6 col-12">
-<div class="card x-shadow-fade-in-lg h-100">
-<div class="bg-success card-header d-flex flex-column py-1 text-white">
-<div class="d-flex">
-<i class="fa-2x fa-js fab"></i>
-<div class="ml-auto my-auto">
-28 &#x447;&#x430;&#x441;&#x43E;&#x432;
-</div>
-</div>
-</div>
-<div class="card-body d-flex flex-column">
-<div class="d-flex">
-<h5 class="mr-1">JS: &#x410;&#x432;&#x442;&#x43E;&#x43C;&#x430;&#x442;&#x438;&#x447;&#x435;&#x441;&#x43A;&#x43E;&#x435; &#x442;&#x435;&#x441;&#x442;&#x438;&#x440;&#x43E;&#x432;&#x430;&#x43D;&#x438;&#x435;</h5>
-<div class="ml-auto">
-<span class="badge badge-light">PRO</span>
-</div>
-</div>
-<div class="text-muted mb-2">&#x410;&#x432;&#x442;&#x43E;&#x43C;&#x430;&#x442;&#x438;&#x437;&#x438;&#x440;&#x43E;&#x432;&#x430;&#x43D;&#x43D;&#x43E;&#x435; &#x442;&#x435;&#x441;&#x442;&#x438;&#x440;&#x43E;&#x432;&#x430;&#x43D;&#x438;&#x435; &#x2013; &#x43D;&#x435;&#x43E;&#x442;&#x44A;&#x435;&#x43C;&#x43B;&#x435;&#x43C;&#x430;&#x44F; &#x447;&#x430;&#x441;&#x442;&#x44C; &#x43F;&#x440;&#x43E;&#x446;&#x435;&#x441;&#x441;&#x430; ...</div>
-<div class="mt-auto d-flex">
-<div class="ml-auto">
-<a class="x-link-without-decoration stretched-link" href="/courses/js-testing">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
-</a></div>
-</div>
-</div>
-</div>
-
-</div>
-<div class="mb-5 col-lg-4 col-sm-6 col-12">
-<div class="card x-shadow-fade-in-lg h-100">
-<div class="bg-success card-header d-flex flex-column py-1 text-white">
-<div class="d-flex">
-<i class="fa-2x fa-html5 fab"></i>
-<div class="ml-auto my-auto">
-13 &#x447;&#x430;&#x441;&#x43E;&#x432;
-</div>
-</div>
-</div>
-<div class="card-body d-flex flex-column">
-<div class="d-flex">
-<h5 class="mr-1">CSS: &#x41F;&#x43E;&#x437;&#x438;&#x446;&#x438;&#x43E;&#x43D;&#x438;&#x440;&#x43E;&#x432;&#x430;&#x43D;&#x438;&#x435;</h5>
-<div class="ml-auto">
-<span class="badge badge-light">PRO</span>
-</div>
-</div>
-<div class="text-muted mb-2">&#x41A;&#x443;&#x440;&#x441; &#x43F;&#x43E;&#x441;&#x432;&#x44F;&#x449;&#x451;&#x43D; &#x43F;&#x43E;&#x437;&#x438;&#x446;&#x438;&#x43E;&#x43D;&#x438;&#x440;&#x43E;&#x432;&#x430;&#x43D;&#x438;&#x44E; HTML &#x44D;&#x43B;&#x435;&#x43C;&#x435;&#x43D;&#x442;&#x43E;&#x432;. &#x412; &#x43D;&#x430;&#x441;&#x442;&#x43E;&#x44F;&#x449;&#x435;&#x435; &#x432;&#x440;&#x435;...</div>
-<div class="mt-auto d-flex">
-<div class="ml-auto">
-<a class="x-link-without-decoration stretched-link" href="/courses/css-positioning">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
-</a></div>
-</div>
-</div>
-</div>
-
-</div>
-<div class="mb-5 col-lg-4 col-sm-6 col-12">
-<div class="card x-shadow-fade-in-lg h-100">
-<div class="bg-success card-header d-flex flex-column py-1 text-white">
-<div class="d-flex">
-<i class="fa-2x fa-js fab"></i>
-<div class="ml-auto my-auto">
-17 &#x447;&#x430;&#x441;&#x43E;&#x432;
-</div>
-</div>
-</div>
-<div class="card-body d-flex flex-column">
-<div class="d-flex">
-<h5 class="mr-1">JS: &#x414;&#x435;&#x440;&#x435;&#x432;&#x44C;&#x44F;</h5>
-<div class="ml-auto">
-<span class="badge badge-light">PRO</span>
-</div>
-</div>
-<div class="text-muted mb-2">&#x42D;&#x442;&#x43E;&#x442; &#x43A;&#x443;&#x440;&#x441; &#x43F;&#x43E;&#x441;&#x432;&#x44F;&#x449;&#x435;&#x43D; &#x437;&#x43D;&#x430;&#x43A;&#x43E;&#x43C;&#x441;&#x442;&#x432;&#x443; &#x441; &#x43E;&#x434;&#x43D;&#x43E;&#x439; &#x438;&#x437; &#x43D;&#x430;&#x438;&#x431;&#x43E;&#x43B;&#x435;&#x435; &#x447;&#x430;&#x441;&#x442;&#x43E; &#x438;&#x441;&#x43F;&#x43E;&#x43B;&#x44C;...</div>
-<div class="mt-auto d-flex">
-<div class="ml-auto">
-<a class="x-link-without-decoration stretched-link" href="/courses/js-trees">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
-</a></div>
-</div>
-</div>
-</div>
-
-</div>
-<div class="mb-5 col-lg-4 col-sm-6 col-12">
-<div class="card x-shadow-fade-in-lg h-100">
-<div class="bg-success card-header d-flex flex-column py-1 text-white">
-<div class="d-flex">
-<i class="fa-2x fa-js fab"></i>
-<div class="ml-auto my-auto">
-32 &#x447;&#x430;&#x441;&#x430;
-</div>
-</div>
-</div>
-<div class="card-body d-flex flex-column">
-<div class="d-flex">
-<h5 class="mr-1">JS: DOM API</h5>
-<div class="ml-auto">
-<span class="badge badge-light">PRO</span>
-</div>
-</div>
-<div class="text-muted mb-2">DOM &#x44F;&#x432;&#x43B;&#x44F;&#x435;&#x442;&#x441;&#x44F; &#x43E;&#x441;&#x43D;&#x43E;&#x432;&#x43E;&#x439; &#x444;&#x440;&#x43E;&#x43D;&#x442;&#x435;&#x43D;&#x434; &#x440;&#x430;&#x437;&#x440;&#x430;&#x431;&#x43E;&#x442;&#x43A;&#x438;. &#x420;&#x430;&#x431;&#x43E;&#x442;&#x430; &#x441; &#x43B;&#x44E;&#x431;&#x44B;&#x43C;&#x438; &#x444;&#x440;&#x435;&#x439;...</div>
-<div class="mt-auto d-flex">
-<div class="ml-auto">
-<a class="x-link-without-decoration stretched-link" href="/courses/js-dom">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
-</a></div>
-</div>
-</div>
-</div>
-
-</div>
-<div class="mb-5 col-lg-4 col-sm-6 col-12">
-<div class="card x-shadow-fade-in-lg h-100">
-<div class="bg-success card-header d-flex flex-column py-1 text-white">
-<div class="d-flex">
-<i class="fa-2x fa-php fab"></i>
-<div class="ml-auto my-auto">
-43 &#x447;&#x430;&#x441;&#x430;
-</div>
-</div>
-</div>
-<div class="card-body d-flex flex-column">
-<div class="d-flex">
-<h5 class="mr-1">PHP: &#x41F;&#x43E;&#x43B;&#x438;&#x43C;&#x43E;&#x440;&#x444;&#x438;&#x437;&#x43C;</h5>
-<div class="ml-auto">
-<span class="badge badge-light">PRO</span>
-</div>
-</div>
-<div class="text-muted mb-2">&#x41F;&#x43E;&#x43B;&#x438;&#x43C;&#x43E;&#x440;&#x444;&#x438;&#x437;&#x43C; - &#x43F;&#x43E;&#x436;&#x430;&#x43B;&#x443;&#x439;, &#x433;&#x43B;&#x430;&#x432;&#x43D;&#x430;&#x44F; &#x43E;&#x442;&#x43B;&#x438;&#x447;&#x438;&#x442;&#x435;&#x43B;&#x44C;&#x43D;&#x430;&#x44F; &#x447;&#x435;&#x440;&#x442;&#x430; &#x441;&#x43E;&#x432;&#x440;&#x435;&#x43C;&#x435;&#x43D;&#x43D;&#x43E;&#x433;...</div>
-<div class="mt-auto d-flex">
-<div class="ml-auto">
-<a class="x-link-without-decoration stretched-link" href="/courses/php-polymorphism">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
-</a></div>
-</div>
-</div>
-</div>
-
-</div>
-<div class="mb-5 col-lg-4 col-sm-6 col-12">
-<div class="card x-shadow-fade-in-lg h-100">
-<div class="bg-success card-header d-flex flex-column py-1 text-white">
-<div class="d-flex">
-<i class="fa-2x fa-code fal"></i>
-<div class="ml-auto my-auto">
-17 &#x447;&#x430;&#x441;&#x43E;&#x432;
-</div>
-</div>
-</div>
-<div class="card-body d-flex flex-column">
-<div class="d-flex">
-<h5 class="mr-1">&#x411;&#x430;&#x439;&#x442;-&#x43A;&#x43E;&#x434; Java</h5>
-<div class="ml-auto">
-<span class="badge badge-light">PRO</span>
-</div>
-</div>
-<div class="text-muted mb-2">&#x414;&#x430;&#x43D;&#x43D;&#x44B;&#x439; &#x43A;&#x443;&#x440;&#x441; &#x434;&#x43B;&#x44F; &#x442;&#x435;&#x445;, &#x43A;&#x442;&#x43E; &#x443;&#x436;&#x435; &#x437;&#x43D;&#x430;&#x435;&#x442; &#x441;&#x438;&#x43D;&#x442;&#x430;&#x43A;&#x441;&#x438;&#x441; &#x44F;&#x437;&#x44B;&#x43A;&#x430;, &#x43D;&#x43E; &#x445;&#x43E;&#x442;&#x435;&#x43B; &#x431;...</div>
-<div class="mt-auto d-flex">
-<div class="ml-auto">
-<a class="x-link-without-decoration stretched-link" href="/courses/bytecode">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
-</a></div>
-</div>
-</div>
-</div>
-
-</div>
-<div class="mb-5 col-lg-4 col-sm-6 col-12">
-<div class="card x-shadow-fade-in-lg h-100">
-<div class="bg-success card-header d-flex flex-column py-1 text-white">
-<div class="d-flex">
-<i class="fa-2x fa-php fab"></i>
-<div class="ml-auto my-auto">
-21 &#x447;&#x430;&#x441;
-</div>
-</div>
-</div>
-<div class="card-body d-flex flex-column">
-<div class="d-flex">
-<h5 class="mr-1">PHP: &#x424;&#x443;&#x43D;&#x43A;&#x446;&#x438;&#x43E;&#x43D;&#x430;&#x43B;&#x44C;&#x43D;&#x43E;&#x435; &#x43F;&#x440;&#x43E;&#x433;&#x440;&#x430;&#x43C;&#x43C;&#x438;&#x440;&#x43E;&#x432;&#x430;&#x43D;&#x438;&#x435;</h5>
-<div class="ml-auto">
-<span class="badge badge-light">PRO</span>
-</div>
-</div>
-<div class="text-muted mb-2">&#x412; &#x44D;&#x442;&#x43E;&#x43C; &#x43A;&#x443;&#x440;&#x441;&#x435; &#x43C;&#x44B; &#x43D;&#x430;&#x443;&#x447;&#x438;&#x43C;&#x441;&#x44F; &#x438;&#x441;&#x43F;&#x43E;&#x43B;&#x44C;&#x437;&#x43E;&#x432;&#x430;&#x442;&#x44C; &#x444;&#x443;&#x43D;&#x43A;&#x446;&#x438;&#x43E;&#x43D;&#x430;&#x43B;&#x44C;&#x43D;&#x44B;&#x435; &#x432;&#x43E;&#x437;&#x43C;&#x43E;&#x436;&#x43D;&#x43E;&#x441;...</div>
-<div class="mt-auto d-flex">
-<div class="ml-auto">
-<a class="x-link-without-decoration stretched-link" href="/courses/php-functional">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
-</a></div>
-</div>
-</div>
-</div>
-
-</div>
-<div class="mb-5 col-lg-4 col-sm-6 col-12">
-<div class="card x-shadow-fade-in-lg h-100">
-<div class="bg-success card-header d-flex flex-column py-1 text-white">
-<div class="d-flex">
-<i class="fa-2x fa-code fal"></i>
-<div class="ml-auto my-auto">
-38 &#x447;&#x430;&#x441;&#x43E;&#x432;
-</div>
-</div>
-</div>
-<div class="card-body d-flex flex-column">
-<div class="d-flex">
-<h5 class="mr-1">Java: &#x421;&#x442;&#x440;&#x443;&#x43A;&#x442;&#x443;&#x440;&#x44B; &#x434;&#x430;&#x43D;&#x43D;&#x44B;&#x445;</h5>
-<div class="ml-auto">
-<span class="badge badge-light">PRO</span>
-</div>
-</div>
-<div class="text-muted mb-2">&#x423; &#x43A;&#x443;&#x440;&#x441;&#x430; &#x441;&#x440;&#x430;&#x437;&#x443; &#x434;&#x432;&#x435; &#x446;&#x435;&#x43B;&#x438;: &#x43F;&#x43E;&#x437;&#x43D;&#x430;&#x43A;&#x43E;&#x43C;&#x438;&#x442;&#x44C; &#x432;&#x430;&#x441; &#x441; &#x43E;&#x441;&#x43D;&#x43E;&#x432;&#x43D;&#x44B;&#x43C;&#x438; &#x441;&#x442;&#x440;&#x443;&#x43A;&#x442;&#x443;&#x440;&#x430;&#x43C;...</div>
-<div class="mt-auto d-flex">
-<div class="ml-auto">
-<a class="x-link-without-decoration stretched-link" href="/courses/collections">&#x41F;&#x43E;&#x441;&#x43C;&#x43E;&#x442;&#x440;&#x435;&#x442;&#x44C;
 </a></div>
 </div>
 </div>
@@ -2566,7 +2646,7 @@ Hexlet,
 <div class="h5 mb-3">&#x41F;&#x440;&#x43E;&#x435;&#x43A;&#x442;&#x44B;</div>
 <ul class="list-unstyled">
 <li>
-<a class="x-link-only-hover" href="/projects">&#x41E;&#x431;&#x437;&#x43E;&#x440; &#x438; &#x43E;&#x442;&#x437;&#x44B;&#x432;&#x44B;</a>
+<a class="x-link-only-hover" href="/my/projects">&#x41E;&#x431;&#x437;&#x43E;&#x440; &#x438; &#x43E;&#x442;&#x437;&#x44B;&#x432;&#x44B;</a>
 </li>
 <li>
 <a class="x-link-only-hover" href="https://help.hexlet.io/article/29-projects">&#x427;&#x442;&#x43E; &#x442;&#x430;&#x43A;&#x43E;&#x435; &#x43F;&#x440;&#x43E;&#x435;&#x43A;&#x442;&#x44B;</a>
@@ -2643,16 +2723,16 @@ Hexlet,
 <a class="x-link-only-hover" href="/community">&#x422;&#x43E;&#x43F;&#x438;&#x43A;&#x438;</a>
 </li>
 <li>
-<a rel="nofollow" class="x-link-only-hover" href="/cdn-cgi/l/email-protection#c1b2b4b1b1aeb3b581a9a4b9ada4b5efa8ae"><span class="__cf_email__" data-cfemail="1b686e6b6b74696f5b737e63777e6f357274">[email&#xA0;protected]</span></a>
+<a rel="nofollow" class="x-link-only-hover" href="/cdn-cgi/l/email-protection#5a292f2a2a35282e1a323f22363f2e743335"><span class="__cf_email__" data-cfemail="43303633332c3137032b263b2f26376d2a2c">[email&#xA0;protected]</span></a>
 </li>
 </ul>
 </div>
 </div>
 </div>
 </footer>
-<script data-cfasync="false" src="./ru-hexlet-io-courses_files/cdn-cgi-scripts-5c5dd728-cloudflare-static-email-decode-min-js.js"></script><script src="./ru-hexlet-io-courses_files/cdn2-hexlet-io-assets-application-18fceb6e3c2174543bef135dd059ef4b818426e5c00c6e8d320344d7c96a2c00-js.js"></script>
+<script data-cfasync="false" src="./ru-hexlet-io-courses_files/cdn-cgi-scripts-5c5dd728-cloudflare-static-email-decode-min-js.js"></script><script src="./ru-hexlet-io-courses_files/cdn2-hexlet-io-assets-application-6c3811f32b2b06662856f28be1aa8852645cc103fce8b59a6a05e08ae031ee55-js.js" type="057ca0e162de86d3fa56205c-text/javascript"></script>
 
 
-
+<script src="https://ajax.cloudflare.com/cdn-cgi/scripts/95c75768/cloudflare-static/rocket-loader.min.js" data-cf-settings="057ca0e162de86d3fa56205c-|49" defer></script>
 
 </body></html>

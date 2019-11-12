@@ -19,6 +19,7 @@ export const makeName = (url, type) => {
 };
 
 const pageLoader = (pageUrl, pathDir = '') => {
+  log('pathdir %o', pathDir);
   const {
     hostname,
     origin,
@@ -99,24 +100,7 @@ const pageLoader = (pageUrl, pathDir = '') => {
     });
   const pageName = makeName(pageUrl, '.html');
   let pathToFiles;
-  if (pathDir.length > 0) {
-    const localFiles = path.resolve(pathDir, dirName);
-    html.then(() => fs.writeFile(path.resolve(pathDir, pageName), page))
-      .then(() => fs.mkdir(localFiles))
-      .then(() => {
-        pathToFiles = localFiles;
-        return pathToFiles;
-      });
-  } else {
-    html.then(() => fs.mkdtemp(path.join(os.tmpdir())))
-      .then((dir) => {
-        const localFiles = path.resolve(dir, dirName);
-        pathToFiles = localFiles;
-        return fs.writeFile(path.resolve(dir, pageName), page);
-      })
-      .then(() => fs.mkdir(pathToFiles));
-  }
-  html.then(() => axios.all(promises))
+  const loadAndSaveFiles = () => axios.all(promises)
     .then(axios.spread((...responses) => responses.forEach((response) => {
       const { data } = response;
       const { url } = response.config;
@@ -124,6 +108,25 @@ const pageLoader = (pageUrl, pathDir = '') => {
       const { fileName } = paths[url];
       fs.writeFile(path.resolve(pathToFiles, fileName), data);
     })));
+  if (pathDir.length > 0) {
+    const localFiles = path.resolve(pathDir, dirName);
+    html.then(() => fs.writeFile(path.resolve(pathDir, pageName), page))
+      .then(() => fs.mkdir(localFiles))
+      .then(() => {
+        pathToFiles = localFiles;
+        return pathToFiles;
+      })
+      .then(() => loadAndSaveFiles());
+  } else {
+    html.then(() => fs.mkdtemp(path.join(os.tmpdir())))
+      .then((dir) => {
+        const localFiles = path.resolve(dir, dirName);
+        pathToFiles = localFiles;
+        return fs.writeFile(path.resolve(dir, pageName), page);
+      })
+      .then(() => fs.mkdir(pathToFiles))
+      .then(() => loadAndSaveFiles());
+  }
 };
 
 export default pageLoader;
