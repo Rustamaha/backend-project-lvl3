@@ -8,10 +8,10 @@ make publish
 npm link
 ```   
 
-[![asciicast](https://asciinema.org/a/QODxFcMOGoJP8IN5tBejpDaAM.svg)](https://asciinema.org/a/QODxFcMOGoJP8IN5tBejpDaAM)
+[![asciicast](https://asciinema.org/a/kY1q1KwPgdOrRdzE1UaVRLnBN.svg)](https://asciinema.org/a/kY1q1KwPgdOrRdzE1UaVRLnBN)
 
 Npm link will install package globally on your computer.
-If you want to download the page to a specific folder enter the path.
+If you want to download the page and other local files of this domain to a specific folder enter the path.
 
 ```
 page-loader -h
