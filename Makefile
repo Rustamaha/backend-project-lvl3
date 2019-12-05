@@ -13,7 +13,7 @@ build:
 test:
 	DEBUG=page-loader:* npm test
 
-testWatch:
+test-watch:
 	DEBUG=page-loader:* npm run test-watch
 
 lint:

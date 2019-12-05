@@ -18,22 +18,36 @@ export const makeName = (url, type) => {
   return type ? `${name}${type}` : `${name}`;
 };
 
-const pageLoader = (pageUrl, pathDir = '') => {
-  log('pathdir %o', pathDir);
+const pageLoader = (pathDir, pageUrl) => {
+  if (pathDir.length === 0) {
+    throw new Error('The path should be of this type /home/example');
+    return;
+  }
+  const stats = fs.stat(pathDir);
+  const reUrl = /^https:\/\/[a-z.0-9-]{2,}\.[a-z]{2,}/;
+  const validUrl = pageUrl.match(reUrl);
+  log(pageUrl, validUrl);
+  if (validUrl === null) {
+    throw new Error('The url should be of this type https://example.com');
+    return;
+  }
   const {
     hostname,
     origin,
   } = new URL(pageUrl);
   const reSld = /(\.[^.]*)(\.*$)/;
   const secLvlDomain = hostname.replace(reSld, '').split('.').pop();
+
   let page;
   const paths = {};
+
   const dirName = makeName(pageUrl, '_files');
-  const request = axios.get(pageUrl)
+  const request = stats.then(() => axios.get(pageUrl))
     .then(({ data }) => {
       page = data;
       return data;
     });
+
   const dom = request.then((data) => {
     const $ = cheerio.load(data);
     return $;
@@ -98,35 +112,54 @@ const pageLoader = (pageUrl, pathDir = '') => {
       });
       promises = getData;
     });
+
   const pageName = makeName(pageUrl, '.html');
   let pathToFiles;
-  const loadAndSaveFiles = () => axios.all(promises)
-    .then(axios.spread((...responses) => responses.forEach((response) => {
-      const { data } = response;
-      const { url } = response.config;
-      log('local file url %o', url);
-      const { fileName } = paths[url];
-      fs.writeFile(path.resolve(pathToFiles, fileName), data);
-    })));
-  if (pathDir.length > 0) {
-    const localFiles = path.resolve(pathDir, dirName);
-    html.then(() => fs.writeFile(path.resolve(pathDir, pageName), page))
-      .then(() => fs.mkdir(localFiles))
-      .then(() => {
-        pathToFiles = localFiles;
-        return pathToFiles;
+  let promisesResolved = [];
+  let promisesRejected = [];
+
+  const localFiles = path.resolve(pathDir, dirName);
+  log(path.resolve(pathDir, pageName));
+  return html.then(() => fs.writeFile(path.resolve(pathDir, pageName), page))
+    .then(() => fs.mkdir(localFiles))
+    .then(() => {
+      pathToFiles = localFiles;
+      return pathToFiles;
+    })
+    .then(() => promises.forEach(async promise => {
+      promise.then((response) => {
+        promisesResolved.push(response);
       })
-      .then(() => loadAndSaveFiles());
-  } else {
-    html.then(() => fs.mkdtemp(path.join(os.tmpdir())))
-      .then((dir) => {
-        const localFiles = path.resolve(dir, dirName);
-        pathToFiles = localFiles;
-        return fs.writeFile(path.resolve(dir, pageName), page);
-      })
-      .then(() => fs.mkdir(pathToFiles))
-      .then(() => loadAndSaveFiles());
-  }
+      .catch(err => {
+        promisesRejected.push(err);
+        throw err;
+      });
+    }))
+    .catch(err => {
+      if (promisesRejected.length > 0) {
+        const [error] = promisesRejected;
+        throw error;
+      }
+      throw err;
+    })
+    .then(() => {
+      const loadAndSaveData = responses => responses.forEach((response) => {
+        const { data } = response;
+        log('in responses', response.status);
+        const { url } = response.config;
+        log('local file url %o', url);
+        const { fileName } = paths[url];
+        fs.writeFile(path.resolve(pathToFiles, fileName), data);
+      });
+      log('rejected', promisesRejected.length, 'resolved', promisesResolved.length, 'promises', promises.length);
+      //  if (promisesRejected.length === 0) {
+      //  return loadAndSaveData(promises);
+      //  }
+      return loadAndSaveData(promisesResolved);      
+    })
+    .catch(err => {
+      throw err;
+    });
 };
 
 export default pageLoader;

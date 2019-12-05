@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`some file system problems called with non-existent directory 1`] = `"ENOENT: no such file or directory, stat '/qwerty'"`;
+
+exports[`some file system problems called without any directory 1`] = `"The path should be of this type /home/example"`;
+
+exports[`some network problems a page from https://ru.hexlet.io/courses reply with status code 403 1`] = `"Request failed with status code 403"`;
+
+exports[`some network problems a page from https://ru.hexlet.io/courses reply with status code: 404 1`] = `"Request failed with status code 404"`;
