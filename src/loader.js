@@ -11,6 +11,9 @@ const log = debug('page-loader:loader');
 
 axios.defaults.adapter = httpAdapter;
 
+const currentDir = process.cwd();
+log(`Current directory: ${currentDir}`);
+
 export const makeName = (url, type) => {
   const reProtocol = /^https:\/\/|^\/\/|^\//;
   const re = /[\.,/,?,=]/g; //  eslint-disable-line
@@ -18,12 +21,13 @@ export const makeName = (url, type) => {
   return type ? `${name}${type}` : `${name}`;
 };
 
-const pageLoader = (pathDir, pageUrl) => {
+const pageLoader = (pageUrl, pathDir = currentDir) => {
+  log('pathDir', pathDir);
   if (pathDir.length === 0) {
     throw new Error('The path should be of this type /home/example');
     return;
   }
-  const stats = fs.stat(pathDir);
+  const stats =fs.stat(pathDir);
   const reUrl = /^https:\/\/[a-z.0-9-]{2,}\.[a-z]{2,}/;
   const validUrl = pageUrl.match(reUrl);
   log(pageUrl, validUrl);
@@ -117,9 +121,8 @@ const pageLoader = (pathDir, pageUrl) => {
   let pathToFiles;
   let promisesResolved = [];
   let promisesRejected = [];
-
   const localFiles = path.resolve(pathDir, dirName);
-  log(path.resolve(pathDir, pageName));
+  log(localFiles);
   return html.then(() => fs.writeFile(path.resolve(pathDir, pageName), page))
     .then(() => fs.mkdir(localFiles))
     .then(() => {
@@ -132,7 +135,7 @@ const pageLoader = (pathDir, pageUrl) => {
       })
       .catch(err => {
         promisesRejected.push(err);
-        throw err;
+        //throw err;
       });
     }))
     .catch(err => {
@@ -155,7 +158,7 @@ const pageLoader = (pathDir, pageUrl) => {
       //  if (promisesRejected.length === 0) {
       //  return loadAndSaveData(promises);
       //  }
-      return loadAndSaveData(promisesResolved);      
+      return loadAndSaveData(promisesResolved);
     })
     .catch(err => {
       throw err;

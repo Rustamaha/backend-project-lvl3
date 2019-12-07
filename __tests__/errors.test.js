@@ -41,7 +41,6 @@ beforeEach(() => {
   tempDir = tmpDir;
   tmpDir
     .then((dir) => {
-      fs.chmod(dir, 0o765);
       hexletPagePath = path.resolve(dir, hexletFile);
       cssFilePath1 = path.resolve(dir, localFiles, cssFileName1);
       cssFilePath2 = path.resolve(dir, localFiles, cssFileName2);
@@ -66,12 +65,12 @@ beforeEach(() => {
 });
 
 describe('some file system problems', () => {
-  test('called without any directory', () => {
-    expect(() => pageLoader('', url1)).toThrowErrorMatchingSnapshot();
+  test('called without any directory', async () => {
+    await expect(() => pageLoader(url1, '')).toThrowErrorMatchingSnapshot();
   });
 
   test('called with non-existent directory', async () => {
-    await expect(pageLoader('/qwerty', url1))
+    await expect(pageLoader(url1, '/qwerty'))
       .rejects
       .toThrowErrorMatchingSnapshot();
   });
@@ -79,25 +78,25 @@ describe('some file system problems', () => {
 
 describe('some network problems', () => {
   test(`a page from ${url1} reply with status code: 404`, async () => {
-    nock('https://ru.hexlet.io')
+    await nock('https://ru.hexlet.io')
       .get('/courses')
       .reply(404);
 
     const dir = await tempDir;
 
-    await expect(pageLoader(dir, url1))
+    await expect(pageLoader(url1, dir))
       .rejects
       .toThrowErrorMatchingSnapshot();   
   });
 
   test(`a page from ${url1} reply with status code 403`, async () => {
-    nock('https://ru.hexlet.io')
+    await nock('https://ru.hexlet.io')
       .get('/courses')
       .reply(403);
 
     const dir = await tempDir;
 
-    await expect(pageLoader(dir, url1))
+    await expect(pageLoader(url1, dir))
       .rejects
       .toThrowErrorMatchingSnapshot();
   });
@@ -108,7 +107,9 @@ describe('some network problems', () => {
       .reply(200, () => fs.readFile(originalHexletPage, 'utf8'));
     await nock('https://cdn2.hexlet.io')
       .get('/assets/application-6c3811f32b2b06662856f28be1aa8852645cc103fce8b59a6a05e08ae031ee55.js')
-      .reply(404);
+      .reply(200, {
+        data: 'hello world',
+      });
     await nock('https://cdn2.hexlet.io')
       .get('/packs/css/36-e1004b13.chunk.css')
       .reply(200, () => fs.readFile(cssFile1, 'utf8'));
@@ -119,7 +120,7 @@ describe('some network problems', () => {
       });
     await nock('https://cdn2.hexlet.io')
       .get('/assets/application-58b8be69d43878d8ffa548a26a341422323098508999ea2cd5f001896ad189dc.css')
-      .reply(200, () => fs.readFile(cssFile2, 'utf8'));
+      .reply(404);
     await nock('https://ru.hexlet.io')
       .get('/lessons.rss')
       .reply(200, () => fs.readFile(rssFile, 'utf8'));
@@ -131,19 +132,17 @@ describe('some network problems', () => {
 
     const dir = await tempDir;
 
-    const res = pageLoader(dir, url1);    
-    //pageLoader(dir, url1);
-    
-    setTimeout(async () => {
-    //  .rejects
-    //  .toThrowErrorMatchingSnapshot();
-    /*  await fs.readFile(hexletPagePath, 'utf8')
-        .then(data => expect(data).toBe(expectedHexletPage));
-      await fs.readFile(cssFilePath1, 'utf8')
-        .then(data => expect(data).toBe(expectedCssFile1));*/
-      await expect(res)
+    await expect(pageLoader(url1, dir))
       .rejects
       .toThrowErrorMatchingSnapshot();
+    
+    await setTimeout(async () => {
+      await fs.readFile(hexletPagePath, 'utf8')
+        .then(data => expect(data).toBe(expectedHexletPage));
+      await fs.readFile(cssFilePath1, 'utf8')
+        .then(data => expect(data).toBe(expectedCssFile1));
+      await fs.readFile(cssFilePath2, 'utf8')
+        .catch(err => expect(err).not.toBe(expectedCssFile2));
     });
-  }, 15000);
+  });
 });

@@ -36,12 +36,12 @@ const cssFileName1 = 'cdn2-hexlet-io-packs-css-36-e1004b13-chunk-css.css';
 const cssFileName2 = 'cdn2-hexlet-io-assets-application-58b8be69d43878d8ffa548a26a341422323098508999ea2cd5f001896ad189dc-css.css';
 const rssFileName = 'ru-hexlet-io-lessons-rss.rss';
 
-beforeEach(() => {
+beforeAll(() => {
   const tmpDir = fs.mkdtemp(path.join(os.tmpdir()));
   tempDir = tmpDir;
   tmpDir
     .then((dir) => {
-      fs.chmod(dir, 0o765);
+      log('tempDir test.js', dir);
       hexletPagePath = path.resolve(dir, hexletFile);
       cssFilePath1 = path.resolve(dir, localFiles, cssFileName1);
       cssFilePath2 = path.resolve(dir, localFiles, cssFileName2);
@@ -67,38 +67,38 @@ beforeEach(() => {
 
 describe('everything good', () => {
   test(`a page from ${url1} is successfully converted and saved local files`, async () => {
-    nock('https://ru.hexlet.io')
+    await nock('https://ru.hexlet.io')
       .get('/courses')
       .reply(200, () => fs.readFile(originalHexletPage, 'utf8'));
-    nock('https://cdn2.hexlet.io')
+    await nock('https://cdn2.hexlet.io')
       .get('/assets/application-6c3811f32b2b06662856f28be1aa8852645cc103fce8b59a6a05e08ae031ee55.js')
       .reply(200, {
         data: 'hello world',
       });
-    nock('https://cdn2.hexlet.io')
+    await nock('https://cdn2.hexlet.io')
       .get('/packs/css/36-e1004b13.chunk.css')
       .reply(200, () => fs.readFile(cssFile1, 'utf8'));
-    nock('https://ru.hexlet.io')
+    await nock('https://ru.hexlet.io')
       .get('/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js')
       .reply(200, {
         data: 'hello world',
       });
-    nock('https://cdn2.hexlet.io')
+    await nock('https://cdn2.hexlet.io')
       .get('/assets/application-58b8be69d43878d8ffa548a26a341422323098508999ea2cd5f001896ad189dc.css')
       .reply(200, () => fs.readFile(cssFile2, 'utf8'));
-    nock('https://ru.hexlet.io')
+    await nock('https://ru.hexlet.io')
       .get('/lessons.rss')
       .reply(200, () => fs.readFile(rssFile, 'utf8'));
-    nock('https://ru.hexlet.io')
+    await nock('https://ru.hexlet.io')
       .get('/courses')
       .reply(200, {
         data: 'hello world',
       });
 
     const dir = await tempDir;
-    await pageLoader(dir, url1);
+    await pageLoader(url1, dir);
 
-    setTimeout(async () => {
+    await setTimeout(async () => {
       await fs.readFile(hexletPagePath, 'utf8')
         .then(data => expect(data).toBe(expectedHexletPage));
       await fs.readFile(cssFilePath1, 'utf8')
@@ -107,6 +107,6 @@ describe('everything good', () => {
         .then(data => expect(data).toBe(expectedCssFile2));
       await fs.readFile(rssFilePath, 'utf8')
         .then(data => expect(data).toBe(expectedRssFile));
-    }, 5000);
+    });
   });
 });
