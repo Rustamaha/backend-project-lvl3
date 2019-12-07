@@ -3,7 +3,6 @@ import cheerio from 'cheerio';
 import httpAdapter from 'axios/lib/adapters/http';
 import path from 'path';
 import { promises as fs } from 'fs';
-import os from 'os';
 
 const debug = require('debug');
 
@@ -25,15 +24,13 @@ const pageLoader = (pageUrl, pathDir = currentDir) => {
   log('pathDir', pathDir);
   if (pathDir.length === 0) {
     throw new Error('The path should be of this type /home/example');
-    return;
   }
-  const stats =fs.stat(pathDir);
+  const stats = fs.stat(pathDir);
   const reUrl = /^https:\/\/[a-z.0-9-]{2,}\.[a-z]{2,}/;
   const validUrl = pageUrl.match(reUrl);
   log(pageUrl, validUrl);
   if (validUrl === null) {
     throw new Error('The url should be of this type https://example.com');
-    return;
   }
   const {
     hostname,
@@ -119,8 +116,8 @@ const pageLoader = (pageUrl, pathDir = currentDir) => {
 
   const pageName = makeName(pageUrl, '.html');
   let pathToFiles;
-  let promisesResolved = [];
-  let promisesRejected = [];
+  const promisesResolved = [];
+  const promisesRejected = [];
   const localFiles = path.resolve(pathDir, dirName);
   log(localFiles);
   return html.then(() => fs.writeFile(path.resolve(pathDir, pageName), page))
@@ -129,16 +126,16 @@ const pageLoader = (pageUrl, pathDir = currentDir) => {
       pathToFiles = localFiles;
       return pathToFiles;
     })
-    .then(() => promises.forEach(async promise => {
+    .then(() => promises.forEach(async (promise) => {
       promise.then((response) => {
         promisesResolved.push(response);
       })
-      .catch(err => {
-        promisesRejected.push(err);
-        //throw err;
-      });
+        .catch((err) => {
+          promisesRejected.push(err);
+        //  throw err;
+        });
     }))
-    .catch(err => {
+    .catch((err) => {
       if (promisesRejected.length > 0) {
         const [error] = promisesRejected;
         throw error;
@@ -160,7 +157,7 @@ const pageLoader = (pageUrl, pathDir = currentDir) => {
       //  }
       return loadAndSaveData(promisesResolved);
     })
-    .catch(err => {
+    .catch((err) => {
       throw err;
     });
 };

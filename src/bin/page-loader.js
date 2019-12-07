@@ -14,7 +14,7 @@ program
   .option('-o, --output [path]', 'Output path')
   .description('The utility that downloads the page from the network and local files of this page in the specified folder')
   .action((url, path) => {
-  	urlValue = url;
+    urlValue = url;
     pathValue = path;
   })
   .parse(process.argv);
@@ -30,7 +30,7 @@ if (urlValue.length === 0) {
 }
 
 pageLoader(urlValue, program.output)
-  .catch(err => {
-  	console.error(err);
-  	process.exit(1);
+  .catch((err) => {
+    console.error(err);
+    process.exit(1);
   });
