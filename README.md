@@ -7,7 +7,7 @@ make install
 make publish
 npm link
 ```   
-
+step 4
 [![asciicast](https://asciinema.org/a/7RMWEPv9x79E48NRabNSPlRKB.svg)](https://asciinema.org/a/7RMWEPv9x79E48NRabNSPlRKB)
 
 Npm link will install package globally on your computer.
