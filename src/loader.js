@@ -4,6 +4,8 @@ import httpAdapter from 'axios/lib/adapters/http';
 import path from 'path';
 import { promises as fs } from 'fs';
 
+import loadAndSaveData from './listr';
+
 const debug = require('debug');
 
 const log = debug('page-loader:loader');
@@ -21,17 +23,7 @@ export const makeName = (url, type) => {
 };
 
 const pageLoader = (pageUrl, pathDir = currentDir) => {
-  log('pathDir', pathDir);
-  if (pathDir.length === 0) {
-    throw new Error('The path should be of this type /home/example');
-  }
   const stats = fs.stat(pathDir);
-  const reUrl = /^https:\/\/[a-z.0-9-]{2,}\.[a-z]{2,}/;
-  const validUrl = pageUrl.match(reUrl);
-  log(pageUrl, validUrl);
-  if (validUrl === null) {
-    throw new Error('The url should be of this type https://example.com');
-  }
   const {
     hostname,
     origin,
@@ -53,18 +45,20 @@ const pageLoader = (pageUrl, pathDir = currentDir) => {
     const $ = cheerio.load(data);
     return $;
   });
+
   const filter = ($, attr) => (i, el) => {
     const pathEl = $(el).attr(attr);
-    const re1 = /^https:\/\/[a-z.0-9-]{2,}\.[a-z]{2,}|^\/\/[a-z.0-9-]{2,}\.[a-z]{2,}/;
-    const re2 = /^\/[a-z0-9-]{2,}/;
-    if (pathEl && pathEl.match(re1)) {
-      const matched = pathEl.match(re1);
+    const reUrl = /^https:\/\/[a-z.0-9-]{2,}\.[a-z]{2,}|^\/\/[a-z.0-9-]{2,}\.[a-z]{2,}/;
+    const reCutUrl = /^\/[a-z0-9-]{2,}/;
+    if (pathEl && pathEl.match(reUrl)) {
+      const matched = pathEl.match(reUrl);
       const hostName = matched[0].slice(2).split('.');
       const secLvlD = hostName[hostName.length - 2];
       return secLvlD === secLvlDomain;
     }
-    return pathEl && pathEl.match(re2);
+    return pathEl && pathEl.match(reCutUrl);
   };
+
   const traverse = ($, attr) => (i, el) => {
     const pathEl = $(el).attr(attr);
     const reUrlWithHttps = /^https:\/\/[a-z.0-9-]{2,}\.[a-z]{2,}/;
@@ -106,7 +100,7 @@ const pageLoader = (pageUrl, pathDir = currentDir) => {
     .then(() => {
       const getData = Object.keys(paths).map((key) => {
         const { type } = paths[key];
-        if (type === '.png' || type === '.svg' || type === '.jpeg') {
+        if (type === '.png' || type === '.svg' || type === '.jpeg' || type === '.jpg') {
           return axios.get(key, { responseType: 'arraybuffer' });
         }
         return axios.get(key);
@@ -116,50 +110,14 @@ const pageLoader = (pageUrl, pathDir = currentDir) => {
 
   const pageName = makeName(pageUrl, '.html');
   let pathToFiles;
-  const promisesResolved = [];
-  const promisesRejected = [];
   const localFiles = path.resolve(pathDir, dirName);
-  log(localFiles);
   return html.then(() => fs.writeFile(path.resolve(pathDir, pageName), page))
     .then(() => fs.mkdir(localFiles))
     .then(() => {
       pathToFiles = localFiles;
       return pathToFiles;
     })
-    .then(() => promises.forEach(async (promise) => {
-      promise.then((response) => {
-        promisesResolved.push(response);
-      })
-        .catch((err) => {
-          promisesRejected.push(err);
-        //  throw err;
-        });
-    }))
-    .catch((err) => {
-      if (promisesRejected.length > 0) {
-        const [error] = promisesRejected;
-        throw error;
-      }
-      throw err;
-    })
-    .then(() => {
-      const loadAndSaveData = responses => responses.forEach((response) => {
-        const { data } = response;
-        log('in responses', response.status);
-        const { url } = response.config;
-        log('local file url %o', url);
-        const { fileName } = paths[url];
-        fs.writeFile(path.resolve(pathToFiles, fileName), data);
-      });
-      log('rejected', promisesRejected.length, 'resolved', promisesResolved.length, 'promises', promises.length);
-      //  if (promisesRejected.length === 0) {
-      //  return loadAndSaveData(promises);
-      //  }
-      return loadAndSaveData(promisesResolved);
-    })
-    .catch((err) => {
-      throw err;
-    });
+    .then(() => loadAndSaveData(promises, paths, pathToFiles));
 };
 
 export default pageLoader;

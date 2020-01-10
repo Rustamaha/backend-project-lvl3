@@ -4,6 +4,7 @@ import program from 'commander';
 
 import pageLoader from '..';
 import packageJson from '../../package.json';
+import errmsg from '../errmsg';
 
 let urlValue = '';
 let pathValue = '';
@@ -28,9 +29,13 @@ if (urlValue.length === 0) {
   console.error('Please enter the url');
   process.exit(1);
 }
-
-pageLoader(urlValue, program.output)
-  .catch((err) => {
-    console.error(err);
-    process.exit(1);
-  });
+try {
+  pageLoader(urlValue, program.output)
+    .catch((err) => {
+      console.error(errmsg(err));
+      process.exit(err.errno);
+    });
+} catch (err) {
+  console.error(errmsg(err));
+  process.exit(err.errno);
+}

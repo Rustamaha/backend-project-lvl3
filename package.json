@@ -27,8 +27,11 @@
     "cheerio": "^1.0.0-rc.3",
     "commander": "^3.0.1",
     "debug": "^4.1.1",
+    "errno": "^0.1.7",
+    "listr": "^0.14.3",
     "lodash": "^4.17.15",
-    "nock": "*"
+    "nock": "*",
+    "ora": "^4.0.3"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.3",
