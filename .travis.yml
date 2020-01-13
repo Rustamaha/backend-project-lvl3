@@ -7,5 +7,3 @@ node_js:
 script: 
   - make lint
   - make test
-
-sudo: required

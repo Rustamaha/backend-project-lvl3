@@ -55,7 +55,9 @@ const cssFileName2 = 'cdn2-hexlet-io-assets-application-58b8be69d43878d8ffa548a2
 const rssFileName = 'ru-hexlet-io-lessons-rss.rss';
 
 beforeEach(async () => {
-  const tmpDir = await fs.mkdtemp(path.join(os.tmpdir()));
+  const temp = `${os.tmpdir()}${path.sep}`;
+  log(temp);
+  const tmpDir = await fs.mkdtemp(temp);
   tempDir = tmpDir;
   log(`tempDir ${tmpDir}`);
   hexletPagePath = path.resolve(tmpDir, hexletFile);
