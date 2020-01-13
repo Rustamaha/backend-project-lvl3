@@ -6,4 +6,6 @@ node_js:
 
 script: 
   - make lint
-  - sudo make test
+  - make test
+
+sudo: required
