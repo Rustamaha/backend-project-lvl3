@@ -58,24 +58,24 @@ beforeEach(async () => {
   const tmpDir = await fs.mkdtemp(path.join(os.tmpdir()));
   tempDir = tmpDir;
   log(`tempDir ${tmpDir}`);
-  hexletPagePath = path.resolve(tmpDir, hexletFile);
-  cssFilePath1 = path.resolve(tmpDir, localFiles, cssFileName1);
-  cssFilePath2 = path.resolve(tmpDir, localFiles, cssFileName2);
-  rssFilePath = path.resolve(tmpDir, localFiles, rssFileName);
+  hexletPagePath = await path.resolve(tmpDir, hexletFile);
+  cssFilePath1 = await path.resolve(tmpDir, localFiles, cssFileName1);
+  cssFilePath2 = await path.resolve(tmpDir, localFiles, cssFileName2);
+  rssFilePath = await path.resolve(tmpDir, localFiles, rssFileName);
   expectedHexletPage = await fs.readFile(convertedHexletPage, 'utf8');
   expectedCssFile1 = await fs.readFile(cssFile1, 'utf8');
   expectedCssFile2 = await fs.readFile(cssFile2, 'utf8');
   expectedRssFile = await fs.readFile(rssFile, 'utf8');
 });
 
-afterEach(async () => {
+/*afterEach(async () => {
   await removeDirWithFiles(tempDir);
   try {
     await fs.readdir(tempDir);
   } catch (err) {
     log(`rmdir tempDir path: ${err.path}`);
   }
-});
+});*/
 
 test(`a page from ${url} is successfully converted and saved local files`, async () => {
   await nock('https://ru.hexlet.io')
