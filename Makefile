@@ -11,10 +11,10 @@ build:
 	npm run build
 
 test:
-	DEBUG=page-loader:* npm test
+	sudo DEBUG=page-loader:* npm test
 
 test-watch:
-	DEBUG=page-loader:* npm run test-watch
+	sudo DEBUG=page-loader:* npm run test-watch
 
 lint:
 	npx eslint .
