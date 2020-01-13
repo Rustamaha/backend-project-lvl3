@@ -14,7 +14,7 @@ step 3
 step 4
 [![asciicast](https://asciinema.org/a/7RMWEPv9x79E48NRabNSPlRKB.svg)](https://asciinema.org/a/7RMWEPv9x79E48NRabNSPlRKB)
 step 5
-[![asciicast](https://asciinema.org/a/AwUhyViEMq3h81Ak9jkYlHHGe.svg)](https://asciinema.org/a/AwUhyViEMq3h81Ak9jkYlHHGe)
+[![asciicast](https://asciinema.org/a/tVqjk1ezm1pgf687903sBHrtD.svg)](https://asciinema.org/a/tVqjk1ezm1pgf687903sBHrtD)
 
 Npm link will install package globally on your computer.
 If you want to download the page and other local files of this domain to a specific folder enter the path.
